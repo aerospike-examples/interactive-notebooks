@@ -1,2 +1,18 @@
 *.class
 *.log
+
+*.iml
+*.ipr
+*.iws
+*.pyc
+*.pyo
+*.swp
+.DS_Store
+.cache
+#Spark related stuff
+spark-warehouse/
+.ipynb_checkpoints/
+
+#Idea realted stuff
+.idea/
+.idea_modules/
