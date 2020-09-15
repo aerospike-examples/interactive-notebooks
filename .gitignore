@@ -1,6 +1,5 @@
 *.class
 *.log
-
 *.iml
 *.ipr
 *.iws
@@ -12,7 +11,6 @@
 #Spark related stuff
 spark-warehouse/
 .ipynb_checkpoints/
-
 #Idea realted stuff
 .idea/
 .idea_modules/
