@@ -7,6 +7,7 @@
 FROM jupyter/all-spark-notebook:17aba6048f44
 RUN pip install --no-cache-dir vdom==0.5
 RUN pip install --no-cache-dir notebook
+RUN pip install --no-cache-dir cryptography
 RUN pip install --no-cache-dir aerospike
 
 ENV AEROSPIKE_VERSION 5.1.0.10
@@ -38,6 +39,7 @@ RUN \
 # Add the Aerospike configuration specific to this dockerfile
 COPY aerospike.template.conf /etc/aerospike/aerospike.template.conf
 COPY entrypoint.sh /entrypoint.sh
+COPY spark /spark
 
 # Mount the Aerospike data directory
 # VOLUME ["/opt/aerospike/data"]
