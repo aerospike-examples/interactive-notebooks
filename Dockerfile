@@ -35,11 +35,11 @@ RUN \
 
   
 
-
+USER $NB_UID
 # Add the Aerospike configuration specific to this dockerfile
 COPY aerospike.template.conf /etc/aerospike/aerospike.template.conf
 COPY entrypoint.sh /entrypoint.sh
-COPY spark /spark
+COPY spark /home/$NB_USER/spark
 
 # Mount the Aerospike data directory
 # VOLUME ["/opt/aerospike/data"]
