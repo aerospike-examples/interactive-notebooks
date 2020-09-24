@@ -55,5 +55,6 @@ echo "link $NETLINK state $(cat /sys/class/net/${NETLINK}/operstate) in ${NETLIN
 
 
 # the command isn't asd so run the command the user specified
+nohup asd --foreground &
 
-exec "$@"
+#exec "$@"
