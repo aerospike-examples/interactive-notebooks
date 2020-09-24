@@ -1,5 +1,5 @@
 #!/bin/bash
-set -e
+set -m
 
 export CORES=$(grep -c ^processor /proc/cpuinfo)
 export SERVICE_THREADS=${SERVICE_THREADS:-$CORES}
@@ -55,6 +55,17 @@ echo "link $NETLINK state $(cat /sys/class/net/${NETLINK}/operstate) in ${NETLIN
 
 
 # the command isn't asd so run the command the user specified
-nohup asd --foreground &
+asd --foreground &
+start-notebook.sh &
 
+while sleep 60; do
+  ps aux |grep asd |grep -q -v grep
+  PROCESS_1_STATUS=$?
+#   ps aux |grep start-notebook |grep -q -v grep
+#   PROCESS_2_STATUS=$?
+  if [ $PROCESS_1_STATUS -ne 0 ]; then
+    echo "One of the processes has already exited."
+    exit 1
+  fi
+done
 #exec "$@"

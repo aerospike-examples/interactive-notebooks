@@ -54,5 +54,5 @@ COPY spark /home/$NB_USER/spark
 #   3003 – info port
 #
 EXPOSE 3000 3001 3002 3003
-RUN /entrypoint.sh
+CMD /entrypoint.sh
 #USER $NB_UID
