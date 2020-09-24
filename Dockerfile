@@ -4,7 +4,7 @@
 # http://github.com/aerospike/aerospike-server.docker
 #
 
-FROM jupyter/all-spark-notebook:latest
+FROM jupyter/all-spark-notebook:ubuntu-18.04
 RUN pip install --no-cache-dir vdom==0.5
 RUN pip install --no-cache-dir notebook
 RUN pip install --no-cache-dir cryptography
@@ -35,7 +35,6 @@ RUN \
 
   
 
-USER $NB_UID
 # Add the Aerospike configuration specific to this dockerfile
 COPY aerospike.template.conf /etc/aerospike/aerospike.template.conf
 COPY entrypoint.sh /entrypoint.sh
@@ -56,4 +55,4 @@ COPY spark /home/$NB_USER/spark
 #
 EXPOSE 3000 3001 3002 3003
 RUN /entrypoint.sh
-# Execute the run script in foreground mode
+USER $NB_UID
