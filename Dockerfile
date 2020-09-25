@@ -38,6 +38,7 @@ RUN \
 COPY aerospike.template.conf /etc/aerospike/aerospike.template.conf
 COPY entrypoint.sh /entrypoint.sh
 COPY spark /home/$NB_USER/spark
+COPY aerospike /home/$NB_USER/aerospike
 
 # Mount the Aerospike data directory
 # VOLUME ["/opt/aerospike/data"]
