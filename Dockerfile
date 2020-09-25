@@ -32,8 +32,6 @@ RUN \
   && apt-get purge -y \
   && apt autoremove -y 
 
-  
-
 # Add the Aerospike configuration specific to this dockerfile
 COPY aerospike.template.conf /etc/aerospike/aerospike.template.conf
 COPY entrypoint.sh /entrypoint.sh
@@ -54,5 +52,6 @@ COPY aerospike /home/$NB_USER/aerospike
 #   3003 – info port
 #
 EXPOSE 3000 3001 3002 3003
+ENTRYPOINT []
 CMD /entrypoint.sh
 #USER $NB_UID
