@@ -4,7 +4,7 @@
 # http://github.com/aerospike/aerospike-server.docker
 #
 
-FROM jupyter/all-spark-notebook:ubuntu-18.04
+FROM jupyter/minimal-notebook:ubuntu-18.04
 RUN pip install --no-cache-dir vdom==0.5
 RUN pip install --no-cache-dir notebook
 RUN pip install --no-cache-dir cryptography
@@ -25,7 +25,6 @@ RUN \
   && mkdir aerospike \
   && tar xzf aerospike-server.tgz --strip-components=1 -C aerospike \
   && dpkg -i aerospike/aerospike-server-*.deb \
-  && dpkg -i aerospike/aerospike-tools-*.deb \
   && mkdir -p /var/log/aerospike/ \
   && mkdir -p /var/run/aerospike/ \
   && rm -rf aerospike-server.tgz aerospike /var/lib/apt/lists/* \
