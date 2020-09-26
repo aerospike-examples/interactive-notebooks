@@ -4,7 +4,7 @@
 # http://github.com/aerospike/aerospike-server.docker
 #
 
-FROM jupyter/minimal-notebook:ubuntu-18.04
+FROM jupyter/all-spark-notebook:ubuntu-18.04
 RUN pip install --no-cache-dir vdom==0.5
 RUN pip install --no-cache-dir notebook
 RUN pip install --no-cache-dir cryptography
