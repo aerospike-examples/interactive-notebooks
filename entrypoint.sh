@@ -26,6 +26,10 @@ export NSUP_PERIOD=${NSUP_PERIOD:-120}
 if [ -f /etc/aerospike/aerospike.template.conf ]; then
         envsubst < /etc/aerospike/aerospike.template.conf > /etc/aerospike/aerospike.conf
 fi
+# set up license file for editing later
+touch /etc/aerospike/features.conf
+#TODO: set to a+w later
+chmod a+rw /etc/aerospike/features.conf
 
 # if command starts with an option, prepend asd
 if [ "${1:0:1}" = '-' ]; then
@@ -50,24 +54,4 @@ while [ $NETLINK_UP -eq 0 ] && [ $NETLINK_COUNT -lt 20 ]; do
 done
 echo "link $NETLINK state $(cat /sys/class/net/${NETLINK}/operstate) in ${NETLINK_COUNT}"
 
-# asd should always run in the foreground
-# set -- "$@" --foreground
 
-
-# the command isn't asd so run the command the user specified
-asd --foreground &
-start-notebook.sh &
-
-while sleep 60; do
-  ps aux |grep asd |grep -q -v grep
-  PROCESS_1_STATUS=$?
-#   ps aux |grep start-notebook |grep -q -v grep
-#   PROCESS_2_STATUS=$?
-  if [ $PROCESS_1_STATUS -ne 0 ]; then
-    echo "One of the processes has already exited."
-    exit 1
-  fi
-done
-
-
-#exec "$@"
