@@ -36,7 +36,7 @@ ENV AEROSPIKE_SPARK_CONNECTOR_VERSION 2.4.0
 
 RUN \
   apt-get update -y \
-  && apt-get install -y wget python lua5.2 gettext-base libldap-dev \
+  && apt-get install -y wget python lua5.2 gettext-base libldap-dev libcurl3 libcurl3-gnutls\
   # TODO: Need to add new enterprise link. The below link cuurently needs authentication.
   && wget "https://www.aerospike.com/enterprise/download/server/${AEROSPIKE_VERSION}/artifact/debian9" -O aerospike-server.tgz \
   && echo "$AEROSPIKE_SHA256 *aerospike-server.tgz" | sha256sum -c - \
