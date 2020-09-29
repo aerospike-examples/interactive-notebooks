@@ -74,5 +74,7 @@ COPY aerospike /home/$NB_USER/aerospike
 #   3003 – info port
 #
 EXPOSE 3000 3001 3002 3003
+ENV NB_USER="root"
+ENV NB_UID="0"
+ENV NB_GID="999"
 RUN /entrypoint.sh
-USER root
