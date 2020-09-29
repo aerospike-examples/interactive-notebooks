@@ -11,13 +11,6 @@ RUN pip install --no-cache-dir cryptography
 RUN pip install --no-cache-dir aerospike
 RUN pip install --no-cache-dir psutil
 
-
-
-
-
-
-
-
 # Expose Aerospike ports
 #
 #   3000 – service port, for client connections
@@ -37,16 +30,15 @@ ENV AEROSPIKE_SPARK_CONNECTOR_VERSION 2.4.0
 RUN \
   apt-get update -y \
   && apt-get install -y wget python lua5.2 gettext-base libldap-dev libcurl3 libcurl3-gnutls\
-  # TODO: Need to add new enterprise link. The below link cuurently needs authentication.
   && wget "https://www.aerospike.com/enterprise/download/server/${AEROSPIKE_VERSION}/artifact/debian9" -O aerospike-server.tgz \
   && echo "$AEROSPIKE_SHA256 *aerospike-server.tgz" | sha256sum -c - \
   && mkdir aerospike \
   && tar xzf aerospike-server.tgz --strip-components=1 -C aerospike \
   && wget https://www.aerospike.com/artifacts/aerospike-spark/${AEROSPIKE_SPARK_CONNECTOR_VERSION}/aerospike-spark-assembly-${AEROSPIKE_SPARK_CONNECTOR_VERSION}.jar -O /usr/local/spark/jars/aerospike-spark-assembly-${AEROSPIKE_SPARK_CONNECTOR_VERSION}.jar\
   && dpkg -i aerospike/aerospike-server-*.deb \
-  && dpkg -i aerospike/aerospike-tools-*.deb \
-  && mkdir -p /var/log/aerospike/ \
-  && mkdir -p /var/run/aerospike/ \
+#   && dpkg -i aerospike/aerospike-tools-*.deb \
+#   && mkdir -p /var/log/aerospike/ \
+#   && mkdir -p /var/run/aerospike/ \
   && rm -rf aerospike-server.tgz aerospike /var/lib/apt/lists/* \
   && rm -rf /opt/aerospike/lib/java \
   && apt-get purge -y \
