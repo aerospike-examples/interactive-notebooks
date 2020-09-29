@@ -75,4 +75,4 @@ COPY aerospike /home/$NB_USER/aerospike
 #
 EXPOSE 3000 3001 3002 3003
 RUN /entrypoint.sh
-#USER $NB_UID
+USER root
