@@ -1,8 +1,3 @@
-#
-# Aerospike Server Dockerfile
-#
-# http://github.com/aerospike/aerospike-server.docker
-#
 
 FROM jupyter/all-spark-notebook:ubuntu-18.04
 RUN pip install --no-cache-dir vdom==0.5
@@ -37,8 +32,6 @@ RUN \
   && wget https://www.aerospike.com/artifacts/aerospike-spark/${AEROSPIKE_SPARK_CONNECTOR_VERSION}/aerospike-spark-assembly-${AEROSPIKE_SPARK_CONNECTOR_VERSION}.jar -O /usr/local/spark/jars/aerospike-spark-assembly-${AEROSPIKE_SPARK_CONNECTOR_VERSION}.jar\
   && dpkg -i aerospike/aerospike-server-*.deb \
 #   && dpkg -i aerospike/aerospike-tools-*.deb \
-#   && mkdir -p /var/log/aerospike/ \
-#   && mkdir -p /var/run/aerospike/ \
   && rm -rf aerospike-server.tgz aerospike /var/lib/apt/lists/* \
   && rm -rf /opt/aerospike/lib/java \
   && apt-get purge -y \
@@ -50,13 +43,6 @@ COPY aerospike.template.conf /etc/aerospike/aerospike.template.conf
 COPY entrypoint.sh /entrypoint.sh
 COPY spark /home/$NB_USER/spark
 COPY aerospike /home/$NB_USER/aerospike
-
-# Mount the Aerospike data directory
-#VOLUME ["/opt/aerospike/data"]
-
-# Mount the Aerospike config directory
-#VOLUME ["/etc/aerospike/"]
-
 
 # Expose Aerospike ports
 #
