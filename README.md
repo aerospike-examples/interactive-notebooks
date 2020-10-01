@@ -60,7 +60,7 @@ Note at this point, all our Python related tooling is local to our virtual envir
 Install required Python dependencies
 
 ```
-pip install jupyter PySpark findspark numpy pandas matplotlib
+pip install jupyter PySpark findspark numpy pandas matplotlib sklearn
 ```
 
 Install Spark and set ```$SPARK_HOME```
@@ -113,4 +113,5 @@ You will need to use the URLs in the output to access jupyter - as the security 
 
 You can omit this step by omitting the --no-browser flag - in that case jupyter will open a browser window local to itself, and request the Notebook app URL above.
 
-You may wish to run the jupyter startup command from a (screen)[https://linuxize.com/post/how-to-use-linux-screen/] so it will stay running if your session terminates. We installed screen at the outset to allow for this.
+You may wish to run the jupyter startup command from a [screen](https://linuxize.com/post/how-to-use-linux-screen/) so it will stay running if your session terminates. We installed screen at the outset to allow for this.
+
