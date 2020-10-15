@@ -7,7 +7,7 @@ This repository contains jupyter notebooks, showing how Aerospike can be used in
 - AerospikeSparkPython.ipynb : PySpark notebook
 - AerospikeSparkScala.ipynb  : Spark scala notebook examples using spylon-kernel
 
-## Setup (Linux - CentOS)
+## Setup Python Jupyter Notebook(Linux - CentOS)
 
 yum installer used below - use dbpkg/rpm/other if your Linux distribution does not support yum
 
@@ -45,7 +45,7 @@ Use of a virtual environment is indicated in the command line string - the name 
 (spark-venv) [ec2-user@ip-10-0-0-248 Python-3.7.1]$ 
 ```
 
-You can return to the system enviroment by typing ```deactivate``` and reactivate using ```source ~/spark-venv/bin/activate```
+You can return to the system environment by typing ```deactivate``` and reactivate using ```source ~/spark-venv/bin/activate```
 
 Get rid of annoying messages concerning pip upgrade
 
@@ -59,16 +59,10 @@ Note at this point, all our Python related tooling is local to our virtual envir
 ~/spark-venv/bin/pip
 ```
 
-Install required Python dependencies
-
-```
-pip install jupyter PySpark findspark numpy pandas matplotlib sklearn
-```
-
 Install Spark and set ```$SPARK_HOME```
 
 ``` bash
-SPARK_VERSION=2.4.7
+SPARK_VERSION=2.4.0
 HADOOP_VERSION=2.7
 cd /tmp
 wget https://downloads.apache.org/spark/spark-${SPARK_VERSION}/spark-${SPARK_VERSION}-bin-hadoop${HADOOP_VERSION}.tgz
@@ -76,6 +70,12 @@ tar xvfz spark-${SPARK_VERSION}-bin-hadoop${HADOOP_VERSION}.tgz
 sudo mv spark-${SPARK_VERSION}-bin-hadoop${HADOOP_VERSION} /opt/
 export SPARK_HOME=/opt/spark-${SPARK_VERSION}-bin-hadoop${HADOOP_VERSION}
 cd ~
+```
+
+Install required Python dependencies
+
+```
+pip install jupyter findspark numpy pandas matplotlib sklearn
 ```
 
 Use of the Aerospike Spark Connector requires a valid feature key. The notebooks assume this is located at ```/etc/aerospike/features.conf```. Make sure your feature key is locally available, and if it is not located as above, modify the ```AS_FEATURE_KEY_PATH``` variable at the head of the notebook. You may need to run
