@@ -39,10 +39,10 @@ docker exec -ti aero-nb asadm -e "asinfo -v service"
 docker exec -ti aero-nb jupyter notebook --no-browser --ip=172.17.0.2 --port=8888 --notebook-dir=/interactive-notebooks/aerospike
 ```
 
-6) Use the loopback URL from the command above to access the Jupyter notebook:
+6) Use the loopback URL and token parameter from the command above to access the Jupyter notebook:
 
 ```
-http://127.0.0.1:8888/?token=<SOME_TOKEN_VALUE>
+http://127.0.0.1:8888/?token=<token>
 ```
 
 7) Example run with URL:
