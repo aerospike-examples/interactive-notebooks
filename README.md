@@ -8,196 +8,68 @@ Documentation for Aerospike is available at [http://aerospike.com/docs](http://a
 
 # Using this Image
 
+1) Git clone image repo:
 
-build from Dockerfile:
+```
+git clone https://github.com/citrusleaf/aerospike-dev-notebooks.docker.git
+```
+
+2) cd to "aerospike-dev-notebooks.docker" and build from Dockerfile:
 
 ```
 docker build -t aerospike/aerospike-nb .
 ```
-Run the image:
+
+3) Run the image and expose port 8888 :
 
 ```
-docker run -tid --name aero-nb -p 3000:3000 -p 3001:3001 -p 3002:3002 -p 3003:3003 -p 8888:8888 aerospike/aerospike-nb
+docker run -tid --name aero-nb -p 3000:3000 -p 3001:3001 -p 8888:8888 aerospike/aerospike-nb
 ```
 
-Get the internal IP address:
 
-
-
-Run the Jupyter notebook:
+4) Get the internal IP address of the container:
 
 ```
-docker exec -ti aero-nb jupyter notebook --no-browser --ip=172.17.0.2 --port=8888 --notebook-dir=/interactive-notebooks/aerospike
+docker exec -ti aero-nb asadm -e "asinfo -v service"
 ```
 
-Example run with URL:
+5) Run the Jupyter notebook and configure to listen on that IP address :
 
 ```
 docker exec -ti aero-nb jupyter notebook --no-browser --ip=172.17.0.2 --port=8888 --notebook-dir=/interactive-notebooks/aerospike
-[I 18:15:24.323 NotebookApp] Writing notebook server cookie secret to /root/.local/share/jupyter/runtime/notebook_cookie_secret
-[I 18:15:24.906 NotebookApp] Serving notebooks from local directory: /interactive-notebooks/aerospike
-[I 18:15:24.907 NotebookApp] Jupyter Notebook 6.1.4 is running at:
-[I 18:15:24.907 NotebookApp] http://172.17.0.2:8888/?token=ce80d86a3b019e3aaf49dac32dfcff2a14ecdac10a1cfce3
-[I 18:15:24.907 NotebookApp]  or http://127.0.0.1:8888/?token=ce80d86a3b019e3aaf49dac32dfcff2a14ecdac10a1cfce3
-[I 18:15:24.907 NotebookApp] Use Control-C to stop this server and shut down all kernels (twice to skip confirmation).
-[C 18:15:24.916 NotebookApp] 
+```
+
+6) Use the loopback URL from the command above to access the Jupyter notebook:
+
+```
+http://127.0.0.1:8888/?token=<SOME_TOKEN_VALUE>
+```
+
+7) Example run with URL:
+
+```
+$ docker run -tid --rm --name aero-nb -p 3000:3000 -p 8888:8888 aerospike/aerospike-nb
+0e7fd567d672fbbbe85ae4686f48a8ba94c5cd7b3c6348c9c5d2cb5bccaa1e46
+~/Development/aerospike-dev-notebooks.docker $ docker exec -ti aero-nb jupyter notebook --no-browser --ip=172.17.0.2 --port=8888 --notebook-dir=/interactive-notebooks/aerospike
+[I 21:07:07.445 NotebookApp] Writing notebook server cookie secret to /root/.local/share/jupyter/runtime/notebook_cookie_secret
+[I 21:07:07.992 NotebookApp] Serving notebooks from local directory: /interactive-notebooks/aerospike
+[I 21:07:07.992 NotebookApp] Jupyter Notebook 6.1.4 is running at:
+[I 21:07:07.992 NotebookApp] http://172.17.0.2:8888/?token=c557afda48fcc618d82e80084befd27b81f3887b8836cbd0
+[I 21:07:07.992 NotebookApp]  or http://127.0.0.1:8888/?token=c557afda48fcc618d82e80084befd27b81f3887b8836cbd0
+[I 21:07:07.992 NotebookApp] Use Control-C to stop this server and shut down all kernels (twice to skip confirmation).
+[C 21:07:07.998 NotebookApp] 
     
     To access the notebook, open this file in a browser:
         file:///root/.local/share/jupyter/runtime/nbserver-160-open.html
     Or copy and paste one of these URLs:
-        http://172.17.0.2:8888/?token=ce80d86a3b019e3aaf49dac32dfcff2a14ecdac10a1cfce3
-     or http://127.0.0.1:8888/?token=ce80d86a3b019e3aaf49dac32dfcff2a14ecdac10a1cfce3
+        http://172.17.0.2:8888/?token=c557afda48fcc618d82e80084befd27b81f3887b8836cbd0
+     or http://127.0.0.1:8888/?token=c557afda48fcc618d82e80084befd27b81f3887b8836cbd0
+[W 21:07:11.029 NotebookApp] Forbidden
+[W 21:07:11.030 NotebookApp] 403 GET /api/contents/aerospike_basic_example.ipynb?content=0&_=1603943529323 (172.17.0.1) 1.48ms referer=http://127.0.0.1:8888/notebooks/aerospike_basic_example.ipynb
+[W 21:07:11.039 NotebookApp] Forbidden
+[W 21:07:11.039 NotebookApp] 403 PUT /api/contents/aerospike_basic_example.ipynb (172.17.0.1) 1.07ms referer=http://127.0.0.1:8888/notebooks/aerospike_basic_example.ipynb
 
 ```
 
 
-The following will run `asd` with all the exposed ports forward to the host machine.
-
-	docker run -tid --name aerospike -p 3000:3000 -p 3001:3001 -p 3002:3002 -p 3003:3003 aerospike-nb
-	
-**NOTE** Although this is the simplest method to getting Aerospike up and running, but it is not the preferred method. To properly run the container, please specify an **custom configuration** with the **access-address** defined.
-
-
-
-# Advanced Usage 
-
-## Custom Configuration
-
-There are two ways to configure Aerospike.
-
-**Environment Variables**
-
-You can provide environment variables to the running container via the `-e` flag. To set my default Namespace name to "aerospike-demo":
-
-    docker run -e "NAMESPACE=aerospike-demo" aerospike/aerospike-server ...
-
-List of Environment Variables:
-
-  * SERVICE_THREADS - Default: Number of vCPUs
-  * TRANSACTION_QUEUES - Default: Number of vCPUs
-  * TRANSACTION_THREADS_PER_QUEUE - Default: 4
-  * LOGFILE - Default: /dev/null, do not log to file, log to stdout
-  * SERVICE_ADDRESS - Default: any
-  * SERVICE_PORT - Default: 3000
-  * HB_ADDRESS - Default: any
-  * HB_PORT - Default: 3002
-  * FABRIC_ADDRESS - Default: any
-  * FABRIC_PORT - Default: 3001
-  * INFO_ADDRESS - Default: any
-  * INFO_PORT - Default: 3003
-  * NAMESPACE - Default: test
-  * REPL_FACTOR - Default: 2
-  * MEM_GB - Default: 1, the unit is always `G` (GB)
-  * DEFAULT_TTL - Default: 30d
-  * STORAGE_GB - Default: 4, the unit is always `G` (GB)
-  * NSUP_PERIOD - Default: 120 , nsup-period in seconds 
-
-See the [configuration reference](https://www.aerospike.com/docs/reference/configuration/index.html) for what each controls.
-
-This is not compatible with using custom configuration files.
-
-**Custom Conf File**
-
-
-By default, `asd` will use the configuration file in `/etc/aerospike/aerospike.conf`, which is generated by the entrypoint script. Environment variables will have no effect on your custom configuration file. To provide a custom configuration, you should first mount a directory containing the file using the `-v` option for `docker`:
-
-	-v <DIRECTORY>:/opt/aerospike/etc
-
-Where `<DIRECTORY>` is the path to a directory containing your custom configuration file. Next, you will want to tell `asd` to use a configuration file from `/opt/aerospike/etc`, by using the `--config-file` option for `aerospike/aerospike-server`:
- 
-	--config-file /opt/aerospike/etc/aerospike.conf
-
-This will use tell `asd` to use the file in `/opt/aerospike/etc/aerospike.conf`, which is mapped to `<DIRECTORY>/aerospike.conf`.
-
-A full example:
-
-	docker run -tid -v <DIRECTORY>:/opt/aerospike/etc --name aerospike -p 3000:3000 -p 3001:3001 -p 3002:3002 -p 3003:3003 aerospike/aerospike-server /usr/bin/asd --foreground --config-file /opt/aerospike/etc/aerospike.conf
-
-## access-address Configuration
-
-In order for Aerospike to properly broadcast its address to the cluster or applications, the **access-address** needs to be set in the configuration file. If it is not set, then the IP address within the container will be used, which is not accessible to other nodes.
-
-To specify **access-address** in aerospike.conf:
-
-	network {
-		service {
-			address any                  # Listening IP Address
-			port 3000                    # Listening Port
-			access-address 192.168.1.100 # IP Address to be used by applications
-																	 # and other nodes in the cluster.
-		}
-		...
-
-
-## Persistent Data Directory
-
-With Docker, the files within the container are not persisted. To persist the data, you will want to mount a directory from the host to the guest's `/opt/aerospike/data` using the `-v` option:
-
-	-v <DIRECTORY>:/opt/aerospike/data
-
-Where `<DIRECTORY>` is the path to a directory containing your data files.
-
-A full example:
-
-	docker run -tid -v <DIRECTORY>:/opt/aerospike/data --name aerospike -p 3000:3000 -p 3001:3001 -p 3002:3002 -p 3003:3003 aerospike/aerospike-server
-
-## Persistent Lua Cache
-
-Upon restart, your lua cache will become emptied. To persist the cache, you will want to mount a directory from the host to the guest's `/opt/aerospike/usr/udf/lua` using the `-v` option:
-
-	-v <DIRECTORY_LUA>:/opt/aerospike/usr/udf/lua
-	
-Where `<DIRECTORY_LUA>` is the path to a directory used as a persistent lua cache directory.
-
-In case you did modify the default lua path within the `mod-lua`-block in your server configuration, match the path accordingly:
-
-	- v <DIRECTORY_LUA>:<YOUR_DEFINED_LUA_PATH>
-	
-Where `<DIRECTORY_LUA>` is the path to a directory used as a persistent lua cache directory and `<YOUR_DEFINED_LUA_PATH>` is the lua path set in your server configuration's `mod-lua`-block.
-
-A full example:
-
-	docker run -tid -v <DIRECTORY>:/opt/aerospike/data -v <DIRECTORY_LUA>:/opt/aerospike/usr/udf/lua --name aerospike -p 3000:3000 -p 3001:3001 -p 3002:3002 -p 3003:3003 aerospike/aerospike-server
-
-
-## Clustering
-
-Aerospike recommends using multicast clustering whenever possible, however, we are currently working to figure out how to best support multicast via Docker. For the time being, it will be best to setup Mesh Clustering. We are open to pull-requests with proposals on how to implement multicast for our Dockerfile.
-
-### Mesh Clustering
-
-Mesh networking requires setting up links between each node in the cluster. This can be achieved in two ways:
-
-1. Define a configuration for each node in the cluster, as defined in [Network Heartbeat Configuration](http://www.aerospike.com/docs/operations/configure/network/heartbeat/#mesh-unicast-heartbeat).
-
-2. Use `asinfo` to send the `tip` command, to make the node aware of another node, as defined in [tip command in asinfo](http://www.aerospike.com/docs/tools/asinfo/#tip).
-
-
-# Sending Performance Data to Aerospike
-
-Aerospike Telemetry is a feature that allows us to collect certain use data – not the database data – on your Aerospike Community Edition server use. 
-We’d like to know when clusters are created and destroyed, cluster size, cluster workload, how often queries are run, whether instances are deployed purely in-memory or with Flash. 
-Aerospike Telemetry collects information from running Community Edition server instances every 10 minutes. The data helps us to understand how the product is being used,
-identify issues, and create a better experience for the end user. [More Info](http://www.aerospike.com/aerospike-telemetry/)
-
-
-
-# Supported Docker versions
-
-This image is officially supported on Docker version 1.4.1.
-
-Support for older versions (down to 1.0) is provided on a best-effort basis.
-
-# User Feedback
-
-## Issues
-
-If you have any problems with or questions about this image, please contact us on the [Aerospike Forums](discuss.aerospike.com) or through a [GitHub issue](https://github.com/aerospike/aerospike-server.docker/issues).
-
-
-## Contributing
-
-You are invited to contribute new features, fixes, or updates, large or small; we are always thrilled to receive pull requests, and do our best to process them as fast as we can.
-
-Before you start to code, we recommend discussing your plans on the [Aerospike Forums](discuss.aerospike.com) or through a [GitHub issue](https://github.com/aerospike/aerospike-server.docker/issues), especially for more ambitious contributions. This gives other contributors a chance to point you in the right direction, give you feedback on your design, and help you find out if someone else is working on the same thing.
 
