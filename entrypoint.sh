@@ -27,9 +27,9 @@ if [ -f /etc/aerospike/aerospike.template.conf ]; then
         envsubst < /etc/aerospike/aerospike.template.conf > /etc/aerospike/aerospike.conf
 fi
 # set up license file for editing later
-touch /etc/aerospike/features.conf
+#touch /etc/aerospike/features.conf
 #TODO: set to a+w later
-chmod a+rw /etc/aerospike/features.conf
+#chmod a+rw /etc/aerospike/features.conf
 
 # if command starts with an option, prepend asd
 if [ "${1:0:1}" = '-' ]; then
@@ -53,5 +53,25 @@ while [ $NETLINK_UP -eq 0 ] && [ $NETLINK_COUNT -lt 20 ]; do
         fi
 done
 echo "link $NETLINK state $(cat /sys/class/net/${NETLINK}/operstate) in ${NETLINK_COUNT}"
+
+asd
+
+#####
+# Jupiter stuff
+#####
+
+wrapper=""
+if [[ "${RESTARTABLE}" == "yes" ]]; then
+  wrapper="run-one-constantly"
+fi
+
+if [[ ! -z "${JUPYTERHUB_API_TOKEN}" ]]; then
+  # launched by JupyterHub, use single-user entrypoint
+  exec /usr/local/bin/start-singleuser.sh "$@"
+elif [[ ! -z "${JUPYTER_ENABLE_LAB}" ]]; then
+  . /usr/local/bin/start.sh $wrapper jupyter lab "$@"
+else
+  . /usr/local/bin/start.sh $wrapper jupyter notebook "$@"
+fi
 
 
