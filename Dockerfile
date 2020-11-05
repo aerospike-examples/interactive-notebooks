@@ -7,13 +7,13 @@
 FROM ubuntu:18.04
 
 #ENV AEROSPIKE_VERSION 5.2.0.5
-
+ENV JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64/
 # Install Aerospike Server and Tools
 
 
 RUN \
   apt-get update -y \
-  && apt-get install -y procps curl iproute2 wget python build-essential  lua5.2 gettext-base libcurl4-openssl-dev libssl-dev zlib1g-dev vim net-tools telnet python3-pip python3-dev git  \
+  && apt-get install -y maven curl openjdk-8-jdk  procps curl iproute2 wget python build-essential  lua5.2 gettext-base libcurl4-openssl-dev libssl-dev zlib1g-dev vim net-tools telnet python3-pip python3-dev git  \
   && pip3 -q install pip --upgrade \
   && pip3 install --no-cache-dir vdom==0.5 notebook cryptography psutil jupyter findspark numpy pandas matplotlib sklearn ipython\
   && pip3 install aerospike \
@@ -25,6 +25,10 @@ RUN \
   && git clone https://github.com/aerospike-examples/interactive-notebooks.git \
   && mkdir -p /var/log/aerospike/ \
   && mkdir -p /var/run/aerospike/ \
+  && wget -O java.tgz 'http://aerospike.com/download/client/java/latest/artifact/tgz' \
+  && mkdir java_client \
+  && tar xzf java.tgz -C java_client \
+  && mvn package -f /java_client/aerospike-client-java-*/examples/ \
   && rm -rf aerospike-server.tgz aerospike /var/lib/apt/lists/* \
   && rm -rf /opt/aerospike/lib/java \
   && apt-get purge -y \

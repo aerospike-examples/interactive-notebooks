@@ -74,3 +74,98 @@ $ docker run -tid --rm --name aero-nb -p 3000:3000 -p 8888:8888 aerospike/aerosp
 
 
 
+8) Running Java examples
+
+```
+$ docker exec -ti aero-nb bash
+root@c960513b794c:/# cd java_client/
+root@c960513b794c:/java_client# ls
+aerospike-client-java-5.0.0
+root@c960513b794c:/java_client# cd aerospike-client-java-5.0.0/
+root@c960513b794c:/java_client/aerospike-client-java-5.0.0# ls
+LICENSE.md  README.md  benchmarks  build_all  client  examples  pom.xml  servlets  test
+root@c960513b794c:/java_client/aerospike-client-java-5.0.0# 
+
+root@c960513b794c:/# cd java_client/aerospike-client-java-5.0.0/examples/
+root@c960513b794c:/java_client/aerospike-client-java-5.0.0/examples# ls
+README.md  pom.xml  run_examples  run_examples_swing  src  target  udf
+root@c960513b794c:/java_client/aerospike-client-java-5.0.0/examples# ./run_examples
+usage: com.aerospike.examples.Main [<options>] all|(<example1> <example2> ...)
+options:
+-auth <arg>                         Authentication mode. Values: [INTERNAL, EXTERNAL,
+                                    EXTERNAL_INSECURE]
+-d,--debug                          Run in debug mode.
+-g,--gui                            Invoke GUI to selectively run tests.
+-h,--host <arg>                     List of seed hosts in format:
+                                    hostname1[:tlsname][:port1],...
+                                    The tlsname is only used when connecting with a secure TLS
+                                    enabled server. If the port is not specified, the default port
+                                    is used.
+                                    IPv6 addresses must be enclosed in square brackets.
+                                    Default: localhost
+                                    Examples:
+                                    host1
+                                    host1:3000,host2:3000
+                                    192.168.1.10:cert1:3000,[2001::1111]:cert2:3000
+-n,--namespace <arg>                Namespace (default: test)
+-netty                              Use Netty NIO event loops for async examples
+-nettyEpoll                         Use Netty epoll event loops for async examples (Linux only)
+-p,--port <arg>                     Server default port (default: 3000)
+-P,--password <arg>                 Password
+-s,--set <arg>                      Set name. Use 'empty' for empty set (default: demoset)
+-tls,--tlsEnable                    Use TLS/SSL sockets
+-tlsCiphers,--tlsCipherSuite <arg>  Allow TLS cipher suites
+                                    Values:  cipher names defined by JVM separated by comma
+                                    Default: null (default cipher list provided by JVM)
+-tlsLoginOnly                       Use TLS/SSL sockets on node login only
+-tp,--tlsProtocols <arg>            Allow TLS protocols
+                                    Values:  TLSv1,TLSv1.1,TLSv1.2 separated by comma
+                                    Default: TLSv1.2
+-tr,--tlsRevoke <arg>               Revoke certificates identified by their serial number
+                                    Values:  serial numbers separated by comma
+                                    Default: null (Do not revoke certificates)
+-U,--user <arg>                     User name
+-u,--usage                          Print usage.
+
+examples:
+ServerInfo
+PutGet
+Replace
+Add
+Append
+Prepend
+Batch
+Generation
+Serialize
+Expire
+Touch
+StoreKey
+DeleteBin
+ListMap
+Operate
+OperateList
+ScanParallel
+ScanSeries
+UserDefinedFunction
+QueryInteger
+QueryString
+QueryFilter
+QueryExp
+QuerySum
+QueryAverage
+QueryCollection
+QueryRegion
+QueryRegionFilter
+QueryGeoCollection
+QueryExecute
+AsyncPutGet
+AsyncBatch
+AsyncQuery
+AsyncScan
+AsyncUserDefinedFunction
+
+All examples will be run if 'all' is specified as an example.
+
+
+```
+
