@@ -14,3 +14,4 @@ spark-warehouse/
 #Idea realted stuff
 .idea/
 .idea_modules/
+target
