@@ -1,10 +1,6 @@
-## Aerospike Server Dockerfile
+## Aerospike Development Notebooks Dockerfile
 
 This repository contains the Dockerfile for building a Docker image for running [Aerospike](http://aerospike.com). 
-
-## Dependencies
-
-- [ubuntu:18.04](https://registry.hub.docker.com/_/ubuntu/)
 
 ## Installation
 
@@ -12,8 +8,8 @@ This repository contains the Dockerfile for building a Docker image for running 
 
 2. Download from public [Docker Registry](https://index.docker.io/):
 
-		docker pull aerospike/aerospike-server
+		docker pull aerospike/aerospike-dev-notebooks
 
 	_Alternatively, you can build an image from Dockerfile:_
    
-		docker build -t="aerospike/aerospike-server" github.com/aerospike/aerospike-server.docker
+		docker build -t="aerospike/aerospike-dev-notebooks" github.com/aerospike/aerospike-dev-notebooks.docker
