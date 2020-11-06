@@ -11,8 +11,8 @@ USER root
 ENV AEROSPIKE_VERSION 5.2.0.6
 ENV AEROSPIKE_SHA256 ad984f7cac318b4033e1d8c8d521ddcd6af26768e628a16f1bcdee38eb0bd9d3 
 
-RUN \
-  apt-get update -y \
+RUN  mkdir /var/run/aerospike\
+  && apt-get update -y \
   && apt-get install software-properties-common dirmngr gpg-agent -y --no-install-recommends\
   && apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 0xB1998361219BD9C9 \
   && apt-add-repository 'deb http://repos.azulsystems.com/ubuntu stable main' \
