@@ -10,7 +10,7 @@ This repository contains jupyter notebooks, showing how Aerospike can be used in
 yum installer used below - use dbpkg/rpm/other if your Linux distribution does not support yum
 
 ``` bash
-sudo yum -y install gcc zlib-devel openssl-devel libffi-devel sqlite-devel bzip2-devel bzip2 xz-devel screen
+sudo yum -y install gcc zlib-devel openssl-devel libffi-devel sqlite-devel bzip2-devel bzip2 xz-devel screen wget
 ```
 
 Get your own local copy of Python 3.7 ( ignore if you have it already). Below we install to ~/.localpython
@@ -63,7 +63,7 @@ Install required Python dependencies
 pip install jupyter PySpark findspark numpy pandas matplotlib sklearn
 ```
 
-Install Spark and set ```$SPARK_HOME```
+Install Spark and set ```$SPARK_HOME```. Note you may need to change the SPARK_VERSION if you get a 404 following the wget.
 
 ``` bash
 SPARK_VERSION=2.4.7
