@@ -1,18 +1,16 @@
 # Interactive Notebooks
 This repository contains jupyter notebooks, showing how Aerospike can be used in conjunction with Spark, 
 
-[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/aerospike-examples/interactive-notebooks/binder)
-
 ## Contents
 - AerospikeSparkPython.ipynb : PySpark notebook
 - AerospikeSparkScala.ipynb  : Spark scala notebook examples using spylon-kernel
 
-## Setup Python Jupyter Notebook(Linux - CentOS)
+## Setup (Linux - CentOS)
 
 yum installer used below - use dbpkg/rpm/other if your Linux distribution does not support yum
 
 ``` bash
-sudo yum -y install gcc zlib-devel openssl-devel libffi-devel sqlite-devel bzip2-devel bzip2 xz-devel screen
+sudo yum -y install gcc zlib-devel openssl-devel libffi-devel sqlite-devel bzip2-devel bzip2 xz-devel screen wget
 ```
 
 Get your own local copy of Python 3.7 ( ignore if you have it already). Below we install to ~/.localpython
@@ -45,7 +43,7 @@ Use of a virtual environment is indicated in the command line string - the name 
 (spark-venv) [ec2-user@ip-10-0-0-248 Python-3.7.1]$ 
 ```
 
-You can return to the system environment by typing ```deactivate``` and reactivate using ```source ~/spark-venv/bin/activate```
+You can return to the system enviroment by typing ```deactivate``` and reactivate using ```source ~/spark-venv/bin/activate```
 
 Get rid of annoying messages concerning pip upgrade
 
@@ -59,10 +57,16 @@ Note at this point, all our Python related tooling is local to our virtual envir
 ~/spark-venv/bin/pip
 ```
 
-Install Spark and set ```$SPARK_HOME```
+Install required Python dependencies
+
+```
+pip install jupyter PySpark findspark numpy pandas matplotlib sklearn
+```
+
+Install Spark and set ```$SPARK_HOME```. Note you may need to change the SPARK_VERSION if you get a 404 following the wget.
 
 ``` bash
-SPARK_VERSION=2.4.0
+SPARK_VERSION=2.4.7
 HADOOP_VERSION=2.7
 cd /tmp
 wget https://downloads.apache.org/spark/spark-${SPARK_VERSION}/spark-${SPARK_VERSION}-bin-hadoop${HADOOP_VERSION}.tgz
@@ -70,12 +74,6 @@ tar xvfz spark-${SPARK_VERSION}-bin-hadoop${HADOOP_VERSION}.tgz
 sudo mv spark-${SPARK_VERSION}-bin-hadoop${HADOOP_VERSION} /opt/
 export SPARK_HOME=/opt/spark-${SPARK_VERSION}-bin-hadoop${HADOOP_VERSION}
 cd ~
-```
-
-Install required Python dependencies
-
-```
-pip install jupyter findspark numpy pandas matplotlib sklearn
 ```
 
 Use of the Aerospike Spark Connector requires a valid feature key. The notebooks assume this is located at ```/etc/aerospike/features.conf```. Make sure your feature key is locally available, and if it is not located as above, modify the ```AS_FEATURE_KEY_PATH``` variable at the head of the notebook. You may need to run
@@ -115,5 +113,5 @@ You will need to use the URLs in the output to access jupyter - as the security 
 
 You can omit this step by omitting the --no-browser flag - in that case jupyter will open a browser window local to itself, and request the Notebook app URL above.
 
-
 You may wish to run the jupyter startup command from a [screen](https://linuxize.com/post/how-to-use-linux-screen/) so it will stay running if your session terminates. We installed screen at the outset to allow for this.
+
