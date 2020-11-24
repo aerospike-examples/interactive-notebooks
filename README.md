@@ -115,3 +115,55 @@ You can omit this step by omitting the --no-browser flag - in that case jupyter 
 
 You may wish to run the jupyter startup command from a [screen](https://linuxize.com/post/how-to-use-linux-screen/) so it will stay running if your session terminates. We installed screen at the outset to allow for this.
 
+### pyenv / Linux
+
+You can go down the pyenv route on Linux as per the instructions for Mac. You install pyenv differently
+
+```
+sudo yum -y install gcc git zlib-devel openssl-devel libffi-devel sqlite-devel bzip2-devel bzip2 xz-devel screen
+git clone http://github.com/pyenv/pyenv .pyenv
+export PATH=$PATH:~/.pyenv
+```
+
+but once done, just pick up the MacOS instructions at ```pyenv install 3.7.3```
+
+## Setup (MacOS X)
+The main challenge is getting a sufficiently up to date version of Python installed and set as your working version. You mustn't mess with your existing version of Python (see [xkcd](https://xkcd.com/1987/)).
+
+[pyenv](https://github.com/pyenv/pyenv) is the tool to help with this.
+
+First you'll need **brew** the package manager for macOS. From  [instructions](https://brew.sh) 
+```
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+```
+
+Next install pyenv
+```
+brew install pyenv
+```
+and finally we can install our required python version. The subsequent 'global' command sets 3.7.3 as our selected version
+```
+pyenv install 3.7.3
+python global 3.7.3
+```
+The command below sets up our path so the required version of Python is used. Once done, do ```python --version``` to check.
+```
+eval "$(pyenv init -)
+```
+You can now set up your virtual environment - this is a sandbox which avoids you making system wide changes. Note this is the same as the steps above for Linux, except we don't have  to give explicit paths to pip, virtualenv.
+
+``` bash
+# Install virtualenv tool
+pip install virtualenv
+# Create on-disk representation of virtual environment at ~/spark-venv
+virtualenv ~/spark-venv
+# Activate virtual environment
+source ~/spark-venv/bin/activate
+```
+
+You can now follow the Linux instructions from 
+```
+pip install jupyter PySpark findspark numpy pandas matplotlib sklearn
+```
+
+onwards.
