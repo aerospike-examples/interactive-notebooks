@@ -39,6 +39,11 @@ COPY aerospike.template.conf /etc/aerospike/aerospike.template.conf
 RUN fix-permissions /etc/aerospike/
 
 COPY notebooks* /home/${NB_USER}/notebooks
+RUN echo "Versions:" > /home/${NB_USER}/notebooks/README.md
+RUN python -V >> /home/${NB_USER}/notebooks/README.md
+RUN java -version 2>> /home/${NB_USER}/notebooks/README.md
+RUN asd --version >> /home/${NB_USER}/notebooks/README.md
+
 COPY jupyter_notebook_config.py /home/${NB_USER}/
 RUN  fix-permissions /home/${NB_USER}/
 
