@@ -9,7 +9,8 @@ FROM jupyter/base-notebook:python-3.8.6
 USER root
 
 ENV AEROSPIKE_VERSION 5.2.0.6
-ENV AEROSPIKE_SHA256 ad984f7cac318b4033e1d8c8d521ddcd6af26768e628a16f1bcdee38eb0bd9d3 
+ENV AEROSPIKE_SHA256 ad984f7cac318b4033e1d8c8d521ddcd6af26768e628a16f1bcdee38eb0bd9d3
+ 
 
 RUN  mkdir /var/run/aerospike\
   && apt-get update -y \
@@ -43,6 +44,8 @@ RUN echo "Versions:" > /home/${NB_USER}/notebooks/README.md
 RUN python -V >> /home/${NB_USER}/notebooks/README.md
 RUN java -version 2>> /home/${NB_USER}/notebooks/README.md
 RUN asd --version >> /home/${NB_USER}/notebooks/README.md
+RUN echo -e "Aerospike Python Client `pip show aerospike|grep Version|sed -e 's/Version://g'`" >> /home/${NB_USER}/notebooks/README.md
+RUN echo -e "Aerospike Java Client 5.0.0" >> /home/${NB_USER}/notebooks/README.md
 
 COPY jupyter_notebook_config.py /home/${NB_USER}/
 RUN  fix-permissions /home/${NB_USER}/
