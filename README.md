@@ -179,3 +179,55 @@ pip install jupyter PySpark findspark numpy pandas matplotlib sklearn
 ```
 
 onwards.
+
+## Setup (docker - local image)
+
+1) Install [docker](https://www.docker.com/products/docker-desktop) desktop.
+
+2) clone repo and submodules:
+
+```
+git clone https://github.com/aerospike-examples/interactive-notebooks.git
+
+git submodule update --init --recursive --remote
+
+```
+3) Build docker image:
+
+```
+./bin/build-docker-image.sh
+
+```
+
+4) Run docker image:
+
+```
+docker run --name aero-nb -p 8888:8888 aerospike/intro-notebooks
+```
+
+5) Access notebooks:
+
+```
+http://127.0.0.1:8888/?token=<token>
+```
+
+## Setup (docker hub)
+
+1) Pull docker image:
+
+```
+docker pull aerospike/intro-notebooks
+
+```
+
+2) Run docker image:
+
+```
+docker run --name aero-nb -p 8888:8888 aerospike/intro-notebooks
+```
+
+3) Access notebooks:
+
+```
+http://127.0.0.1:8888/?token=<token>
+```
