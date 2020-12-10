@@ -63,6 +63,13 @@ Install required Python dependencies
 pip install jupyter PySpark findspark numpy pandas matplotlib sklearn
 ```
 
+If you plan on using scala in your workbooks you need to install the spylon kernel - some care is needed with Python versioning
+```
+pip install spylon_kernel
+PYTHON=$(which python)
+sudo $PYTHON -m spylon_kernel install
+```
+
 Install Spark and set ```$SPARK_HOME```. Note you may need to change the SPARK_VERSION if you get a 404 following the wget.
 
 ``` bash
@@ -73,6 +80,7 @@ wget https://downloads.apache.org/spark/spark-${SPARK_VERSION}/spark-${SPARK_VER
 tar xvfz spark-${SPARK_VERSION}-bin-hadoop${HADOOP_VERSION}.tgz
 sudo mv spark-${SPARK_VERSION}-bin-hadoop${HADOOP_VERSION} /opt/
 export SPARK_HOME=/opt/spark-${SPARK_VERSION}-bin-hadoop${HADOOP_VERSION}
+export PYTHONPATH=$SPARK_HOME/python:$PYTHONPATH
 cd ~
 ```
 
@@ -86,14 +94,18 @@ sudo chmod 777 /etc/aerospike
 Make sure you have the interactive-notebooks repository locally
 
 ```
-git clone git@github.com:aerospike-examples/interactive-notebooks
+git clone https://github.com/aerospike-examples/interactive-notebooks
 ```
 
 Finally start Jupyter. Change the IP in the string below - it can be localhost, but if you want to access from a remote host, choose the IP of one of your ethernet interfaces. You could replace with $(hostname -I | awk '{print $1}')
 
-Note I set the notebook-dir to point to the directory containing the notebooks in this repository. 
+Note I set the notebook-dir to point to the directory containing the notebooks in this repository. You also will need SPARK_HOME and PYTHONPATH set correctly (reproducing the former from the above).
 
 ```
+SPARK_VERSION=2.4.7
+HADOOP_VERSION=2.7
+export SPARK_HOME=/opt/spark-${SPARK_VERSION}-bin-hadoop${HADOOP_VERSION}
+export PYTHONPATH=$SPARK_HOME/python:$PYTHONPATH
 jupyter notebook --no-browser --ip=<IP> --port=8888 --notebook-dir=~/interactive-notebooks/spark/
 ```
 
@@ -122,7 +134,7 @@ You can go down the pyenv route on Linux as per the instructions for Mac. You in
 ```
 sudo yum -y install gcc git zlib-devel openssl-devel libffi-devel sqlite-devel bzip2-devel bzip2 xz-devel screen
 git clone http://github.com/pyenv/pyenv .pyenv
-export PATH=$PATH:~/.pyenv
+export PATH=$PATH:~/.pyenv/bin
 ```
 
 but once done, just pick up the MacOS instructions at ```pyenv install 3.7.3```
@@ -144,11 +156,11 @@ brew install pyenv
 and finally we can install our required python version. The subsequent 'global' command sets 3.7.3 as our selected version
 ```
 pyenv install 3.7.3
-python global 3.7.3
+pyenv global 3.7.3
 ```
 The command below sets up our path so the required version of Python is used. Once done, do ```python --version``` to check.
 ```
-eval "$(pyenv init -)
+eval "$(pyenv init -)"
 ```
 You can now set up your virtual environment - this is a sandbox which avoids you making system wide changes. Note this is the same as the steps above for Linux, except we don't have  to give explicit paths to pip, virtualenv.
 
@@ -167,3 +179,55 @@ pip install jupyter PySpark findspark numpy pandas matplotlib sklearn
 ```
 
 onwards.
+
+## Setup (docker - local image)
+
+1) Install [docker](https://www.docker.com/products/docker-desktop) desktop.
+
+2) clone repo and submodules:
+
+```
+git clone https://github.com/aerospike-examples/interactive-notebooks.git
+
+git submodule update --init --recursive --remote
+
+```
+3) Build docker image:
+
+```
+./bin/build-docker-image.sh
+
+```
+
+4) Run docker image:
+
+```
+docker run --name aero-nb -p 8888:8888 aerospike/intro-notebooks
+```
+
+5) Access notebooks:
+
+```
+http://127.0.0.1:8888/?token=<token>
+```
+
+## Setup (docker hub)
+
+1) Pull docker image:
+
+```
+docker pull aerospike/intro-notebooks
+
+```
+
+2) Run docker image:
+
+```
+docker run --name aero-nb -p 8888:8888 aerospike/intro-notebooks
+```
+
+3) Access notebooks:
+
+```
+http://127.0.0.1:8888/?token=<token>
+```
