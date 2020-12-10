@@ -21,19 +21,18 @@ and Docker Desktop installation at : [https://docs.docker.com/desktop/](https://
       1. cd to "aerospike-dev-notebooks.docker" and build from Dockerfile:
         docker build -t aerospike/aerospike-dev-notebooks .
 1. Run the image and expose port 8888 :
-
 ```shell
 docker run --name aero-nb -p 8888:8888 aerospike/aerospike-dev-notebooks
 ```
-
+Use LOGFILE environment variable to specify a log file path in the image:
+```shell
+docker run -e "LOGFILE=/opt/aerospike/aerospike.log" --name aero-nb -p 8888:8888 aerospike/aerospike-dev-notebooks
+```
 1. The url with token should be printed on the output. By default it should be 
-
 ```shell
 http://127.0.0.1:8888/?token=<token>
 ```
-
 1. Example run with URL:
-
 ```text
 $ docker run --name aero-nb -p 8888:8888 aerospike/aerospike-dev-notebooks
 
