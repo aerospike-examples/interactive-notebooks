@@ -70,6 +70,6 @@ RUN  fix-permissions /home/${NB_USER}/
 # I don't know why this has to be like this 
 # rather than overiding
 COPY entrypoint.sh /usr/local/bin/start-notebook.sh
-
+COPY aerospike.conf /etc/aerospike/aerospike.conf
 WORKDIR /home/${NB_USER}/notebooks  
 USER ${NB_USER}
