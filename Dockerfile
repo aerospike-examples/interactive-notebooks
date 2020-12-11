@@ -10,8 +10,16 @@ USER root
 
 ENV AEROSPIKE_VERSION 5.2.0.11
 ENV AEROSPIKE_SHA256 717abae17e4432744569879dfb9996151555221b0b6e17a2920b1534eb2628c9
-ENV NB_USER jovyan
-ENV GRANT_SUDO yes 
+ENV LOGFILE /var/log/aerospike/aerospike.log
+
+ARG NB_USER=jovyan
+ARG NB_UID=1000
+ENV USER ${NB_USER}
+ENV NB_UID ${NB_UID}
+ENV HOME /home/${NB_USER}
+USER root
+RUN chown -R ${NB_UID} ${HOME}
+
 
 RUN  mkdir /var/run/aerospike\
   && apt-get update -y \
@@ -33,13 +41,20 @@ RUN  mkdir /var/run/aerospike\
   && rm -rf aerospike-server.tgz aerospike /var/lib/apt/lists/* \
   && rm -rf /opt/aerospike/lib/java \
   && apt-get purge -y \
-  && apt autoremove -y 
+  && apt autoremove -y \
+  && mkdir -p /var/log/aerospike 
 
 COPY aerospike /etc/init.d/
+RUN usermod -a -G aerospike ${NB_USER}
 
+RUN chown -R ${NB_UID} /etc/aerospike
+RUN chown -R ${NB_UID} /opt/aerospike
+RUN chown -R ${NB_UID} /var/log/aerospike
+RUN chown -R ${NB_UID} /var/run/aerospike
 # Add the Aerospike configuration specific to this dockerfile
 COPY aerospike.template.conf /etc/aerospike/aerospike.template.conf
 RUN fix-permissions /etc/aerospike/
+RUN fix-permissions /var/log/aerospike
 
 COPY notebooks* /home/${NB_USER}/notebooks
 RUN echo "Versions:" > /home/${NB_USER}/notebooks/README.md
@@ -57,3 +72,4 @@ RUN  fix-permissions /home/${NB_USER}/
 COPY entrypoint.sh /usr/local/bin/start-notebook.sh
 
 WORKDIR /home/${NB_USER}/notebooks  
+USER ${NB_USER}
