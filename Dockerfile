@@ -47,14 +47,17 @@ RUN  mkdir /var/run/aerospike\
 COPY aerospike /etc/init.d/
 RUN usermod -a -G aerospike ${NB_USER}
 
+# Add the Aerospike configuration specific to this dockerfile
+COPY aerospike.template.conf /etc/aerospike/aerospike.template.conf
+COPY aerospike.conf /etc/aerospike/aerospike.conf
+
 RUN chown -R ${NB_UID} /etc/aerospike
 RUN chown -R ${NB_UID} /opt/aerospike
 RUN chown -R ${NB_UID} /var/log/aerospike
 RUN chown -R ${NB_UID} /var/run/aerospike
-# Add the Aerospike configuration specific to this dockerfile
-COPY aerospike.template.conf /etc/aerospike/aerospike.template.conf
-RUN fix-permissions /etc/aerospike/
-RUN fix-permissions /var/log/aerospike
+
+#RUN fix-permissions /etc/aerospike/
+#RUN fix-permissions /var/log/aerospike
 
 COPY notebooks* /home/${NB_USER}/notebooks
 RUN echo "Versions:" > /home/${NB_USER}/notebooks/README.md
@@ -70,6 +73,5 @@ RUN  fix-permissions /home/${NB_USER}/
 # I don't know why this has to be like this 
 # rather than overiding
 COPY entrypoint.sh /usr/local/bin/start-notebook.sh
-COPY aerospike.conf /etc/aerospike/aerospike.conf
 WORKDIR /home/${NB_USER}/notebooks  
 USER ${NB_USER}
