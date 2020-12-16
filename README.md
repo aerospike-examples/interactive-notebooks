@@ -30,7 +30,7 @@ and Docker Desktop installation at : [https://docs.docker.com/desktop/](https://
    ```
    docker run --name aero-nb -p 8888:8888 aerospike/intro-notebooks
    ```
-   Use LOGFILE environment variable to specify a log file path in the image:
+   [Optional alternative] Use the LOGFILE environment variable to specify a log file path in the image:
    ```
    docker run -e "LOGFILE=/opt/aerospike/aerospike.log" --name aero-nb -p 8888:8888 aerospike/intro-notebooks
    ```
