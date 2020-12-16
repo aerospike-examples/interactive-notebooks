@@ -11,22 +11,22 @@ and Docker Desktop installation at : [https://docs.docker.com/desktop/](https://
 
 1. Install [Docker](https://www.docker.io/).
 
-1. Get the image.
+1. Get the image:
 
-   Download the image from [the public Docker Registry](https://index.docker.io/).
+   Download the image from the public [Docker Registry](https://index.docker.io/):
    ```
    docker pull aerospike/intro-notebooks
    ```
-      (If building the image:
+      If building the image:
       1. Git clone image repo:
          ```
          git clone https://github.com/citrusleaf/aerospike-dev-notebooks.docker.git
          ```
-      1. cd to "aerospike-dev-notebooks.docker" and build from Dockerfile: <br>
+      1. cd to "aerospike-dev-notebooks.docker" and build from Dockerfile:
          ```
          docker build -t aerospike/aerospike-dev-notebooks .
          ```
-1. Run the image and expose port 8888 :
+1. Run the image and expose port 8888:
    ```
    docker run --name aero-nb -p 8888:8888 aerospike/aerospike-dev-notebooks
    ```
@@ -34,7 +34,7 @@ and Docker Desktop installation at : [https://docs.docker.com/desktop/](https://
    ```
    docker run -e "LOGFILE=/opt/aerospike/aerospike.log" --name aero-nb -p 8888:8888 aerospike/aerospike-dev-notebooks
    ```
-1. The url with token should be printed on the output. By default it should be 
+1. The url with token should be printed on the output. By default it should be:
    ```
    http://127.0.0.1:8888/?token=<token>
    ```
