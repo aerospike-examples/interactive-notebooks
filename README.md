@@ -20,7 +20,7 @@ and Docker Desktop installation at : [https://docs.docker.com/desktop/](https://
       If building the image:
       1. Git clone image repo:
          ```
-         git clone https://github.com/citrusleaf/aerospike-dev-notebooks.docker.git
+         git clone https://github.com/aerospike/aerospike-dev-notebooks.docker.git
          ```
       1. cd to "aerospike-dev-notebooks.docker" and build from Dockerfile:
          ```
