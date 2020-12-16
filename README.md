@@ -24,15 +24,15 @@ and Docker Desktop installation at : [https://docs.docker.com/desktop/](https://
          ```
       1. cd to "aerospike-dev-notebooks.docker" and build from Dockerfile:
          ```
-         docker build -t aerospike/aerospike-dev-notebooks .
+         docker build -t aerospike/intro-notebooks .
          ```
 1. Run the image and expose port 8888:
    ```
-   docker run --name aero-nb -p 8888:8888 aerospike/aerospike-dev-notebooks
+   docker run --name aero-nb -p 8888:8888 aerospike/intro-notebooks
    ```
    Use LOGFILE environment variable to specify a log file path in the image:
    ```
-   docker run -e "LOGFILE=/opt/aerospike/aerospike.log" --name aero-nb -p 8888:8888 aerospike/aerospike-dev-notebooks
+   docker run -e "LOGFILE=/opt/aerospike/aerospike.log" --name aero-nb -p 8888:8888 aerospike/intro-notebooks
    ```
 1. The url with token should be printed on the output. By default it should be:
    ```
@@ -40,7 +40,7 @@ and Docker Desktop installation at : [https://docs.docker.com/desktop/](https://
    ```
 1. Example run with URL:
    ```text
-   $ docker run --name aero-nb -p 8888:8888 aerospike/aerospike-dev-notebooks
+   $ docker run --name aero-nb -p 8888:8888 aerospike/intro-notebooks
 
    link eth0 state up
    link eth0 state up in 0
