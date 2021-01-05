@@ -20,6 +20,12 @@ ENV HOME /home/${NB_USER}
 USER root
 RUN chown -R ${NB_UID} ${HOME}
 
+# install jupyter notebook extensions, and enable these extensions by default: table of content, collapsible headers, and scratchpad
+RUN pip install jupyter_contrib_nbextensions\
+  && jupyter contrib nbextension install --sys-prefix\
+  && jupyter nbextension enable toc2/main --sys-prefix\
+  && jupyter nbextension enable collapsible_headings/main --sys-prefix\
+  && jupyter nbextension enable scratchpad/main --sys-prefix
 
 RUN  mkdir /var/run/aerospike\
   && apt-get update -y \
