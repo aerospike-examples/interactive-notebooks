@@ -40,6 +40,7 @@ RUN  mkdir /var/run/aerospike\
   && dpkg -i aerospike/aerospike-server-*.deb \
   && dpkg -i aerospike/aerospike-tools-*.deb \
   && pip install --no-cache-dir aerospike\
+  && pip install --no-cache-dir pymongo\
   && wget "https://github.com/SpencerPark/IJava/releases/download/v1.3.0/ijava-1.3.0.zip" -O ijava-kernel.zip\
   && unzip ijava-kernel.zip -d ijava-kernel \
   && python3 ijava-kernel/install.py --sys-prefix\
