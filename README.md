@@ -11,9 +11,7 @@ and Docker Desktop installation at : [https://docs.docker.com/desktop/](https://
 
 1. Install [Docker](https://www.docker.io/).
 
-1. Get the image:
-
-   Download [the image](https://hub.docker.com/r/aerospike/intro-notebooks) from [Docker Hub](https://hub.docker.com/u/aerospike):
+1. Get [the image](https://hub.docker.com/r/aerospike/intro-notebooks) from [Docker Hub](https://hub.docker.com/u/aerospike):
    ```
    docker pull aerospike/intro-notebooks
    ```
