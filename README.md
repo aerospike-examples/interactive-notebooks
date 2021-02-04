@@ -13,7 +13,7 @@ and Docker Desktop installation at : [https://docs.docker.com/desktop/](https://
 
 1. Get the image:
 
-   Download the image from [Docker Hub](https://hub.docker.com/u/aerospike):
+   Download the image from [Docker Hub](https://hub.docker.com/r/aerospike/intro-notebooks):
    ```
    docker pull aerospike/intro-notebooks
    ```
