@@ -104,21 +104,21 @@ old_sum=$( md5sum $OUTPUT_FILE 2>/dev/null)
 
   view_url="${VIEWER_URL}/java"
   launch_url="${BINDER_URL}java"
-  echo " | | ."
+  echo " | | | | "
   echo "**Java  Notebooks** | [View All](${view_url}) | [Launch in Binder](${launch_url})"
-  echo " | | ."
+  echo " | | | | "
   nbs=$( get_notebooks ./java )
   print_notebook_rows "$nbs"
 
   view_url="${VIEWER_URL}/python"
   launch_url="${BINDER_URL}python"
-  echo " | | ."
+  echo " | | | | "
   echo "**Python  Notebooks** | [View All](${view_url}) | [Launch in Binder](${launch_url})"
-  echo " | | ."
+  echo " | | | | "
   nbs=$( get_notebooks ./python )
   print_notebook_rows "$nbs"
 
-  echo " | | ."
+  echo ""
 } > ${OUTPUT_FILE}
 
 # Compute new md5sum and check whether it's different
