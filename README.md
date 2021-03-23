@@ -7,6 +7,8 @@ with automatic fail-over, replication and cross data-center synchronization.
 Documentation for Aerospike is available at [https://aerospike.com/docs](https://aerospike.com/docs),
 and Docker Desktop installation at : [https://docs.docker.com/desktop/](https://docs.docker.com/desktop/)
 
+Download and use of this Aerospike software is governed by [Aerospike Evaluation License Agreement](https://www.aerospike.com/forms/evaluation-license-agreement/). 
+
 ## Using this Image
 
 1. Install [Docker](https://www.docker.io/).
