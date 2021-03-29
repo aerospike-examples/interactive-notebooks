@@ -131,24 +131,28 @@ function average_range(stream, bin_avg, bin_range)
     return stream : map(rec_to_bins) : aggregate(map(), aggregate_stats) : reduce(merge_stats) : map(compute_final_stats)
 end
 
--- nested map merge for group-by sum/count; a separate merge at each nested level
+-- nested map merge for group-by sum/count; explicit map merge at each nested level
 local function merge_group_sum(a, b)
     local function merge_group(x, y)
+    -- inner map merge
         return map.merge(x, y, add_values)
     end
+    -- outer map merge
     return map.merge(a, b, merge_group)
 end
 
--- aggregate for group-by sum; adds a value tagged for a group into the group's sum
+-- aggregate for group-by sum
+--    creates a map for each distinct group value and adds the value tagged for a group to the group's sum
 local function group_sum(agg, groupval)
     if not agg[groupval["group"]] then agg[groupval["group"]] = map() end
     agg[groupval["group"]]["sum"] = (agg[groupval["group"]]["sum"] or 0) + (groupval["value"] or 0)
     return agg
 end
 
--- group-by sum
-function groupby_sum(stream, bin_grpby, bin_sum)
+-- group-by with sum
+function groupby_with_sum(stream, bin_grpby, bin_sum)
     local function rec_to_group_and_bin(rec)
+    -- tag the group by bin_grpby value, return a map containing group and bin_sum value 
         local ret = map()
         ret["group"] = rec[bin_grpby]
         local val = rec[bin_sum]
@@ -159,26 +163,25 @@ function groupby_sum(stream, bin_grpby, bin_sum)
     return stream : map(rec_to_group_and_bin) : aggregate(map(), group_sum) : reduce(merge_group_sum) 
 end
 
--- aggregate for group-by count; adds a value tagged for a group into the group's count
+-- aggregate for group-by count
+--   creates a map for each distinct group value and increments the tagged group's count
 local function group_count(agg, group)
-    if not agg[group["group"]] then agg[group["group"]] = map() end
-    agg[group["group"]]["count"] = (agg[group["group"]]["count"] or 0) + ((group and 1) or 0)
+    if not agg[group] then agg[group] = map() end
+    agg[group]["count"] = (agg[group]["count"] or 0) + ((group and 1) or 0)
     return agg
 end
 
 -- map function for group-by processing
 local function rec_to_group_closure(bin_grpby)
     local function rec_to_group(rec)
-        -- returns group value for a record
-        local ret = map()
-        ret["group"] = rec[bin_grpby]
-        return ret
+        -- returns group-by bin value in a record
+        return rec[bin_grpby]
     end
     return rec_to_group
 end
 
--- group-by having example: group-by(bin) count(*) having low <= count <= high
-function groupby_having_example(stream, bin_grpby, having_range_low, having_range_high)
+-- group-by having example: count(*) having low <= count <= high
+function groupby_with_count_having(stream, bin_grpby, having_range_low, having_range_high)
     local function process_having(stats)
         -- filters groups with count in the range
         local ret = map()
@@ -194,7 +197,7 @@ function groupby_having_example(stream, bin_grpby, having_range_low, having_rang
 end
 
 -- group-by count(*) order-by count
-function groupby_orderby_example(stream, bin_grpby, bin_orderby)
+function groupby_with_count_orderby(stream, bin_grpby, bin_orderby)
     local function orderby(t, order)
         -- collect the keys
         local keys = {}
@@ -222,11 +225,12 @@ function groupby_orderby_example(stream, bin_grpby, bin_orderby)
         end        
         return ret
     end
-    return stream : map(rec_to_group) : aggregate(map(), group_count) : reduce(merge_group_count) : map(process_orderby)
+    return stream : map(rec_to_group_closure(bin_grpby)) : aggregate(map(), group_count) 
+                    : reduce(merge_group_sum) : map(process_orderby)
 end
 
 -- return map keys in a list
-local function list_values(values)
+local function map_to_list(values)
     local ret = list()
     for k in map.keys(values) do list.append(ret, k) end
     return ret
@@ -234,7 +238,7 @@ end
 
 -- merge partial aggregate maps
 local function merge_values(a, b)
-    return map.merge(a, b, function(v1, v2) return ((v1 or v2) and 1) or 0 end)
+    return map.merge(a, b, function(v1, v2) return ((v1 or v2) and 1) or nil end)
 end
 
 -- map for distinct; using map unique keys
@@ -244,15 +248,37 @@ local function distinct_values(agg, value)
 end
 
 -- distinct 
-function distinct_example(stream, bin)
+function distinct(stream, bin)
     local function rec_to_bin_value(rec)
+        -- simply return bin value in rec
         return rec[bin]
     end
-    return stream : map(rec_to_bin_value) : aggregate(map(), distinct_values) : reduce(merge_values) : map(list_values)
+    return stream : map(rec_to_bin_value) : aggregate(map(), distinct_values) 
+                    : reduce(merge_values) : map(map_to_list)
+end 
+    
+-- limit 
+function limit(stream, bin, max)
+   local function list_limit(agg, rec)
+        -- add to list if the list size is below the limit
+        if list.size(agg) < max then
+            local ret = map()
+            ret[bin] = rec[bin]
+            list.append(agg, ret)
+        end
+        return agg
+    end
+    local function list_merge_limit(a, b)
+        local ret = list()
+        list.concat(ret, list.take(a, max))
+        list.concat(ret, list.take(b, (max > list.size(ret) and max-list.size(ret)) or 0))
+        return ret
+    end
+    return stream : aggregate(list(), list_limit) : reduce(list_merge_limit) 
 end 
     
 -- top n
-function top_n_example(stream, bin, n)
+function top_n(stream, bin, n)
     local function get_top_n(values)
         -- return top n values in a map as an ordered list
         -- uses lua table sort
@@ -285,6 +311,6 @@ function top_n_example(stream, bin, n)
         end
         return agg
     end
-    return stream : map(rec_to_bin_value_closure(bin)) : aggregate(map(), distinct_values) 
+    return stream : map(rec_to_bin_value_closure(bin)) : aggregate(map(), top_n_values) 
                     : reduce(merge_values) : map(get_top_n)
 end 
