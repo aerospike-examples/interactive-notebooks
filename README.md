@@ -1,5 +1,5 @@
 # Interactive Notebooks
-This repository contains jupyter notebooks, showing how Aerospike can be used in conjunction with Spark, 
+This repository contains jupyter notebooks, showing how Aerospike can be used in conjunction with Spark.
 
 ## Contents
 - AerospikeSparkPython.ipynb : PySpark notebook
