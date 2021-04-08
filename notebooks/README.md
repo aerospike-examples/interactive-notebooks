@@ -29,8 +29,4 @@ All Notebooks | [View All](https://github.com/aerospike/aerospike-dev-notebooks.
 &nbsp; Aerospike Queries in Python¶ | [View](https://github.com/aerospike/aerospike-dev-notebooks.docker/tree/main/notebooks/python/query.ipynb) | [Launch](https://mybinder.org/v2/gh/aerospike/aerospike-dev-notebooks.docker/main?filepath=python/query.ipynb)
 &nbsp; Aerospike Notebooks Readme/Tips | [View](https://github.com/aerospike/aerospike-dev-notebooks.docker/tree/main/notebooks/python/readme_tips.ipynb) | [Launch](https://mybinder.org/v2/gh/aerospike/aerospike-dev-notebooks.docker/main?filepath=python/readme_tips.ipynb)
 &nbsp; Implementing Read-Write Transactions with R-M-W Pattern | [View](https://github.com/aerospike/aerospike-dev-notebooks.docker/tree/main/notebooks/python/transactions_rmw_pattern.ipynb) | [Launch](https://mybinder.org/v2/gh/aerospike/aerospike-dev-notebooks.docker/main?filepath=python/transactions_rmw_pattern.ipynb)
-<<<<<<< HEAD
 
-
-=======
->>>>>>> d6b43bccc3a44f0ae06d4485ef0c74f3d66d6b2f
