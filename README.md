@@ -6,7 +6,7 @@ with automatic fail-over, replication and cross data-center synchronization.
 
 This repository provides a Docker container that has a working environment with Aerospike server, Java and Python client libraries, and Jupyter notebooks to illustrate the use of Aerospike APIs, features, and use cases. View the list of the notebooks [here](notebooks/README.md#notebooks). 
 
-Visit this repo (https://github.com/aerospike-examples/interactive-notebooks) for Jupyter notebooks showing how Aerospike can be used in conjunction with Spark.
+Visit [this repo](https://github.com/aerospike-examples/interactive-notebooks) for Jupyter notebooks showing how Aerospike can be used in conjunction with Spark.
 
 Documentation for Aerospike is available at [https://aerospike.com/docs](https://aerospike.com/docs),
 and Docker Desktop installation at : [https://docs.docker.com/desktop/](https://docs.docker.com/desktop/)
