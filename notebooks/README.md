@@ -19,6 +19,7 @@ All Notebooks | [View All](https://github.com/aerospike/aerospike-dev-notebooks.
 &nbsp; Implementing SQL Operations: Aggregates (Part 1) | [View](https://github.com/aerospike/aerospike-dev-notebooks.docker/tree/main/notebooks/java/sql_aggregates_1.ipynb) | [Launch](https://mybinder.org/v2/gh/aerospike/aerospike-dev-notebooks.docker/main?filepath=java/sql_aggregates_1.ipynb)
 &nbsp; Implementing SQL Operations: Aggregates (Part 2) | [View](https://github.com/aerospike/aerospike-dev-notebooks.docker/tree/main/notebooks/java/sql_aggregates_2.ipynb) | [Launch](https://mybinder.org/v2/gh/aerospike/aerospike-dev-notebooks.docker/main?filepath=java/sql_aggregates_2.ipynb)
 &nbsp; Implementing SQL Operations: SELECT | [View](https://github.com/aerospike/aerospike-dev-notebooks.docker/tree/main/notebooks/java/sql_select.ipynb) | [Launch](https://mybinder.org/v2/gh/aerospike/aerospike-dev-notebooks.docker/main?filepath=java/sql_select.ipynb)
+&nbsp; Implementing SQL Operations: CREATE, UPDATE, DELETE | [View](https://github.com/aerospike/aerospike-dev-notebooks.docker/tree/main/notebooks/java/sql_update.ipynb) | [Launch](https://mybinder.org/v2/gh/aerospike/aerospike-dev-notebooks.docker/main?filepath=java/sql_update.ipynb)
  | | | | 
 **Python  Notebooks** | [View All](https://github.com/aerospike/aerospike-dev-notebooks.docker/tree/main/notebooks/python) | [Launch in Binder](https://mybinder.org/v2/gh/aerospike/aerospike-dev-notebooks.docker/main?filepath=python)
  | | | | 
