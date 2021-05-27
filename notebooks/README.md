@@ -1,6 +1,8 @@
 # Notebooks
 
-This area is for [Jupyter notebooks](https://jupyter.org/) in .ipynb format. Python and Java notebooks are currently supported by the kernel.
+This area is for [Jupyter notebooks](https://jupyter.org/) in .ipynb format. Python and Java notebooks are currently supported by the kernel. 
+
+The list of notebooks below has links to browse each notebook in the viewer and to launch it in interactive mode in Binder. This repository also provides a Docker container that you can install (see the instructions) to run the notebooks locally. 
 
 
 All Notebooks | [View All](https://github.com/aerospike/aerospike-dev-notebooks.docker/tree/main/notebooks) | [Launch in Binder](https://mybinder.org/v2/gh/aerospike/aerospike-dev-notebooks.docker/main?filepath=)
