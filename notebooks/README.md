@@ -11,6 +11,7 @@ All Notebooks | [View All](https://github.com/aerospike/aerospike-dev-notebooks.
  | | | | 
 **Java  Notebooks** | [View All](https://github.com/aerospike/aerospike-dev-notebooks.docker/tree/main/notebooks/java) | [Launch in Binder](https://mybinder.org/v2/gh/aerospike/aerospike-dev-notebooks.docker/main?filepath=java)
  | | | | 
+&nbsp; Understanding Asynchronous Operations in Aerospike | [View](https://github.com/aerospike/aerospike-dev-notebooks.docker/tree/main/notebooks/java/async_ops.ipynb) | [Launch](https://mybinder.org/v2/gh/aerospike/aerospike-dev-notebooks.docker/main?filepath=java/async_ops.ipynb)
 &nbsp; Aerospike Hello World! | [View](https://github.com/aerospike/aerospike-dev-notebooks.docker/tree/main/notebooks/java/hello_world.ipynb) | [Launch](https://mybinder.org/v2/gh/aerospike/aerospike-dev-notebooks.docker/main?filepath=java/hello_world.ipynb)
 &nbsp; Introduction to Transactions with Aerospike | [View](https://github.com/aerospike/aerospike-dev-notebooks.docker/tree/main/notebooks/java/java-intro_to_transactions.ipynb) | [Launch](https://mybinder.org/v2/gh/aerospike/aerospike-dev-notebooks.docker/main?filepath=java/java-intro_to_transactions.ipynb)
 &nbsp; Modeling Using Lists | [View](https://github.com/aerospike/aerospike-dev-notebooks.docker/tree/main/notebooks/java/java-modeling_using_lists.ipynb) | [Launch](https://mybinder.org/v2/gh/aerospike/aerospike-dev-notebooks.docker/main?filepath=java/java-modeling_using_lists.ipynb)
