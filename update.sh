@@ -6,7 +6,4 @@ fullVersion="$(curl -sSL 'https://download.aerospike.com/artifacts/aerospike-ser
 sha256="$(curl -sSL "https://download.aerospike.com/artifacts/aerospike-server-enterprise/${fullVersion}/aerospike-server-enterprise-${fullVersion}-ubuntu20.04.tgz.sha256" | cut -d' ' -f1)"
 
 set -x
-sed -ri '
-	s/^(ENV AEROSPIKE_VERSION) .*/\1 '"$fullVersion"'/;
-	s/^(ENV AEROSPIKE_SHA256) .*/\1 '"$sha256"'/;
-' Dockerfile
+sed -ir 's/^\(ENV AEROSPIKE_VERSION\) .*/\1 '"$fullVersion"'/; s/^\(ENV AEROSPIKE_SHA256\) .*/\1 '"$sha256"'/'  Dockerfile
