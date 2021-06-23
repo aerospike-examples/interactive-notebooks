@@ -13,6 +13,8 @@ All Notebooks | [View All](https://github.com/aerospike/aerospike-dev-notebooks.
  | | | | 
 &nbsp; Understanding Asynchronous Operations in Aerospike | [View](https://github.com/aerospike/aerospike-dev-notebooks.docker/tree/main/notebooks/java/async_ops.ipynb) | [Launch](https://mybinder.org/v2/gh/aerospike/aerospike-dev-notebooks.docker/main?filepath=java/async_ops.ipynb)
 &nbsp; Aerospike Hello World! | [View](https://github.com/aerospike/aerospike-dev-notebooks.docker/tree/main/notebooks/java/hello_world.ipynb) | [Launch](https://mybinder.org/v2/gh/aerospike/aerospike-dev-notebooks.docker/main?filepath=java/hello_world.ipynb)
+&nbsp; Aerospike Java Client – Advanced Collection Data Types | [View](https://github.com/aerospike/aerospike-dev-notebooks.docker/tree/main/notebooks/java/java-advanced_collection_data_types.ipynb) | [Launch](https://mybinder.org/v2/gh/aerospike/aerospike-dev-notebooks.docker/main?filepath=java/java-advanced_collection_data_types.ipynb)
+&nbsp; Aerospike Java Client – Introduction to Data Modeling | [View](https://github.com/aerospike/aerospike-dev-notebooks.docker/tree/main/notebooks/java/java-intro_to_data_modeling.ipynb) | [Launch](https://mybinder.org/v2/gh/aerospike/aerospike-dev-notebooks.docker/main?filepath=java/java-intro_to_data_modeling.ipynb)
 &nbsp; Introduction to Transactions with Aerospike | [View](https://github.com/aerospike/aerospike-dev-notebooks.docker/tree/main/notebooks/java/java-intro_to_transactions.ipynb) | [Launch](https://mybinder.org/v2/gh/aerospike/aerospike-dev-notebooks.docker/main?filepath=java/java-intro_to_transactions.ipynb)
 &nbsp; Modeling Using Lists | [View](https://github.com/aerospike/aerospike-dev-notebooks.docker/tree/main/notebooks/java/java-modeling_using_lists.ipynb) | [Launch](https://mybinder.org/v2/gh/aerospike/aerospike-dev-notebooks.docker/main?filepath=java/java-modeling_using_lists.ipynb)
 &nbsp; Aerospike Java Client – Reading and Updating Lists | [View](https://github.com/aerospike/aerospike-dev-notebooks.docker/tree/main/notebooks/java/java-working_with_lists.ipynb) | [Launch](https://mybinder.org/v2/gh/aerospike/aerospike-dev-notebooks.docker/main?filepath=java/java-working_with_lists.ipynb)
@@ -33,8 +35,4 @@ All Notebooks | [View All](https://github.com/aerospike/aerospike-dev-notebooks.
 &nbsp; Aerospike Queries in Python | [View](https://github.com/aerospike/aerospike-dev-notebooks.docker/tree/main/notebooks/python/query.ipynb) | [Launch](https://mybinder.org/v2/gh/aerospike/aerospike-dev-notebooks.docker/main?filepath=python/query.ipynb)
 &nbsp; Aerospike Notebooks Readme/Tips | [View](https://github.com/aerospike/aerospike-dev-notebooks.docker/tree/main/notebooks/python/readme_tips.ipynb) | [Launch](https://mybinder.org/v2/gh/aerospike/aerospike-dev-notebooks.docker/main?filepath=python/readme_tips.ipynb)
 &nbsp; Implementing Read-Write Transactions with R-M-W Pattern | [View](https://github.com/aerospike/aerospike-dev-notebooks.docker/tree/main/notebooks/python/transactions_rmw_pattern.ipynb) | [Launch](https://mybinder.org/v2/gh/aerospike/aerospike-dev-notebooks.docker/main?filepath=python/transactions_rmw_pattern.ipynb)
-<<<<<<< HEAD
 
-
-=======
->>>>>>> d6b43bccc3a44f0ae06d4485ef0c74f3d66d6b2f
