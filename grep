@@ -48,14 +48,14 @@
 
   <meta name="viewport" content="width=device-width">
   
-  <title>aerospike-dev-notebooks.docker/hello_world.ipynb at main · aerospike/aerospike-dev-notebooks.docker · GitHub</title>
-    <meta name="description" content="Repo for a docker image with Server, Jupyter, Python client, Tools and Notebooks - aerospike/aerospike-dev-notebooks.docker">
+  <title>interactive-notebooks/hello_world.ipynb at main · aerospike-examples/interactive-notebooks · GitHub</title>
+    <meta name="description" content="Repo for a docker image with Server, Jupyter, Python client, Tools and Notebooks - aerospike-examples/interactive-notebooks">
     <link rel="search" type="application/opensearchdescription+xml" href="/opensearch.xml" title="GitHub">
   <link rel="fluid-icon" href="https://github.com/fluidicon.png" title="GitHub">
   <meta property="fb:app_id" content="1401488693436528">
   <meta name="apple-itunes-app" content="app-id=1477376905" />
-    <meta name="twitter:image:src" content="https://avatars.githubusercontent.com/u/2214313?s=400&amp;v=4" /><meta name="twitter:site" content="@github" /><meta name="twitter:card" content="summary" /><meta name="twitter:title" content="aerospike/aerospike-dev-notebooks.docker" /><meta name="twitter:description" content="Repo for a docker image with Server, Jupyter, Python client, Tools and Notebooks - aerospike/aerospike-dev-notebooks.docker" />
-    <meta property="og:image" content="https://avatars.githubusercontent.com/u/2214313?s=400&amp;v=4" /><meta property="og:site_name" content="GitHub" /><meta property="og:type" content="object" /><meta property="og:title" content="aerospike/aerospike-dev-notebooks.docker" /><meta property="og:url" content="https://github.com/aerospike/aerospike-dev-notebooks.docker" /><meta property="og:description" content="Repo for a docker image with Server, Jupyter, Python client, Tools and Notebooks - aerospike/aerospike-dev-notebooks.docker" />
+    <meta name="twitter:image:src" content="https://avatars.githubusercontent.com/u/2214313?s=400&amp;v=4" /><meta name="twitter:site" content="@github" /><meta name="twitter:card" content="summary" /><meta name="twitter:title" content="aerospike-examples/interactive-notebooks" /><meta name="twitter:description" content="Repo for a docker image with Server, Jupyter, Python client, Tools and Notebooks - aerospike-examples/interactive-notebooks" />
+    <meta property="og:image" content="https://avatars.githubusercontent.com/u/2214313?s=400&amp;v=4" /><meta property="og:site_name" content="GitHub" /><meta property="og:type" content="object" /><meta property="og:title" content="aerospike-examples/interactive-notebooks" /><meta property="og:url" content="https://github.com/aerospike-examples/interactive-notebooks" /><meta property="og:description" content="Repo for a docker image with Server, Jupyter, Python client, Tools and Notebooks - aerospike-examples/interactive-notebooks" />
 
 
 
@@ -109,15 +109,15 @@
   <meta http-equiv="x-pjax-version" content="690b136444142e3adae166d7d586a32e41f1859a6f837ed0d0f1e44c7d95e43a">
   
 
-        <link href="https://github.com/aerospike/aerospike-dev-notebooks.docker/commits/main.atom" rel="alternate" title="Recent Commits to aerospike-dev-notebooks.docker:main" type="application/atom+xml">
+        <link href="https://github.com/aerospike-examples/interactive-notebooks/commits/main.atom" rel="alternate" title="Recent Commits to interactive-notebooks:main" type="application/atom+xml">
 
-  <meta name="go-import" content="github.com/aerospike/aerospike-dev-notebooks.docker git https://github.com/aerospike/aerospike-dev-notebooks.docker.git">
+  <meta name="go-import" content="github.com/aerospike-examples/interactive-notebooks git https://github.com/aerospike-examples/interactive-notebooks.git">
 
-  <meta name="octolytics-dimension-user_id" content="2214313" /><meta name="octolytics-dimension-user_login" content="aerospike" /><meta name="octolytics-dimension-repository_id" content="308438084" /><meta name="octolytics-dimension-repository_nwo" content="aerospike/aerospike-dev-notebooks.docker" /><meta name="octolytics-dimension-repository_public" content="true" /><meta name="octolytics-dimension-repository_is_fork" content="false" /><meta name="octolytics-dimension-repository_network_root_id" content="308438084" /><meta name="octolytics-dimension-repository_network_root_nwo" content="aerospike/aerospike-dev-notebooks.docker" />
+  <meta name="octolytics-dimension-user_id" content="2214313" /><meta name="octolytics-dimension-user_login" content="aerospike" /><meta name="octolytics-dimension-repository_id" content="308438084" /><meta name="octolytics-dimension-repository_nwo" content="aerospike-examples/interactive-notebooks" /><meta name="octolytics-dimension-repository_public" content="true" /><meta name="octolytics-dimension-repository_is_fork" content="false" /><meta name="octolytics-dimension-repository_network_root_id" content="308438084" /><meta name="octolytics-dimension-repository_network_root_nwo" content="aerospike-examples/interactive-notebooks" />
 
 
 
-    <link rel="canonical" href="https://github.com/aerospike/aerospike-dev-notebooks.docker/blob/main/notebooks/java/hello_world.ipynb" data-pjax-transient>
+    <link rel="canonical" href="https://github.com/aerospike-examples/interactive-notebooks/blob/main/notebooks/java/hello_world.ipynb" data-pjax-transient>
 
 
   <meta name="browser-stats-url" content="https://api.github.com/_private/browser/stats">
@@ -163,8 +163,8 @@
         <div class="d-flex flex-items-center">
               <a href="/join?ref_cta=Sign+up&amp;ref_loc=header+logged+out&amp;ref_page=%2F%3Cuser-name%3E%2F%3Crepo-name%3E%2Fblob%2Fshow&amp;source=header-repo"
                 class="d-inline-block d-lg-none f5 text-white no-underline border color-border-tertiary rounded-2 px-2 py-1 mr-3 mr-sm-5"
-                data-hydro-click="{&quot;event_type&quot;:&quot;authentication.click&quot;,&quot;payload&quot;:{&quot;location_in_page&quot;:&quot;site header&quot;,&quot;repository_id&quot;:null,&quot;auth_type&quot;:&quot;SIGN_UP&quot;,&quot;originating_url&quot;:&quot;https://github.com/aerospike/aerospike-dev-notebooks.docker/blob/main/notebooks/java/hello_world.ipynb&quot;,&quot;user_id&quot;:null}}" data-hydro-click-hmac="3fc8f3a93c0557a6cb24fb8f4001485ada677ae55e53b0f4cd3cf957aa3a9b33"
-                {&quot;hydro-click&quot;=&gt;&quot;{\&quot;event_type\&quot;:\&quot;analytics.click\&quot;,\&quot;payload\&quot;:{\&quot;category\&quot;:\&quot;Sign up\&quot;,\&quot;action\&quot;:\&quot;click to sign up for account\&quot;,\&quot;label\&quot;:\&quot;ref_page:/&lt;user-name&gt;/&lt;repo-name&gt;/blob/show;ref_cta:Sign up;ref_loc:header logged out\&quot;,\&quot;originating_url\&quot;:\&quot;https://github.com/aerospike/aerospike-dev-notebooks.docker/blob/main/notebooks/java/hello_world.ipynb\&quot;,\&quot;user_id\&quot;:null}}&quot;, &quot;hydro-click-hmac&quot;=&gt;&quot;9a45586ad410948a294cf1c44b1e0209fa33ef3bd02bfe4a8d7145162066d42b&quot;}
+                data-hydro-click="{&quot;event_type&quot;:&quot;authentication.click&quot;,&quot;payload&quot;:{&quot;location_in_page&quot;:&quot;site header&quot;,&quot;repository_id&quot;:null,&quot;auth_type&quot;:&quot;SIGN_UP&quot;,&quot;originating_url&quot;:&quot;https://github.com/aerospike-examples/interactive-notebooks/blob/main/notebooks/java/hello_world.ipynb&quot;,&quot;user_id&quot;:null}}" data-hydro-click-hmac="3fc8f3a93c0557a6cb24fb8f4001485ada677ae55e53b0f4cd3cf957aa3a9b33"
+                {&quot;hydro-click&quot;=&gt;&quot;{\&quot;event_type\&quot;:\&quot;analytics.click\&quot;,\&quot;payload\&quot;:{\&quot;category\&quot;:\&quot;Sign up\&quot;,\&quot;action\&quot;:\&quot;click to sign up for account\&quot;,\&quot;label\&quot;:\&quot;ref_page:/&lt;user-name&gt;/&lt;repo-name&gt;/blob/show;ref_cta:Sign up;ref_loc:header logged out\&quot;,\&quot;originating_url\&quot;:\&quot;https://github.com/aerospike-examples/interactive-notebooks/blob/main/notebooks/java/hello_world.ipynb\&quot;,\&quot;user_id\&quot;:null}}&quot;, &quot;hydro-click-hmac&quot;=&gt;&quot;9a45586ad410948a294cf1c44b1e0209fa33ef3bd02bfe4a8d7145162066d42b&quot;}
               >
                 Sign&nbsp;up
               </a>
@@ -296,7 +296,7 @@
   aria-expanded="false"
 >
   <div class="position-relative">
-    <!-- '"` --><!-- </textarea></xmp> --></option></form><form class="js-site-search-form" role="search" aria-label="Site" data-scope-type="Repository" data-scope-id="308438084" data-scoped-search-url="/aerospike/aerospike-dev-notebooks.docker/search" data-owner-scoped-search-url="/orgs/aerospike/search" data-unscoped-search-url="/search" action="/aerospike/aerospike-dev-notebooks.docker/search" accept-charset="UTF-8" method="get">
+    <!-- '"` --><!-- </textarea></xmp> --></option></form><form class="js-site-search-form" role="search" aria-label="Site" data-scope-type="Repository" data-scope-id="308438084" data-scoped-search-url="/aerospike-examples/interactive-notebooks/search" data-owner-scoped-search-url="/orgs/aerospike/search" data-unscoped-search-url="/search" action="/aerospike-examples/interactive-notebooks/search" accept-charset="UTF-8" method="get">
       <label class="form-control input-sm header-search-wrapper p-0 js-chromeless-input-container header-search-wrapper-jump-to position-relative d-flex flex-justify-between flex-items-center">
         <input type="text"
           class="form-control input-sm header-search-input jump-to-field js-jump-to-field js-site-search-focus js-site-search-field is-clearable"
@@ -468,16 +468,16 @@
 
           </div>
 
-        <a href="/login?return_to=%2Faerospike%2Faerospike-dev-notebooks.docker%2Fblob%2Fmain%2Fnotebooks%2Fjava%2Fhello_world.ipynb"
+        <a href="/login?return_to=%2Faerospike%2Finteractive-notebooks%2Fblob%2Fmain%2Fnotebooks%2Fjava%2Fhello_world.ipynb"
           class="HeaderMenu-link no-underline mr-3"
-          data-hydro-click="{&quot;event_type&quot;:&quot;authentication.click&quot;,&quot;payload&quot;:{&quot;location_in_page&quot;:&quot;site header menu&quot;,&quot;repository_id&quot;:null,&quot;auth_type&quot;:&quot;SIGN_UP&quot;,&quot;originating_url&quot;:&quot;https://github.com/aerospike/aerospike-dev-notebooks.docker/blob/main/notebooks/java/hello_world.ipynb&quot;,&quot;user_id&quot;:null}}" data-hydro-click-hmac="88a7afa18f9ff243db1482beff0b5b82ee94cc7521f7aa25b141ef1eadef0c83"
+          data-hydro-click="{&quot;event_type&quot;:&quot;authentication.click&quot;,&quot;payload&quot;:{&quot;location_in_page&quot;:&quot;site header menu&quot;,&quot;repository_id&quot;:null,&quot;auth_type&quot;:&quot;SIGN_UP&quot;,&quot;originating_url&quot;:&quot;https://github.com/aerospike-examples/interactive-notebooks/blob/main/notebooks/java/hello_world.ipynb&quot;,&quot;user_id&quot;:null}}" data-hydro-click-hmac="88a7afa18f9ff243db1482beff0b5b82ee94cc7521f7aa25b141ef1eadef0c83"
           data-ga-click="(Logged out) Header, clicked Sign in, text:sign-in">
           Sign&nbsp;in
         </a>
-            <a href="/join?ref_cta=Sign+up&amp;ref_loc=header+logged+out&amp;ref_page=%2F%3Cuser-name%3E%2F%3Crepo-name%3E%2Fblob%2Fshow&amp;source=header-repo&amp;source_repo=aerospike%2Faerospike-dev-notebooks.docker"
+            <a href="/join?ref_cta=Sign+up&amp;ref_loc=header+logged+out&amp;ref_page=%2F%3Cuser-name%3E%2F%3Crepo-name%3E%2Fblob%2Fshow&amp;source=header-repo&amp;source_repo=aerospike%2Finteractive-notebooks"
               class="HeaderMenu-link d-inline-block no-underline border color-border-tertiary rounded-1 px-2 py-1"
-              data-hydro-click="{&quot;event_type&quot;:&quot;authentication.click&quot;,&quot;payload&quot;:{&quot;location_in_page&quot;:&quot;site header menu&quot;,&quot;repository_id&quot;:null,&quot;auth_type&quot;:&quot;SIGN_UP&quot;,&quot;originating_url&quot;:&quot;https://github.com/aerospike/aerospike-dev-notebooks.docker/blob/main/notebooks/java/hello_world.ipynb&quot;,&quot;user_id&quot;:null}}" data-hydro-click-hmac="88a7afa18f9ff243db1482beff0b5b82ee94cc7521f7aa25b141ef1eadef0c83"
-              data-hydro-click="{&quot;event_type&quot;:&quot;analytics.click&quot;,&quot;payload&quot;:{&quot;category&quot;:&quot;Sign up&quot;,&quot;action&quot;:&quot;click to sign up for account&quot;,&quot;label&quot;:&quot;ref_page:/&lt;user-name&gt;/&lt;repo-name&gt;/blob/show;ref_cta:Sign up;ref_loc:header logged out&quot;,&quot;originating_url&quot;:&quot;https://github.com/aerospike/aerospike-dev-notebooks.docker/blob/main/notebooks/java/hello_world.ipynb&quot;,&quot;user_id&quot;:null}}" data-hydro-click-hmac="9a45586ad410948a294cf1c44b1e0209fa33ef3bd02bfe4a8d7145162066d42b"
+              data-hydro-click="{&quot;event_type&quot;:&quot;authentication.click&quot;,&quot;payload&quot;:{&quot;location_in_page&quot;:&quot;site header menu&quot;,&quot;repository_id&quot;:null,&quot;auth_type&quot;:&quot;SIGN_UP&quot;,&quot;originating_url&quot;:&quot;https://github.com/aerospike-examples/interactive-notebooks/blob/main/notebooks/java/hello_world.ipynb&quot;,&quot;user_id&quot;:null}}" data-hydro-click-hmac="88a7afa18f9ff243db1482beff0b5b82ee94cc7521f7aa25b141ef1eadef0c83"
+              data-hydro-click="{&quot;event_type&quot;:&quot;analytics.click&quot;,&quot;payload&quot;:{&quot;category&quot;:&quot;Sign up&quot;,&quot;action&quot;:&quot;click to sign up for account&quot;,&quot;label&quot;:&quot;ref_page:/&lt;user-name&gt;/&lt;repo-name&gt;/blob/show;ref_cta:Sign up;ref_loc:header logged out&quot;,&quot;originating_url&quot;:&quot;https://github.com/aerospike-examples/interactive-notebooks/blob/main/notebooks/java/hello_world.ipynb&quot;,&quot;user_id&quot;:null}}" data-hydro-click-hmac="9a45586ad410948a294cf1c44b1e0209fa33ef3bd02bfe4a8d7145162066d42b"
             >
               Sign&nbsp;up
             </a>
@@ -554,7 +554,7 @@
     </span>
     <span class="mx-1 flex-self-stretch color-text-secondary">/</span>
   <strong itemprop="name" class="mr-2 flex-self-stretch">
-    <a data-pjax="#js-repo-pjax-container" class="" href="/aerospike/aerospike-dev-notebooks.docker">aerospike-dev-notebooks.docker</a>
+    <a data-pjax="#js-repo-pjax-container" class="" href="/aerospike-examples/interactive-notebooks">interactive-notebooks</a>
   </strong>
   
 </h1>
@@ -565,10 +565,10 @@
           <ul class="pagehead-actions flex-shrink-0 d-none d-md-inline" style="padding: 2px 0;">
 
   <li>
-          <a class="tooltipped tooltipped-s btn btn-sm btn-with-count" aria-label="You must be signed in to watch a repository" rel="nofollow" data-hydro-click="{&quot;event_type&quot;:&quot;authentication.click&quot;,&quot;payload&quot;:{&quot;location_in_page&quot;:&quot;notification subscription menu watch&quot;,&quot;repository_id&quot;:null,&quot;auth_type&quot;:&quot;LOG_IN&quot;,&quot;originating_url&quot;:&quot;https://github.com/aerospike/aerospike-dev-notebooks.docker/blob/main/notebooks/java/hello_world.ipynb&quot;,&quot;user_id&quot;:null}}" data-hydro-click-hmac="fbc676020bf85e6f9cfeb74f05b10a856fb51cdd1e0f38c5fdf6295d3267d641" href="/login?return_to=%2Faerospike%2Faerospike-dev-notebooks.docker">
+          <a class="tooltipped tooltipped-s btn btn-sm btn-with-count" aria-label="You must be signed in to watch a repository" rel="nofollow" data-hydro-click="{&quot;event_type&quot;:&quot;authentication.click&quot;,&quot;payload&quot;:{&quot;location_in_page&quot;:&quot;notification subscription menu watch&quot;,&quot;repository_id&quot;:null,&quot;auth_type&quot;:&quot;LOG_IN&quot;,&quot;originating_url&quot;:&quot;https://github.com/aerospike-examples/interactive-notebooks/blob/main/notebooks/java/hello_world.ipynb&quot;,&quot;user_id&quot;:null}}" data-hydro-click-hmac="fbc676020bf85e6f9cfeb74f05b10a856fb51cdd1e0f38c5fdf6295d3267d641" href="/login?return_to=%2Faerospike%2Finteractive-notebooks">
     <svg class="octicon octicon-eye" height="16" viewBox="0 0 16 16" version="1.1" width="16" aria-hidden="true"><path fill-rule="evenodd" d="M1.679 7.932c.412-.621 1.242-1.75 2.366-2.717C5.175 4.242 6.527 3.5 8 3.5c1.473 0 2.824.742 3.955 1.715 1.124.967 1.954 2.096 2.366 2.717a.119.119 0 010 .136c-.412.621-1.242 1.75-2.366 2.717C10.825 11.758 9.473 12.5 8 12.5c-1.473 0-2.824-.742-3.955-1.715C2.92 9.818 2.09 8.69 1.679 8.068a.119.119 0 010-.136zM8 2c-1.981 0-3.67.992-4.933 2.078C1.797 5.169.88 6.423.43 7.1a1.619 1.619 0 000 1.798c.45.678 1.367 1.932 2.637 3.024C4.329 13.008 6.019 14 8 14c1.981 0 3.67-.992 4.933-2.078 1.27-1.091 2.187-2.345 2.637-3.023a1.619 1.619 0 000-1.798c-.45-.678-1.367-1.932-2.637-3.023C11.671 2.992 9.981 2 8 2zm0 8a2 2 0 100-4 2 2 0 000 4z"></path></svg>
     Watch
-</a>    <a class="social-count" href="/aerospike/aerospike-dev-notebooks.docker/watchers"
+</a>    <a class="social-count" href="/aerospike-examples/interactive-notebooks/watchers"
        aria-label="27 users are watching this repository">
       27
     </a>
@@ -576,12 +576,12 @@
   </li>
 
   <li>
-          <a class="btn btn-sm btn-with-count  tooltipped tooltipped-s" aria-label="You must be signed in to star a repository" rel="nofollow" data-hydro-click="{&quot;event_type&quot;:&quot;authentication.click&quot;,&quot;payload&quot;:{&quot;location_in_page&quot;:&quot;star button&quot;,&quot;repository_id&quot;:308438084,&quot;auth_type&quot;:&quot;LOG_IN&quot;,&quot;originating_url&quot;:&quot;https://github.com/aerospike/aerospike-dev-notebooks.docker/blob/main/notebooks/java/hello_world.ipynb&quot;,&quot;user_id&quot;:null}}" data-hydro-click-hmac="5840dbd447cb806273501bc51d8d8a4a53d40ca35d99207f2e0900ae27490118" href="/login?return_to=%2Faerospike%2Faerospike-dev-notebooks.docker">
+          <a class="btn btn-sm btn-with-count  tooltipped tooltipped-s" aria-label="You must be signed in to star a repository" rel="nofollow" data-hydro-click="{&quot;event_type&quot;:&quot;authentication.click&quot;,&quot;payload&quot;:{&quot;location_in_page&quot;:&quot;star button&quot;,&quot;repository_id&quot;:308438084,&quot;auth_type&quot;:&quot;LOG_IN&quot;,&quot;originating_url&quot;:&quot;https://github.com/aerospike-examples/interactive-notebooks/blob/main/notebooks/java/hello_world.ipynb&quot;,&quot;user_id&quot;:null}}" data-hydro-click-hmac="5840dbd447cb806273501bc51d8d8a4a53d40ca35d99207f2e0900ae27490118" href="/login?return_to=%2Faerospike%2Finteractive-notebooks">
       <svg class="octicon octicon-star v-align-text-bottom mr-1" height="16" viewBox="0 0 16 16" version="1.1" width="16" aria-hidden="true"><path fill-rule="evenodd" d="M8 .25a.75.75 0 01.673.418l1.882 3.815 4.21.612a.75.75 0 01.416 1.279l-3.046 2.97.719 4.192a.75.75 0 01-1.088.791L8 12.347l-3.766 1.98a.75.75 0 01-1.088-.79l.72-4.194L.818 6.374a.75.75 0 01.416-1.28l4.21-.611L7.327.668A.75.75 0 018 .25zm0 2.445L6.615 5.5a.75.75 0 01-.564.41l-3.097.45 2.24 2.184a.75.75 0 01.216.664l-.528 3.084 2.769-1.456a.75.75 0 01.698 0l2.77 1.456-.53-3.084a.75.75 0 01.216-.664l2.24-2.183-3.096-.45a.75.75 0 01-.564-.41L8 2.694v.001z"></path></svg>
       <span>
         Star
 </span></a>
-    <a class="social-count js-social-count" href="/aerospike/aerospike-dev-notebooks.docker/stargazers"
+    <a class="social-count js-social-count" href="/aerospike-examples/interactive-notebooks/stargazers"
       aria-label="4 users starred this repository">
       4
     </a>
@@ -589,11 +589,11 @@
   </li>
 
   <li>
-        <a class="btn btn-sm btn-with-count tooltipped tooltipped-s" aria-label="You must be signed in to fork a repository" rel="nofollow" data-hydro-click="{&quot;event_type&quot;:&quot;authentication.click&quot;,&quot;payload&quot;:{&quot;location_in_page&quot;:&quot;repo details fork button&quot;,&quot;repository_id&quot;:308438084,&quot;auth_type&quot;:&quot;LOG_IN&quot;,&quot;originating_url&quot;:&quot;https://github.com/aerospike/aerospike-dev-notebooks.docker/blob/main/notebooks/java/hello_world.ipynb&quot;,&quot;user_id&quot;:null}}" data-hydro-click-hmac="57f6833b1539ae627488591735825d775ece55dabd0c9ac21d9a0954843f32a3" href="/login?return_to=%2Faerospike%2Faerospike-dev-notebooks.docker">
+        <a class="btn btn-sm btn-with-count tooltipped tooltipped-s" aria-label="You must be signed in to fork a repository" rel="nofollow" data-hydro-click="{&quot;event_type&quot;:&quot;authentication.click&quot;,&quot;payload&quot;:{&quot;location_in_page&quot;:&quot;repo details fork button&quot;,&quot;repository_id&quot;:308438084,&quot;auth_type&quot;:&quot;LOG_IN&quot;,&quot;originating_url&quot;:&quot;https://github.com/aerospike-examples/interactive-notebooks/blob/main/notebooks/java/hello_world.ipynb&quot;,&quot;user_id&quot;:null}}" data-hydro-click-hmac="57f6833b1539ae627488591735825d775ece55dabd0c9ac21d9a0954843f32a3" href="/login?return_to=%2Faerospike%2Finteractive-notebooks">
           <svg class="octicon octicon-repo-forked" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M5 3.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm0 2.122a2.25 2.25 0 10-1.5 0v.878A2.25 2.25 0 005.75 8.5h1.5v2.128a2.251 2.251 0 101.5 0V8.5h1.5a2.25 2.25 0 002.25-2.25v-.878a2.25 2.25 0 10-1.5 0v.878a.75.75 0 01-.75.75h-4.5A.75.75 0 015 6.25v-.878zm3.75 7.378a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm3-8.75a.75.75 0 100-1.5.75.75 0 000 1.5z"></path></svg>
           Fork
 </a>
-      <a href="/aerospike/aerospike-dev-notebooks.docker/network/members" class="social-count"
+      <a href="/aerospike-examples/interactive-notebooks/network/members" class="social-count"
          aria-label="7 users forked this repository">
         7
       </a>
@@ -605,7 +605,7 @@
 <nav aria-label="Repository" data-pjax="#js-repo-pjax-container" class="js-repo-nav js-sidenav-container-pjax js-responsive-underlinenav overflow-hidden UnderlineNav px-3 px-md-4 px-lg-5 bg-gray-light">
   <ul class="UnderlineNav-body list-style-none ">
           <li class="d-flex">
-        <a class="js-selected-navigation-item selected UnderlineNav-item hx_underlinenav-item no-wrap js-responsive-underlinenav-item" data-tab-item="i0code-tab" data-hotkey="g c" data-ga-click="Repository, Navigation click, Code tab" aria-current="page" data-selected-links="repo_source repo_downloads repo_commits repo_releases repo_tags repo_branches repo_packages repo_deployments /aerospike/aerospike-dev-notebooks.docker" href="/aerospike/aerospike-dev-notebooks.docker">
+        <a class="js-selected-navigation-item selected UnderlineNav-item hx_underlinenav-item no-wrap js-responsive-underlinenav-item" data-tab-item="i0code-tab" data-hotkey="g c" data-ga-click="Repository, Navigation click, Code tab" aria-current="page" data-selected-links="repo_source repo_downloads repo_commits repo_releases repo_tags repo_branches repo_packages repo_deployments /aerospike-examples/interactive-notebooks" href="/aerospike-examples/interactive-notebooks">
               <svg class="octicon octicon-code UnderlineNav-octicon d-none d-sm-inline" height="16" viewBox="0 0 16 16" version="1.1" width="16" aria-hidden="true"><path fill-rule="evenodd" d="M4.72 3.22a.75.75 0 011.06 1.06L2.06 8l3.72 3.72a.75.75 0 11-1.06 1.06L.47 8.53a.75.75 0 010-1.06l4.25-4.25zm6.56 0a.75.75 0 10-1.06 1.06L13.94 8l-3.72 3.72a.75.75 0 101.06 1.06l4.25-4.25a.75.75 0 000-1.06l-4.25-4.25z"></path></svg>
             <span data-content="Code">Code</span>
               <span title="Not available" class="Counter "></span>
@@ -613,7 +613,7 @@
 
       </li>
       <li class="d-flex">
-        <a class="js-selected-navigation-item UnderlineNav-item hx_underlinenav-item no-wrap js-responsive-underlinenav-item" data-tab-item="i1issues-tab" data-hotkey="g i" data-ga-click="Repository, Navigation click, Issues tab" data-selected-links="repo_issues repo_labels repo_milestones /aerospike/aerospike-dev-notebooks.docker/issues" href="/aerospike/aerospike-dev-notebooks.docker/issues">
+        <a class="js-selected-navigation-item UnderlineNav-item hx_underlinenav-item no-wrap js-responsive-underlinenav-item" data-tab-item="i1issues-tab" data-hotkey="g i" data-ga-click="Repository, Navigation click, Issues tab" data-selected-links="repo_issues repo_labels repo_milestones /aerospike-examples/interactive-notebooks/issues" href="/aerospike-examples/interactive-notebooks/issues">
               <svg class="octicon octicon-issue-opened UnderlineNav-octicon d-none d-sm-inline" height="16" viewBox="0 0 16 16" version="1.1" width="16" aria-hidden="true"><path fill-rule="evenodd" d="M8 1.5a6.5 6.5 0 100 13 6.5 6.5 0 000-13zM0 8a8 8 0 1116 0A8 8 0 010 8zm9 3a1 1 0 11-2 0 1 1 0 012 0zm-.25-6.25a.75.75 0 00-1.5 0v3.5a.75.75 0 001.5 0v-3.5z"></path></svg>
             <span data-content="Issues">Issues</span>
               <span title="0" hidden="hidden" class="Counter ">0</span>
@@ -621,7 +621,7 @@
 
       </li>
       <li class="d-flex">
-        <a class="js-selected-navigation-item UnderlineNav-item hx_underlinenav-item no-wrap js-responsive-underlinenav-item" data-tab-item="i2pull-requests-tab" data-hotkey="g p" data-ga-click="Repository, Navigation click, Pull requests tab" data-selected-links="repo_pulls checks /aerospike/aerospike-dev-notebooks.docker/pulls" href="/aerospike/aerospike-dev-notebooks.docker/pulls">
+        <a class="js-selected-navigation-item UnderlineNav-item hx_underlinenav-item no-wrap js-responsive-underlinenav-item" data-tab-item="i2pull-requests-tab" data-hotkey="g p" data-ga-click="Repository, Navigation click, Pull requests tab" data-selected-links="repo_pulls checks /aerospike-examples/interactive-notebooks/pulls" href="/aerospike-examples/interactive-notebooks/pulls">
               <svg class="octicon octicon-git-pull-request UnderlineNav-octicon d-none d-sm-inline" height="16" viewBox="0 0 16 16" version="1.1" width="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.177 3.073L9.573.677A.25.25 0 0110 .854v4.792a.25.25 0 01-.427.177L7.177 3.427a.25.25 0 010-.354zM3.75 2.5a.75.75 0 100 1.5.75.75 0 000-1.5zm-2.25.75a2.25 2.25 0 113 2.122v5.256a2.251 2.251 0 11-1.5 0V5.372A2.25 2.25 0 011.5 3.25zM11 2.5h-1V4h1a1 1 0 011 1v5.628a2.251 2.251 0 101.5 0V5A2.5 2.5 0 0011 2.5zm1 10.25a.75.75 0 111.5 0 .75.75 0 01-1.5 0zM3.75 12a.75.75 0 100 1.5.75.75 0 000-1.5z"></path></svg>
             <span data-content="Pull requests">Pull requests</span>
               <span title="1" class="Counter ">1</span>
@@ -629,7 +629,7 @@
 
       </li>
       <li class="d-flex">
-        <a class="js-selected-navigation-item UnderlineNav-item hx_underlinenav-item no-wrap js-responsive-underlinenav-item" data-tab-item="i3actions-tab" data-hotkey="g a" data-ga-click="Repository, Navigation click, Actions tab" data-selected-links="repo_actions /aerospike/aerospike-dev-notebooks.docker/actions" href="/aerospike/aerospike-dev-notebooks.docker/actions">
+        <a class="js-selected-navigation-item UnderlineNav-item hx_underlinenav-item no-wrap js-responsive-underlinenav-item" data-tab-item="i3actions-tab" data-hotkey="g a" data-ga-click="Repository, Navigation click, Actions tab" data-selected-links="repo_actions /aerospike-examples/interactive-notebooks/actions" href="/aerospike-examples/interactive-notebooks/actions">
               <svg class="octicon octicon-play UnderlineNav-octicon d-none d-sm-inline" height="16" viewBox="0 0 16 16" version="1.1" width="16" aria-hidden="true"><path fill-rule="evenodd" d="M1.5 8a6.5 6.5 0 1113 0 6.5 6.5 0 01-13 0zM8 0a8 8 0 100 16A8 8 0 008 0zM6.379 5.227A.25.25 0 006 5.442v5.117a.25.25 0 00.379.214l4.264-2.559a.25.25 0 000-.428L6.379 5.227z"></path></svg>
             <span data-content="Actions">Actions</span>
               <span title="Not available" class="Counter "></span>
@@ -637,7 +637,7 @@
 
       </li>
       <li class="d-flex">
-        <a class="js-selected-navigation-item UnderlineNav-item hx_underlinenav-item no-wrap js-responsive-underlinenav-item" data-tab-item="i4projects-tab" data-hotkey="g b" data-ga-click="Repository, Navigation click, Projects tab" data-selected-links="repo_projects new_repo_project repo_project /aerospike/aerospike-dev-notebooks.docker/projects" href="/aerospike/aerospike-dev-notebooks.docker/projects">
+        <a class="js-selected-navigation-item UnderlineNav-item hx_underlinenav-item no-wrap js-responsive-underlinenav-item" data-tab-item="i4projects-tab" data-hotkey="g b" data-ga-click="Repository, Navigation click, Projects tab" data-selected-links="repo_projects new_repo_project repo_project /aerospike-examples/interactive-notebooks/projects" href="/aerospike-examples/interactive-notebooks/projects">
               <svg class="octicon octicon-project UnderlineNav-octicon d-none d-sm-inline" height="16" viewBox="0 0 16 16" version="1.1" width="16" aria-hidden="true"><path fill-rule="evenodd" d="M1.75 0A1.75 1.75 0 000 1.75v12.5C0 15.216.784 16 1.75 16h12.5A1.75 1.75 0 0016 14.25V1.75A1.75 1.75 0 0014.25 0H1.75zM1.5 1.75a.25.25 0 01.25-.25h12.5a.25.25 0 01.25.25v12.5a.25.25 0 01-.25.25H1.75a.25.25 0 01-.25-.25V1.75zM11.75 3a.75.75 0 00-.75.75v7.5a.75.75 0 001.5 0v-7.5a.75.75 0 00-.75-.75zm-8.25.75a.75.75 0 011.5 0v5.5a.75.75 0 01-1.5 0v-5.5zM8 3a.75.75 0 00-.75.75v3.5a.75.75 0 001.5 0v-3.5A.75.75 0 008 3z"></path></svg>
             <span data-content="Projects">Projects</span>
               <span title="0" hidden="hidden" class="Counter ">0</span>
@@ -645,15 +645,15 @@
 
       </li>
       <li class="d-flex">
-        <a class="js-selected-navigation-item UnderlineNav-item hx_underlinenav-item no-wrap js-responsive-underlinenav-item" data-tab-item="i5security-tab" data-hotkey="g s" data-ga-click="Repository, Navigation click, Security tab" data-selected-links="security overview alerts policy token_scanning code_scanning /aerospike/aerospike-dev-notebooks.docker/security" href="/aerospike/aerospike-dev-notebooks.docker/security">
+        <a class="js-selected-navigation-item UnderlineNav-item hx_underlinenav-item no-wrap js-responsive-underlinenav-item" data-tab-item="i5security-tab" data-hotkey="g s" data-ga-click="Repository, Navigation click, Security tab" data-selected-links="security overview alerts policy token_scanning code_scanning /aerospike-examples/interactive-notebooks/security" href="/aerospike-examples/interactive-notebooks/security">
               <svg class="octicon octicon-shield UnderlineNav-octicon d-none d-sm-inline" height="16" viewBox="0 0 16 16" version="1.1" width="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.467.133a1.75 1.75 0 011.066 0l5.25 1.68A1.75 1.75 0 0115 3.48V7c0 1.566-.32 3.182-1.303 4.682-.983 1.498-2.585 2.813-5.032 3.855a1.7 1.7 0 01-1.33 0c-2.447-1.042-4.049-2.357-5.032-3.855C1.32 10.182 1 8.566 1 7V3.48a1.75 1.75 0 011.217-1.667l5.25-1.68zm.61 1.429a.25.25 0 00-.153 0l-5.25 1.68a.25.25 0 00-.174.238V7c0 1.358.275 2.666 1.057 3.86.784 1.194 2.121 2.34 4.366 3.297a.2.2 0 00.154 0c2.245-.956 3.582-2.104 4.366-3.298C13.225 9.666 13.5 8.36 13.5 7V3.48a.25.25 0 00-.174-.237l-5.25-1.68zM9 10.5a1 1 0 11-2 0 1 1 0 012 0zm-.25-5.75a.75.75 0 10-1.5 0v3a.75.75 0 001.5 0v-3z"></path></svg>
             <span data-content="Security">Security</span>
-              <include-fragment src="/aerospike/aerospike-dev-notebooks.docker/security/overall-count" accept="text/fragment+html"></include-fragment>
+              <include-fragment src="/aerospike-examples/interactive-notebooks/security/overall-count" accept="text/fragment+html"></include-fragment>
 </a>
 
       </li>
       <li class="d-flex">
-        <a class="js-selected-navigation-item UnderlineNav-item hx_underlinenav-item no-wrap js-responsive-underlinenav-item" data-tab-item="i6insights-tab" data-ga-click="Repository, Navigation click, Insights tab" data-selected-links="repo_graphs repo_contributors dependency_graph dependabot_updates pulse people /aerospike/aerospike-dev-notebooks.docker/pulse" href="/aerospike/aerospike-dev-notebooks.docker/pulse">
+        <a class="js-selected-navigation-item UnderlineNav-item hx_underlinenav-item no-wrap js-responsive-underlinenav-item" data-tab-item="i6insights-tab" data-ga-click="Repository, Navigation click, Insights tab" data-selected-links="repo_graphs repo_contributors dependency_graph dependabot_updates pulse people /aerospike-examples/interactive-notebooks/pulse" href="/aerospike-examples/interactive-notebooks/pulse">
               <svg class="octicon octicon-graph UnderlineNav-octicon d-none d-sm-inline" height="16" viewBox="0 0 16 16" version="1.1" width="16" aria-hidden="true"><path fill-rule="evenodd" d="M1.5 1.75a.75.75 0 00-1.5 0v12.5c0 .414.336.75.75.75h14.5a.75.75 0 000-1.5H1.5V1.75zm14.28 2.53a.75.75 0 00-1.06-1.06L10 7.94 7.53 5.47a.75.75 0 00-1.06 0L3.22 8.72a.75.75 0 001.06 1.06L7 7.06l2.47 2.47a.75.75 0 001.06 0l5.25-5.25z"></path></svg>
             <span data-content="Insights">Insights</span>
               <span title="Not available" class="Counter "></span>
@@ -673,31 +673,31 @@
   
             <ul>
                 <li data-menu-item="i0code-tab" hidden>
-                  <a role="menuitem" class="js-selected-navigation-item dropdown-item" data-selected-links=" /aerospike/aerospike-dev-notebooks.docker" href="/aerospike/aerospike-dev-notebooks.docker">
+                  <a role="menuitem" class="js-selected-navigation-item dropdown-item" data-selected-links=" /aerospike-examples/interactive-notebooks" href="/aerospike-examples/interactive-notebooks">
                     Code
 </a>                </li>
                 <li data-menu-item="i1issues-tab" hidden>
-                  <a role="menuitem" class="js-selected-navigation-item dropdown-item" data-selected-links=" /aerospike/aerospike-dev-notebooks.docker/issues" href="/aerospike/aerospike-dev-notebooks.docker/issues">
+                  <a role="menuitem" class="js-selected-navigation-item dropdown-item" data-selected-links=" /aerospike-examples/interactive-notebooks/issues" href="/aerospike-examples/interactive-notebooks/issues">
                     Issues
 </a>                </li>
                 <li data-menu-item="i2pull-requests-tab" hidden>
-                  <a role="menuitem" class="js-selected-navigation-item dropdown-item" data-selected-links=" /aerospike/aerospike-dev-notebooks.docker/pulls" href="/aerospike/aerospike-dev-notebooks.docker/pulls">
+                  <a role="menuitem" class="js-selected-navigation-item dropdown-item" data-selected-links=" /aerospike-examples/interactive-notebooks/pulls" href="/aerospike-examples/interactive-notebooks/pulls">
                     Pull requests
 </a>                </li>
                 <li data-menu-item="i3actions-tab" hidden>
-                  <a role="menuitem" class="js-selected-navigation-item dropdown-item" data-selected-links=" /aerospike/aerospike-dev-notebooks.docker/actions" href="/aerospike/aerospike-dev-notebooks.docker/actions">
+                  <a role="menuitem" class="js-selected-navigation-item dropdown-item" data-selected-links=" /aerospike-examples/interactive-notebooks/actions" href="/aerospike-examples/interactive-notebooks/actions">
                     Actions
 </a>                </li>
                 <li data-menu-item="i4projects-tab" hidden>
-                  <a role="menuitem" class="js-selected-navigation-item dropdown-item" data-selected-links=" /aerospike/aerospike-dev-notebooks.docker/projects" href="/aerospike/aerospike-dev-notebooks.docker/projects">
+                  <a role="menuitem" class="js-selected-navigation-item dropdown-item" data-selected-links=" /aerospike-examples/interactive-notebooks/projects" href="/aerospike-examples/interactive-notebooks/projects">
                     Projects
 </a>                </li>
                 <li data-menu-item="i5security-tab" hidden>
-                  <a role="menuitem" class="js-selected-navigation-item dropdown-item" data-selected-links=" /aerospike/aerospike-dev-notebooks.docker/security" href="/aerospike/aerospike-dev-notebooks.docker/security">
+                  <a role="menuitem" class="js-selected-navigation-item dropdown-item" data-selected-links=" /aerospike-examples/interactive-notebooks/security" href="/aerospike-examples/interactive-notebooks/security">
                     Security
 </a>                </li>
                 <li data-menu-item="i6insights-tab" hidden>
-                  <a role="menuitem" class="js-selected-navigation-item dropdown-item" data-selected-links=" /aerospike/aerospike-dev-notebooks.docker/pulse" href="/aerospike/aerospike-dev-notebooks.docker/pulse">
+                  <a role="menuitem" class="js-selected-navigation-item dropdown-item" data-selected-links=" /aerospike-examples/interactive-notebooks/pulse" href="/aerospike-examples/interactive-notebooks/pulse">
                     Insights
 </a>                </li>
             </ul>
@@ -720,7 +720,7 @@
   
 
 
-    <a class="d-none js-permalink-shortcut" data-hotkey="y" href="/aerospike/aerospike-dev-notebooks.docker/blob/0b2bba76fd3714c7ecbc9d28325577387a143d26/notebooks/java/hello_world.ipynb">Permalink</a>
+    <a class="d-none js-permalink-shortcut" data-hotkey="y" href="/aerospike-examples/interactive-notebooks/blob/0b2bba76fd3714c7ecbc9d28325577387a143d26/notebooks/java/hello_world.ipynb">Permalink</a>
 
     <!-- blob contrib key: blob_contributors:v22:5584164c7d7f9b62f8c1ef50b3c80f4f0c118c596c922df252629e69ee1bb461 -->
 
@@ -773,7 +773,7 @@
               tab-selected:ref-selector#tabSelected
               focus-list:ref-selector#focusFirstListMember
             "
-            query-endpoint="/aerospike/aerospike-dev-notebooks.docker/refs"
+            query-endpoint="/aerospike-examples/interactive-notebooks/refs"
             
             cache-key="v0:1610759617.0"
             current-committish="bWFpbg=="
@@ -798,13 +798,13 @@
             </div>
 
             <template data-target="ref-selector.itemTemplate">
-              <a href="https://github.com/aerospike/aerospike-dev-notebooks.docker/blob/{{ urlEncodedRefName }}/notebooks/java/hello_world.ipynb" class="SelectMenu-item" role="menuitemradio" rel="nofollow" aria-checked="{{ isCurrent }}" data-index="{{ index }}">
+              <a href="https://github.com/aerospike-examples/interactive-notebooks/blob/{{ urlEncodedRefName }}/notebooks/java/hello_world.ipynb" class="SelectMenu-item" role="menuitemradio" rel="nofollow" aria-checked="{{ isCurrent }}" data-index="{{ index }}">
                 <svg class="octicon octicon-check SelectMenu-icon SelectMenu-icon--check" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg>
                 <span class="flex-1 css-truncate css-truncate-overflow {{ isFilteringClass }}">{{ refName }}</span>
                 <span hidden="{{ isNotDefault }}" class="Label Label--secondary flex-self-start">default</span> 
               </a>
             </template>
-            <footer class="SelectMenu-footer"><a href="/aerospike/aerospike-dev-notebooks.docker/branches">View all branches</a></footer>
+            <footer class="SelectMenu-footer"><a href="/aerospike-examples/interactive-notebooks/branches">View all branches</a></footer>
           </ref-selector>
 
         </div>
@@ -818,7 +818,7 @@
               focus-list:ref-selector#focusFirstListMember
             "
             data-targets="input-demux.sinks"
-            query-endpoint="/aerospike/aerospike-dev-notebooks.docker/refs"
+            query-endpoint="/aerospike-examples/interactive-notebooks/refs"
             cache-key="v0:1610759617.0"
             current-committish="bWFpbg=="
             default-branch="bWFpbg=="
@@ -830,7 +830,7 @@
             </template>
 
             <template data-target="ref-selector.itemTemplate">
-              <a href="https://github.com/aerospike/aerospike-dev-notebooks.docker/blob/{{ urlEncodedRefName }}/notebooks/java/hello_world.ipynb" class="SelectMenu-item" role="menuitemradio" rel="nofollow" aria-checked="{{ isCurrent }}" data-index="{{ index }}">
+              <a href="https://github.com/aerospike-examples/interactive-notebooks/blob/{{ urlEncodedRefName }}/notebooks/java/hello_world.ipynb" class="SelectMenu-item" role="menuitemradio" rel="nofollow" aria-checked="{{ isCurrent }}" data-index="{{ index }}">
                 <svg class="octicon octicon-check SelectMenu-icon SelectMenu-icon--check" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg>
                 <span class="flex-1 css-truncate css-truncate-overflow {{ isFilteringClass }}">{{ refName }}</span>
                 <span hidden="{{ isNotDefault }}" class="Label Label--secondary flex-self-start">default</span>
@@ -846,7 +846,7 @@
 </svg>
               </div>
             </div>
-            <footer class="SelectMenu-footer"><a href="/aerospike/aerospike-dev-notebooks.docker/tags">View all tags</a></footer>
+            <footer class="SelectMenu-footer"><a href="/aerospike-examples/interactive-notebooks/tags">View all tags</a></footer>
           </ref-selector>
         </div>
       </tab-container>
@@ -859,9 +859,9 @@
 </div>
 
       <h2 id="blob-path" class="breadcrumb flex-auto min-width-0 text-normal mx-0 mx-md-3 width-full width-md-auto flex-order-1 flex-md-order-none mt-3 mt-md-0">
-        <span class="js-repo-root text-bold"><span class="js-path-segment d-inline-block wb-break-all"><a data-pjax="true" href="/aerospike/aerospike-dev-notebooks.docker"><span>aerospike-dev-notebooks.docker</span></a></span></span><span class="separator">/</span><span class="js-path-segment d-inline-block wb-break-all"><a data-pjax="true" href="/aerospike/aerospike-dev-notebooks.docker/tree/main/notebooks"><span>notebooks</span></a></span><span class="separator">/</span><span class="js-path-segment d-inline-block wb-break-all"><a data-pjax="true" href="/aerospike/aerospike-dev-notebooks.docker/tree/main/notebooks/java"><span>java</span></a></span><span class="separator">/</span><strong class="final-path">hello_world.ipynb</strong>
+        <span class="js-repo-root text-bold"><span class="js-path-segment d-inline-block wb-break-all"><a data-pjax="true" href="/aerospike-examples/interactive-notebooks"><span>interactive-notebooks</span></a></span></span><span class="separator">/</span><span class="js-path-segment d-inline-block wb-break-all"><a data-pjax="true" href="/aerospike-examples/interactive-notebooks/tree/main/notebooks"><span>notebooks</span></a></span><span class="separator">/</span><span class="js-path-segment d-inline-block wb-break-all"><a data-pjax="true" href="/aerospike-examples/interactive-notebooks/tree/main/notebooks/java"><span>java</span></a></span><span class="separator">/</span><strong class="final-path">hello_world.ipynb</strong>
       </h2>
-      <a href="/aerospike/aerospike-dev-notebooks.docker/find/main"
+      <a href="/aerospike-examples/interactive-notebooks/find/main"
             class="js-pjax-capture-input btn mr-2 d-none d-md-block"
             data-pjax
             data-hotkey="t">
@@ -874,7 +874,7 @@
 </summary>  <div>
     <ul class="dropdown-menu dropdown-menu-sw">
             <li class="d-block d-md-none">
-              <a class="dropdown-item d-flex flex-items-baseline" data-hydro-click="{&quot;event_type&quot;:&quot;repository.click&quot;,&quot;payload&quot;:{&quot;target&quot;:&quot;FIND_FILE_BUTTON&quot;,&quot;repository_id&quot;:308438084,&quot;originating_url&quot;:&quot;https://github.com/aerospike/aerospike-dev-notebooks.docker/blob/main/notebooks/java/hello_world.ipynb&quot;,&quot;user_id&quot;:null}}" data-hydro-click-hmac="09193f9885418b27d7484e77fb3ae6911cc615b0d9b4ef7a1986b4ffe4ed80b9" data-ga-click="Repository, find file, location:repo overview" data-hotkey="t" data-pjax="true" href="/aerospike/aerospike-dev-notebooks.docker/find/main">
+              <a class="dropdown-item d-flex flex-items-baseline" data-hydro-click="{&quot;event_type&quot;:&quot;repository.click&quot;,&quot;payload&quot;:{&quot;target&quot;:&quot;FIND_FILE_BUTTON&quot;,&quot;repository_id&quot;:308438084,&quot;originating_url&quot;:&quot;https://github.com/aerospike-examples/interactive-notebooks/blob/main/notebooks/java/hello_world.ipynb&quot;,&quot;user_id&quot;:null}}" data-hydro-click-hmac="09193f9885418b27d7484e77fb3ae6911cc615b0d9b4ef7a1986b4ffe4ed80b9" data-ga-click="Repository, find file, location:repo overview" data-hotkey="t" data-pjax="true" href="/aerospike-examples/interactive-notebooks/find/main">
                 <span class="flex-auto">Go to file</span>
                 <span class="text-small text-gray" aria-hidden="true">T</span>
 </a>            </li>
@@ -909,23 +909,23 @@
             <a class="text-bold link-gray-dark" rel="contributor" data-hovercard-type="user" data-hovercard-url="/users/neelp-git/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="/neelp-git">neelp-git</a>
 
               <span>
-                <a data-pjax="true" title="All cells executed for read-only viewer." class="link-gray" href="/aerospike/aerospike-dev-notebooks.docker/commit/ac24a18b7ababe49495a62848c78a8b5bf4fca44">All cells executed for read-only viewer.</a>
+                <a data-pjax="true" title="All cells executed for read-only viewer." class="link-gray" href="/aerospike-examples/interactive-notebooks/commit/ac24a18b7ababe49495a62848c78a8b5bf4fca44">All cells executed for read-only viewer.</a>
               </span>
           </div>
 
 
           <span class="ml-2">
-            <include-fragment accept="text/fragment+html" src="/aerospike/aerospike-dev-notebooks.docker/commit/ac24a18b7ababe49495a62848c78a8b5bf4fca44/rollup?direction=e" class="d-inline"></include-fragment>
+            <include-fragment accept="text/fragment+html" src="/aerospike-examples/interactive-notebooks/commit/ac24a18b7ababe49495a62848c78a8b5bf4fca44/rollup?direction=e" class="d-inline"></include-fragment>
           </span>
         </div>
         <div class="ml-3 d-flex flex-shrink-0 flex-items-center flex-justify-end text-gray no-wrap">
           <span class="d-none d-md-inline">
             <span>Latest commit</span>
-            <a class="text-small text-mono link-gray" href="/aerospike/aerospike-dev-notebooks.docker/commit/ac24a18b7ababe49495a62848c78a8b5bf4fca44" data-pjax>ac24a18</a>
+            <a class="text-small text-mono link-gray" href="/aerospike-examples/interactive-notebooks/commit/ac24a18b7ababe49495a62848c78a8b5bf4fca44" data-pjax>ac24a18</a>
             <span itemprop="dateModified"><relative-time datetime="2021-01-22T01:40:50Z" class="no-wrap">Jan 21, 2021</relative-time></span>
           </span>
 
-          <a data-pjax href="/aerospike/aerospike-dev-notebooks.docker/commits/main/notebooks/java/hello_world.ipynb" class="ml-3 no-wrap link-gray-dark no-underline">
+          <a data-pjax href="/aerospike-examples/interactive-notebooks/commits/main/notebooks/java/hello_world.ipynb" class="ml-3 no-wrap link-gray-dark no-underline">
             <svg class="octicon octicon-history text-gray" height="16" viewBox="0 0 16 16" version="1.1" width="16" aria-hidden="true"><path fill-rule="evenodd" d="M1.643 3.143L.427 1.927A.25.25 0 000 2.104V5.75c0 .138.112.25.25.25h3.646a.25.25 0 00.177-.427L2.715 4.215a6.5 6.5 0 11-1.18 4.458.75.75 0 10-1.493.154 8.001 8.001 0 101.6-5.684zM7.75 4a.75.75 0 01.75.75v2.992l2.028.812a.75.75 0 01-.557 1.392l-2.5-1A.75.75 0 017 8.25v-3.5A.75.75 0 017.75 4z"></path></svg>
             <span class="d-none d-sm-inline">
               <strong>History</strong>
@@ -947,7 +947,7 @@
       <details-dialog
         class="Box Box--overlay d-flex flex-column anim-fade-in fast"
         aria-label="Users who have contributed to this file"
-        src="/aerospike/aerospike-dev-notebooks.docker/contributors-list/main/notebooks/java/hello_world.ipynb" preload>
+        src="/aerospike-examples/interactive-notebooks/contributors-list/main/notebooks/java/hello_world.ipynb" preload>
         <div class="Box-header">
           <button class="Box-btn-octicon btn-octicon float-right" type="button" aria-label="Close dialog" data-close-dialog>
             <svg class="octicon octicon-x" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M3.72 3.72a.75.75 0 011.06 0L8 6.94l3.22-3.22a.75.75 0 111.06 1.06L9.06 8l3.22 3.22a.75.75 0 11-1.06 1.06L8 9.06l-3.22 3.22a.75.75 0 01-1.06-1.06L6.94 8 3.72 4.78a.75.75 0 010-1.06z"></path></svg>
@@ -988,18 +988,18 @@
   <div class="d-flex py-1 py-md-0 flex-auto flex-order-1 flex-md-order-2 flex-sm-grow-0 flex-justify-between">
       <div class="BtnGroup">
         <a class="btn btn-sm BtnGroup-item tooltipped tooltipped tooltipped-n source "
-          href="/aerospike/aerospike-dev-notebooks.docker/blob/main/notebooks/java/hello_world.ipynb?short_path=d812e4a" aria-label="Display the source blob">
+          href="/aerospike-examples/interactive-notebooks/blob/main/notebooks/java/hello_world.ipynb?short_path=d812e4a" aria-label="Display the source blob">
           <svg class="octicon octicon-code" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4.72 3.22a.75.75 0 011.06 1.06L2.06 8l3.72 3.72a.75.75 0 11-1.06 1.06L.47 8.53a.75.75 0 010-1.06l4.25-4.25zm6.56 0a.75.75 0 10-1.06 1.06L13.94 8l-3.72 3.72a.75.75 0 101.06 1.06l4.25-4.25a.75.75 0 000-1.06l-4.25-4.25z"></path></svg>
         </a>
         <a class="btn btn-sm BtnGroup-item tooltipped tooltipped-n rendered selected"
-          href="/aerospike/aerospike-dev-notebooks.docker/blob/main/notebooks/java/hello_world.ipynb" aria-label="Display the rendered blob">
+          href="/aerospike-examples/interactive-notebooks/blob/main/notebooks/java/hello_world.ipynb" aria-label="Display the rendered blob">
           <svg class="octicon octicon-file" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M3.75 1.5a.25.25 0 00-.25.25v11.5c0 .138.112.25.25.25h8.5a.25.25 0 00.25-.25V6H9.75A1.75 1.75 0 018 4.25V1.5H3.75zm5.75.56v2.19c0 .138.112.25.25.25h2.19L9.5 2.06zM2 1.75C2 .784 2.784 0 3.75 0h5.086c.464 0 .909.184 1.237.513l3.414 3.414c.329.328.513.773.513 1.237v8.086A1.75 1.75 0 0112.25 15h-8.5A1.75 1.75 0 012 13.25V1.75z"></path></svg>
         </a>
       </div>
 
     <div class="BtnGroup">
-      <a href="/aerospike/aerospike-dev-notebooks.docker/raw/main/notebooks/java/hello_world.ipynb" id="raw-url" role="button" class="btn btn-sm BtnGroup-item ">Raw</a>
-        <a href="/aerospike/aerospike-dev-notebooks.docker/blame/main/notebooks/java/hello_world.ipynb" data-hotkey="b" role="button" class="btn js-update-url-with-hash btn-sm BtnGroup-item ">Blame</a>
+      <a href="/aerospike-examples/interactive-notebooks/raw/main/notebooks/java/hello_world.ipynb" id="raw-url" role="button" class="btn btn-sm BtnGroup-item ">Raw</a>
+        <a href="/aerospike-examples/interactive-notebooks/blame/main/notebooks/java/hello_world.ipynb" data-hotkey="b" role="button" class="btn js-update-url-with-hash btn-sm BtnGroup-item ">Blame</a>
     </div>
 
     <div>
@@ -1011,11 +1011,11 @@
               <svg class="octicon octicon-device-desktop" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M1.75 2.5h12.5a.25.25 0 01.25.25v7.5a.25.25 0 01-.25.25H1.75a.25.25 0 01-.25-.25v-7.5a.25.25 0 01.25-.25zM14.25 1H1.75A1.75 1.75 0 000 2.75v7.5C0 11.216.784 12 1.75 12h3.727c-.1 1.041-.52 1.872-1.292 2.757A.75.75 0 004.75 16h6.5a.75.75 0 00.565-1.243c-.772-.885-1.193-1.716-1.292-2.757h3.727A1.75 1.75 0 0016 10.25v-7.5A1.75 1.75 0 0014.25 1zM9.018 12H6.982a5.72 5.72 0 01-.765 2.5h3.566a5.72 5.72 0 01-.765-2.5z"></path></svg>
           </a>
 
-          <a href="/login?return_to=%2Faerospike%2Faerospike-dev-notebooks.docker%2Fblob%2Fmain%2Fnotebooks%2Fjava%2Fhello_world.ipynb" class="btn-octicon disabled tooltipped tooltipped-nw"
+          <a href="/login?return_to=%2Faerospike%2Finteractive-notebooks%2Fblob%2Fmain%2Fnotebooks%2Fjava%2Fhello_world.ipynb" class="btn-octicon disabled tooltipped tooltipped-nw"
             aria-label="You must be signed in to make or propose changes">
             <svg class="octicon octicon-pencil" height="16" viewBox="0 0 16 16" version="1.1" width="16" aria-hidden="true"><path fill-rule="evenodd" d="M11.013 1.427a1.75 1.75 0 012.474 0l1.086 1.086a1.75 1.75 0 010 2.474l-8.61 8.61c-.21.21-.47.364-.756.445l-3.251.93a.75.75 0 01-.927-.928l.929-3.25a1.75 1.75 0 01.445-.758l8.61-8.61zm1.414 1.06a.25.25 0 00-.354 0L10.811 3.75l1.439 1.44 1.263-1.263a.25.25 0 000-.354l-1.086-1.086zM11.189 6.25L9.75 4.81l-6.286 6.287a.25.25 0 00-.064.108l-.558 1.953 1.953-.558a.249.249 0 00.108-.064l6.286-6.286z"></path></svg>
           </a>
-          <a href="/login?return_to=%2Faerospike%2Faerospike-dev-notebooks.docker%2Fblob%2Fmain%2Fnotebooks%2Fjava%2Fhello_world.ipynb" class="btn-octicon btn-octicon-danger disabled tooltipped tooltipped-nw"
+          <a href="/login?return_to=%2Faerospike%2Finteractive-notebooks%2Fblob%2Fmain%2Fnotebooks%2Fjava%2Fhello_world.ipynb" class="btn-octicon btn-octicon-danger disabled tooltipped tooltipped-nw"
             aria-label="You must be signed in to make or propose changes">
             <svg class="octicon octicon-trashcan" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M6.5 1.75a.25.25 0 01.25-.25h2.5a.25.25 0 01.25.25V3h-3V1.75zm4.5 0V3h2.25a.75.75 0 010 1.5H2.75a.75.75 0 010-1.5H5V1.75C5 .784 5.784 0 6.75 0h2.5C10.216 0 11 .784 11 1.75zM4.496 6.675a.75.75 0 10-1.492.15l.66 6.6A1.75 1.75 0 005.405 15h5.19c.9 0 1.652-.681 1.741-1.576l.66-6.6a.75.75 0 00-1.492-.149l-.66 6.6a.25.25 0 01-.249.225h-5.19a.25.25 0 01-.249-.225l-.66-6.6z"></path></svg>
           </a>
@@ -1038,10 +1038,10 @@
     <animateTransform attributeName="transform" type="rotate" from="0 8 8" to="360 8 8" dur="1s" repeatCount="indefinite" />
   </path>
 </svg>
-      <div class="render-viewer-error">Sorry, something went wrong. <a href="https://github.com/aerospike/aerospike-dev-notebooks.docker/blob/main/notebooks/java/hello_world.ipynb">Reload?</a></div>
+      <div class="render-viewer-error">Sorry, something went wrong. <a href="https://github.com/aerospike-examples/interactive-notebooks/blob/main/notebooks/java/hello_world.ipynb">Reload?</a></div>
       <div class="render-viewer-fatal">Sorry, we cannot display this file.</div>
       <div class="render-viewer-invalid">Sorry, this file is invalid so it cannot be displayed.</div>
-      <iframe class="render-viewer " src="https://render.githubusercontent.com/view/ipynb?color_mode=light&amp;commit=0b2bba76fd3714c7ecbc9d28325577387a143d26&amp;enc_url=68747470733a2f2f7261772e67697468756275736572636f6e74656e742e636f6d2f6165726f7370696b652f6165726f7370696b652d6465762d6e6f7465626f6f6b732e646f636b65722f306232626261373666643337313463376563626339643238333235353737333837613134336432362f6e6f7465626f6f6b732f6a6176612f68656c6c6f5f776f726c642e6970796e62&amp;nwo=aerospike%2Faerospike-dev-notebooks.docker&amp;path=notebooks%2Fjava%2Fhello_world.ipynb&amp;repository_id=308438084&amp;repository_type=Repository#ac604991-bb60-4e80-add1-a61335992f10" sandbox="allow-scripts allow-same-origin allow-top-navigation" title="File display">
+      <iframe class="render-viewer " src="https://render.githubusercontent.com/view/ipynb?color_mode=light&amp;commit=0b2bba76fd3714c7ecbc9d28325577387a143d26&amp;enc_url=68747470733a2f2f7261772e67697468756275736572636f6e74656e742e636f6d2f6165726f7370696b652f6165726f7370696b652d6465762d6e6f7465626f6f6b732e646f636b65722f306232626261373666643337313463376563626339643238333235353737333837613134336432362f6e6f7465626f6f6b732f6a6176612f68656c6c6f5f776f726c642e6970796e62&amp;nwo=aerospike%2Finteractive-notebooks&amp;path=notebooks%2Fjava%2Fhello_world.ipynb&amp;repository_id=308438084&amp;repository_type=Repository#ac604991-bb60-4e80-add1-a61335992f10" sandbox="allow-scripts allow-same-origin allow-top-navigation" title="File display">
           Viewer requires iframe.
       </iframe>
     </div>
