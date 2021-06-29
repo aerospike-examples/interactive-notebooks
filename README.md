@@ -24,9 +24,9 @@ The download and use of this Aerospike software is governed by [Aerospike Evalua
       [Alternatively] If building the image:
       1. Git clone image repo:
          ```
-         git clone https://github.com/aerospike/aerospike-dev-notebooks.docker.git
+         git clone https://github.com/aerospike-examples/interactive-notebooks.git
          ```
-      1. cd to "aerospike-dev-notebooks.docker" and build from Dockerfile:
+      1. cd to "interactive-notebooks" and build from Dockerfile:
          ```
          docker build -t aerospike/intro-notebooks .
          ```

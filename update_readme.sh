@@ -19,10 +19,10 @@ _Copyright Aerospike Inc 2021_
 END-FOOTER-TEXT
 )
 
-REPO="aerospike/aerospike-dev-notebooks.docker"
+REPO="aerospike-examples/interactive-notebooks"
 REPO_URL="https://github.com/${REPO}"
 VIEWER_URL="${REPO_URL}/tree/main/notebooks"
-BINDER_URL="https://mybinder.org/v2/gh/aerospike/aerospike-dev-notebooks.docker/main?filepath="
+BINDER_URL="https://mybinder.org/v2/gh/aerospike-examples/interactive-notebooks/main?filepath="
 
 function get_title () {
   fname=$1
@@ -77,10 +77,10 @@ function print_notebook_rows () {
 #### Main
 
 # check whether we're in the right repo's notebooks directory
-if [[ ! $PWD =~ aerospike-dev-notebooks.docker/notebooks$ ]] ; then
+if [[ ! $PWD =~ aerospike-examples/interactive-notebooks/notebooks$ ]] ; then
   echo 'Must cd to the "notebooks" directory of a local copy of the' >&2
-  echo '"aerospike-dev-notebooks.docker" repo before running this script.' >&2
-  hints=$( find $HOME -type d -name notebooks 2>/dev/null | grep 'aerospike-dev-notebooks.docker/notebooks' )
+  echo '"aerospike-examples/interactive-notebooks" repo before running this script.' >&2
+  hints=$( find $HOME -type d -name notebooks 2>/dev/null | grep 'aerospike-examples/interactive-notebooks/notebooks' )
   if [[ hints ]] ; then
     echo '' >&2
     echo 'Maybe try one of these:' >&2
