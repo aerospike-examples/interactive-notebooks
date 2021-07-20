@@ -74,13 +74,24 @@ function print_notebook_rows () {
   done
 }
 
+function print_notebook_rows_nobinder () {
+  notebooks=$1
+
+  for ii in $notebooks ; do
+    view_url="${VIEWER_URL}/${ii}"
+    nice_name=$( get_title $ii )
+
+    echo "&nbsp; ${nice_name} | [View](${view_url})"
+  done
+}
+
 #### Main
 
 # check whether we're in the right repo's notebooks directory
-if [[ ! $PWD =~ aerospike-examples/interactive-notebooks/notebooks$ ]] ; then
+if [[ ! $PWD =~ interactive-notebooks/notebooks$ ]] ; then
   echo 'Must cd to the "notebooks" directory of a local copy of the' >&2
   echo '"aerospike-examples/interactive-notebooks" repo before running this script.' >&2
-  hints=$( find $HOME -type d -name notebooks 2>/dev/null | grep 'aerospike-examples/interactive-notebooks/notebooks' )
+  hints=$( find $HOME -type d -name notebooks 2>/dev/null | grep 'interactive-notebooks/notebooks' )
   if [[ hints ]] ; then
     echo '' >&2
     echo 'Maybe try one of these:' >&2
@@ -119,6 +130,13 @@ old_sum=$( md5sum $OUTPUT_FILE 2>/dev/null)
   echo " | | | | "
   nbs=$( get_notebooks ./python )
   print_notebook_rows "$nbs"
+
+  view_url="${VIEWER_URL}/spark"
+  echo " | | | | "
+  echo "**Spark  Notebooks** | [View All](${view_url})"
+  echo " | | | | "
+  nbs=$( get_notebooks ./spark )
+  print_notebook_rows_nobinder "$nbs"
 
   echo ""
 } > ${OUTPUT_FILE}
