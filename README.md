@@ -26,9 +26,9 @@ Notebooks for Java and Python clients are currently avaialble.
       [Alternatively] If building the image:
       1. Git clone image repo:
          ```
-         git clone https://github.com/aerospike/aerospike-dev-notebooks.docker.git
+         git clone https://github.com/aerospike-examples/interactive-notebooks.docker.git
          ```
-      1. cd to "aerospike-dev-notebooks.docker" and build from Dockerfile:
+      1. cd to "interactive-notebooks.docker" and build from Dockerfile:
          ```
          docker build -t aerospike/intro-notebooks .
          ```
