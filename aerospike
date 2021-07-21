@@ -1,0 +1,53 @@
+#!/bin/sh
+# Start/stop the aerospike daemon.
+#
+### BEGIN INIT INFO
+# Provides:          aerospike
+# Required-Start:    $remote_fs $syslog $time
+# Required-Stop:     $remote_fs $syslog $time
+# Should-Start:      $network $named slapd autofs ypbind nscd nslcd winbind
+# Should-Stop:       $network $named slapd autofs ypbind nscd nslcd winbind
+# Default-Start:     2 3 4 5
+# Default-Stop:
+# Short-Description: Aerospike
+# Description:       Aerospike
+### END INIT INFO
+
+PATH=/bin:/usr/bin:/sbin:/usr/sbin
+DESC="aerospike daemon"
+NAME=aerospike
+DAEMON=/usr/bin/asd
+PIDFILE=/var/run/aerospike/asd.pid
+SCRIPTNAME=/etc/init.d/"$NAME"
+
+test -f $DAEMON || exit 0
+
+. /lib/lsb/init-functions
+
+case "$1" in
+start)  log_success_msg "Starting aerospike" "aerospike"
+        start_daemon -p $PIDFILE $DAEMON --config-file /etc/aerospike/aerospike.conf $EXTRA_OPTS
+        log_success_msg $?
+        ;;
+stop)   log_success_msg "Stopping aerospike" "aerospike"
+		pkill asd
+		sleep 1
+		if [ $? -ne 0 ]; then pkill -9 asd; fi
+        log_success_msg $RETVAL
+        ;;
+restart) log_success_msg "Restarting aerospike" "aerospike"
+        $0 stop
+        $0 start
+        ;;
+coldstart)  log_success_msg "Starting aerospike" "aerospike"
+        start_daemon -p $PIDFILE $DAEMON --cold-start $EXTRA_OPTS
+        log_success_msg $?
+        ;;
+status)
+        status_of_proc -p $PIDFILE $DAEMON $NAME && exit 0 || exit $?
+        ;;
+*)      log_success_msg "Usage: /etc/init.d/aerospike {start|stop|status|restart|coldstart}"
+        exit 2
+        ;;
+esac
+exit 0
