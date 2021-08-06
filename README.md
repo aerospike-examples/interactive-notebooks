@@ -1,11 +1,11 @@
 # Aerospike Interactive Notebooks
 
 Aerospike is a distributed database designed to serve global applications
-with low latency, fast throughput, and resiliency to failures.
+with low latency, fast throughput, and resilience to failure.
 
 This repository contains Jupyter notebooks for:
-- **Aerospike Clients**: These notebooks illustrate the use of APIs, features, and use cases for Java and Python clients. They run in a Docker container that provides a working environment consisting of the Aerospike server, Java and Python client libraries, tools, and the Jupyter server. [This section](#run-client-notebooks-in-docker-container) describes how to run the Docker container.
-- **Spark**: These notebooks show how Aerospike can be used in conjunction with Spark. Refer to [this section](#spark-notebooks) that describes how to set up and run Spark notebooks on [Linux (CentOS)](#set-up-spark-notebooks-on-linux-centos) and [MacOS X](#set-up-spark-notebooks-on-macos-x).
+- **Aerospike Clients**: These notebooks provide interactive examples of Java and Python client use of Aerospike Database. They run in a Docker container that provides a complete working environment consisting of the Aerospike server, Java and Python client libraries, tools, and the Jupyter server. To run this container locally in Docker, see [this section](#run-client-notebooks-in-docker-container).
+- **Spark**: These notebooks show how Aerospike can be used in conjunction with Spark. To set up and run Spark notebooks, refer to [this section for Linux (CentOS)](#set-up-spark-notebooks-on-linux-centos) or [this section for MacOS X](#set-up-spark-notebooks-on-macos-x).
 
 View the list of all notebooks [here](notebooks/README.md#notebooks).
 
