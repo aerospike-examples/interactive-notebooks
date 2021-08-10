@@ -1,18 +1,24 @@
+This repository contains the build information for the Docker Image used at https://hub.docker.com/r/aerospike/intro-notebooks.
+
 # Aerospike Interactive Notebooks
 
-Aerospike is a distributed database designed to serve global applications
-with low latency, fast throughput, and resilience to failure.
+Aerospike is a distributed database designed to serve global applications with low latency, fast throughput, and resilience to failure. 
 
-This repository contains Jupyter notebooks for:
-- **Aerospike Clients**: These notebooks provide interactive examples of Java and Python client use of Aerospike Database. They run in a Docker container that provides a complete working environment consisting of the Aerospike server, Java and Python client libraries, tools, and the Jupyter server. To run this container locally in Docker, see [this section](#run-client-notebooks-in-docker-container).
-- **Spark**: These notebooks show how Aerospike can be used in conjunction with Spark. To set up and run Spark notebooks, refer to [this section for Linux (CentOS)](#set-up-spark-notebooks-on-linux-centos) or [this section for MacOS X](#set-up-spark-notebooks-on-macos-x).
+This Docker Image contains a complete [Aerospike](https://www.aerospike.com) development environment and the following Jupyter Notebook tutorials: 
+- Java and Python tutorials that provide interactive examples of Java and Python client use of Aerospike Database.
+- Spark notebooks that show how Aerospike can be used in conjunction with Spark.
 
-View the list of all notebooks [here](notebooks/README.md#notebooks).
+Here is the [full notebook list](notebooks/README.md#notebooks).
+
+
+To run the **Aerospike Java and Python Client Development Environment** locally in Docker, see [this section](#run-client-notebooks-in-docker-container).
+To set up and run the **Aerospike and Spark Notebooks** locally in Docker, refer to [this section for Linux (CentOS)](#set-up-spark-notebooks-on-linux-centos) or [this section for MacOS X](#set-up-spark-notebooks-on-macos-x).
 
 Documentation for Aerospike is available at [https://aerospike.com/docs](https://aerospike.com/docs),
 and Docker Desktop installation at [https://docs.docker.com/desktop/](https://docs.docker.com/desktop/).
 
 The download and use of this Aerospike software is governed by [Aerospike Evaluation License Agreement](https://www.aerospike.com/forms/evaluation-license-agreement/).
+
 
 ## Run Client Notebooks in Docker Container
 Notebooks for Java and Python clients are currently avaialble.
@@ -241,3 +247,12 @@ pip install jupyter PySpark findspark numpy pandas matplotlib sklearn
 ```
 
 onwards.
+
+
+## Software Contents
+
+- [Aerospike](https://www.aerospike.com) development software: 
+   - Aerospike Database
+   - Aerospike Java and Python client libraries
+   - Aerospike Tools
+- [Jupyter Notebook Server](https://jupyter.org/)
