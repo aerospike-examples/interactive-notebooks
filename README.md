@@ -4,9 +4,9 @@ This repository contains the build information for the Docker Image used at http
 
 Aerospike is a distributed database designed to serve global applications with low latency, fast throughput, and resilience to failure. 
 
-This Docker Image contains a complete [Aerospike](https://www.aerospike.com) development environment and the following Jupyter Notebook tutorials: 
-- Java and Python tutorials that provide interactive examples of Java and Python client use of Aerospike Database.
-- Spark notebooks that show how Aerospike can be used in conjunction with Spark.
+This Docker Image contains a complete [Aerospike](https://www.aerospike.com) development environment and the following Jupyter Notebooks: 
+- **Aerospike Java and Python** tutorials that provide interactive examples of Java and Python client use of Aerospike Database.
+- **Spark** notebooks that show how Aerospike can be used in conjunction with Spark.
 
 Here is the [full notebook list](notebooks/README.md#notebooks).
 
