@@ -4,15 +4,15 @@ This repository contains the build information for the Docker Image used at http
 
 Aerospike is a distributed database designed to serve global applications with low latency, fast throughput, and resilience to failure. 
 
-This Docker Image contains a complete [Aerospike](https://www.aerospike.com) development environment and the following Jupyter Notebooks: 
-- **Aerospike Java and Python** tutorials that provide interactive examples of Java and Python client use of Aerospike Database.
-- **Spark** notebooks that show how Aerospike can be used in conjunction with Spark.
+The Docker Image in this repo contains a complete [Aerospike](https://www.aerospike.com) development environment and two categories of Jupyter Notebooks: 
+- **Aerospike Client Tutorials:** Notebooks that provide interactive examples of Java and Python client use of Aerospike Database.
+- **Spark Notebooks:** Notebooks that show how Aerospike can be used in conjunction with Spark.
 
-Here is the [full notebook list](notebooks/README.md#notebooks).
-
-
-To run the **Aerospike Java and Python Client Development Environment** locally in Docker, see [this section](#run-client-notebooks-in-docker-container).
-To set up and run the **Aerospike and Spark Notebooks** locally in Docker, refer to [this section for Linux (CentOS)](#set-up-spark-notebooks-on-linux-centos) or [this section for MacOS X](#set-up-spark-notebooks-on-macos-x).
+Useful links:
+- [Run the **Aerospike Java and Python Client Development Environment** locally in Docker](#run-client-notebooks-in-docker-container).
+- How-to set up and run Spark on [Linux (CentOS)](#set-up-spark-notebooks-on-linux-centos) or [MacOS X](#set-up-spark-notebooks-on-macos-x) to work with the Spark notebooks in the development environment.
+- [Notebook list](notebooks/README.md#notebooks)
+- [Software contents list](#software-contents)
 
 Documentation for Aerospike is available at [https://aerospike.com/docs](https://aerospike.com/docs),
 and Docker Desktop installation at [https://docs.docker.com/desktop/](https://docs.docker.com/desktop/).
