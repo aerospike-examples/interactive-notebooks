@@ -21,12 +21,12 @@ USER root
 RUN chown -R ${NB_UID} ${HOME}
 
 # spark notebook
-# note: build eng, please review and optimize
 RUN mkdir /opt/spark-nb; cd /opt/spark-nb\
   && wget -qO- https://javadl.oracle.com/webapps/download/AutoDL?BundleId=245467_4d5417147a92418ea8b615e228bb6935 | tar -xvz\
-  && wget -qO- https://archive.apache.org/dist/spark/spark-3.0.0/spark-3.0.0-bin-hadoop3.2.tgz | tar -xvz\
+  && wget -qO- https://archive.apache.org/dist/spark/spark-3.0.3/spark-3.0.3-bin-hadoop3.2.tgz | tar -xvz\
   && pip install findspark numpy pandas matplotlib sklearn\
-  && wget https://docs.aerospike.com/artifacts/aerospike-spark/3.1.0/aerospike-spark-assembly-3.1.0.jar
+  && wget https://docs.aerospike.com/artifacts/aerospike-spark/3.2.0/aerospike-spark-assembly-3.2.0.jar
+  && rm -f /opt/spark-nb/spark-3.0.3-bin-hadoop3.2.tgz /opt/spark-nb/jre-*.tar.gz 
 
 # install jupyter notebook extensions, and enable these extensions by default: table of content, collapsible headers, and scratchpad
 RUN pip install jupyter_contrib_nbextensions\
@@ -81,7 +81,7 @@ RUN python -V >> /home/${NB_USER}/notebooks/README.md
 RUN java -version 2>> /home/${NB_USER}/notebooks/README.md
 RUN asd --version >> /home/${NB_USER}/notebooks/README.md
 RUN echo -e "Aerospike Python Client `pip show aerospike|grep Version|sed -e 's/Version://g'`" >> /home/${NB_USER}/notebooks/README.md
-RUN echo -e "Aerospike Java Client 5.0.0" >> /home/${NB_USER}/notebooks/README.md
+#RUN echo -e "Aerospike Java Client 5.0.0" >> /home/${NB_USER}/notebooks/README.md
 
 COPY jupyter_notebook_config.py /home/${NB_USER}/
 RUN  fix-permissions /home/${NB_USER}/
