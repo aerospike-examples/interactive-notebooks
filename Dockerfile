@@ -42,20 +42,21 @@ RUN  mkdir /var/run/aerospike\
   && apt-get install -y --no-install-recommends build-essential wget lua5.2 gettext-base libldap-dev curl unzip python python3-pip python3-dev python3 zulu-11\
   && wget "https://www.aerospike.com/artifacts/aerospike-server-enterprise/${AEROSPIKE_VERSION}/aerospike-server-enterprise-${AEROSPIKE_VERSION}-ubuntu20.04.tgz" -O aerospike-server.tgz \  
   && echo "$AEROSPIKE_SHA256 *aerospike-server.tgz" | sha256sum -c - \
-  && wget "https://github.com/aerospike/aerospike-loader/releases/download/2.3.5/asloader-2.3.5.ubuntu20.04.amd64.deb" -O asloader.deb \
+  # && wget "https://github.com/aerospike/aerospike-loader/releases/download/2.3.5/asloader-2.3.5.ubuntu20.04.amd64.deb" -O asloader.deb \
   && mkdir aerospike \
   && tar xzf aerospike-server.tgz --strip-components=1 -C aerospike \
   && dpkg -i aerospike/aerospike-server-*.deb \
   && dpkg -i aerospike/aerospike-tools-*.deb \
-  && dpkg -i asloader.deb \
+  # && dpkg -i asloader.deb \
   && pip install --no-cache-dir aerospike\
   && pip install --no-cache-dir pymongo\
   && wget "https://github.com/SpencerPark/IJava/releases/download/v1.3.0/ijava-1.3.0.zip" -O ijava-kernel.zip\
   && unzip ijava-kernel.zip -d ijava-kernel \
   && python3 ijava-kernel/install.py --sys-prefix\
   && rm ijava-kernel.zip\
-  && rm -rf aerospike-server.tgz aerospike asloader.deb /var/lib/apt/lists/* \
+  && rm -rf aerospike-server.tgz aerospike /var/lib/apt/lists/* \
   && rm -rf /opt/aerospike/lib/java \
+  # && rm -f asloader.deb
   && apt-get purge -y \
   && apt autoremove -y \
   && mkdir -p /var/log/aerospike 
