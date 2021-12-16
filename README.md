@@ -21,7 +21,7 @@ The download and use of this Aerospike software is governed by [Aerospike Evalua
 
 
 ## Run Client Notebooks in Docker Container
-Notebooks for Java and Python clients are currently avaialble.
+Notebooks for Java and Python clients are currently avaialble. Some Spark notebooks can currently run in the container.
 
 1. Install [Docker](https://www.docker.com).
 
@@ -72,7 +72,9 @@ Executing the command: jupyter notebook
 ```
 
 ## Spark Notebooks
-Spark notebooks can run on Linux (CentOS) and MacOS X.
+Spark notebooks can run on Linux (CentOS) and MacOS X. 
+
+Some Spark notebooks can fully run in the container by following the specific setup provided in the respective notebook. To run any Spark notebook with an external Spark, Aerospike, and/or Jupyter server, follow the instructions below.
 
 ### Set up Spark Notebooks on Linux (CentOS)
 
