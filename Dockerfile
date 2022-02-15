@@ -56,7 +56,7 @@ RUN  mkdir /var/run/aerospike\
   && rm ijava-kernel.zip\
   && rm -rf aerospike-server.tgz aerospike /var/lib/apt/lists/* \
   && rm -rf /opt/aerospike/lib/java \
-  && rm -f asloader.deb
+  && rm -f asloader.deb \
   && apt-get purge -y \
   && apt autoremove -y \
   && mkdir -p /var/log/aerospike 
