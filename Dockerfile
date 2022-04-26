@@ -66,6 +66,21 @@ RUN wget -O go.tgz https://golang.org/dl/go1.17.3.linux-amd64.tar.gz \
   && go get -u \
   && go mod tidy
   
+#install node.js
+ENV NODE_VERSION=16.13.0
+RUN mkdir /usr/local/.nvm
+ENV NVM_DIR=/usr/local/.nvm
+RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash
+RUN . "$NVM_DIR/nvm.sh" && nvm install ${NODE_VERSION}
+RUN . "$NVM_DIR/nvm.sh" && nvm use v${NODE_VERSION}
+RUN . "$NVM_DIR/nvm.sh" && nvm alias default v${NODE_VERSION} \
+  && npm install aerospike \
+  && npm install -g --unsafe-perm zeromq \
+  && npm install -g --unsafe-perm ijavascript \
+  && ijsinstall --spec-path=full --working-dir=${HOME}
+
+ENV PATH="/root/.nvm/versions/node/v${NODE_VERSION}/bin/:${PATH}"  
+  
 COPY aerospike /etc/init.d/
 RUN usermod -a -G aerospike ${NB_USER}
 
