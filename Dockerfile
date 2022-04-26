@@ -22,29 +22,12 @@ ENV HOME /home/${NB_USER}
 USER root
 RUN chown -R ${NB_UID} ${HOME}
 
-# BEGIN TEST
-
-# timezone needs to be set before nodejs kernel
-RUN ln -snf /usr/share/zoneinfo/$CONTAINER_TIMEZONE /etc/localtime && echo $CONTAINER_TIMEZONE > /etc/timezone\
+RUN mkdir /var/run/aerospike\
   && apt-get update -y \
-  && apt-get install software-properties-common dirmngr gpg-agent -y --no-install-recommends\
+  && apt-get install software-properties-common dirmngr gpg-agent -y --no-install-recommends \
   && apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 0xB1998361219BD9C9 \
   && apt-add-repository 'deb http://repos.azulsystems.com/ubuntu stable main' \
-  && apt-get install -y --no-install-recommends build-essential wget lua5.2 gettext-base libldap-dev curl unzip python python3-pip python3-dev python3 zulu-11\
-  && sudo apt-get install git -y\
-  && sudo apt-get install -y nodejs npm\
-  && sudo npm install -g npm\
-  && npm install express\
-  && npm install aerospike\
-  && sudo npm cache clean -f\
-  && sudo npm install -g n\
-  && sudo n stable\
-  && wget -O go.tgz https://golang.org/dl/go1.17.3.linux-amd64.tar.gz\
-  && tar -C /usr/local -xzf go.tgz\
-  && rm go.tgz\
-  && go install github.com/gopherdata/gophernotes@v0.7.3\
-  && go get github.com/aerospike/aerospike-client-go/v5\
-  && mkdir /var/run/aerospike\
+  && apt-get install -y --no-install-recommends build-essential wget lua5.2 gettext-base libldap-dev curl unzip python python3-pip python3-dev python3 zulu-11 \
   && wget "https://www.aerospike.com/artifacts/aerospike-server-enterprise/${AEROSPIKE_VERSION}/aerospike-server-enterprise-${AEROSPIKE_VERSION}-ubuntu20.04.tgz" -O aerospike-server.tgz \  
   && echo "$AEROSPIKE_SHA256 *aerospike-server.tgz" | sha256sum -c - \
   && mkdir aerospike \
@@ -61,33 +44,28 @@ RUN ln -snf /usr/share/zoneinfo/$CONTAINER_TIMEZONE /etc/localtime && echo $CONT
   && rm -rf /opt/aerospike/lib/java \
   && apt-get purge -y \
   && apt autoremove -y \
-  && sudo apt-get install libssl-dev\
-  && wget https://artifacts.aerospike.com/aerospike-client-c/5.2.5/aerospike-client-c-libuv-5.2.5.ubuntu20.04.x86_64.tgz -O aerospike-client-c.tgz\
-  && tar xvf aerospike-client-c.tgz\
-  && rm aerospike-client-c.tgz\
-  && cd aerospike-client-c-libuv-5.2.5.ubuntu20.04.x86_64\
-  && sudo dpkg -i aerospike-client-c-libuv-devel-5.2.5.ubuntu20.04.x86_64.deb\
-  && sudo dpkg -i aerospike-client-c-libuv-5.2.5.ubuntu20.04.x86_64.deb\
-  && cd ${HOME}\
-  && git clone https://github.com/XaverKlemenschits/jupyter-c-kernel.git\
-  && cd jupyter-c-kernel\
-  && pip install -e .\
-  && cd jupyter_c_kernel && install_c_kernel --user\
-  && mkdir -p ~/.local/share/jupyter/kernels/gophernotes\
-  && cd ~/.local/share/jupyter/kernels/gophernotes\
-  && cp $(go env GOPATH)/pkg/mod/github.com/gopherdata/gophernotes@v0.7.3/kernel/* "."\
-  && sed "s_gophernotes_$(go env GOPATH)/bin/gophernotes_" <kernel.json.in >kernel.json\
-  && cd $(go env GOPATH)/pkg/mod/github.com/aerospike/aerospike-client-go/v5@v5.6.0\
-  && go get -u\
-  && go mod tidy\
-  && cd $(go env GOPATH)/pkg/mod/github.com/go-zeromq/zmq4@v0.13.0\
-  && go get -u\
-  && go mod tidy\
-  && cd $(go env GOPATH)/pkg/mod/github.com/gopherdata/gophernotes@v0.7.3\  
-  && go get -u\
-  && go mod tidy\
   && mkdir -p /var/log/aerospike  
 
+#install Go
+RUN wget -O go.tgz https://golang.org/dl/go1.17.3.linux-amd64.tar.gz \
+  && tar -C /usr/local -xzf go.tgz \
+  && rm go.tgz \
+  && go install github.com/gopherdata/gophernotes@v0.7.3 \
+  && go get github.com/aerospike/aerospike-client-go/v5 \
+  && mkdir -p ~/.local/share/jupyter/kernels/gophernotes \
+  && cd ~/.local/share/jupyter/kernels/gophernotes \
+  && cp $(go env GOPATH)/pkg/mod/github.com/gopherdata/gophernotes@v0.7.3/kernel/* "." \
+  && sed "s_gophernotes_$(go env GOPATH)/bin/gophernotes_" <kernel.json.in >kernel.json \
+  && cd $(go env GOPATH)/pkg/mod/github.com/aerospike/aerospike-client-go/v5@v5.8.0 \
+  && go get -u \
+  && go mod tidy \
+  && cd $(go env GOPATH)/pkg/mod/github.com/go-zeromq/zmq4@v0.13.0 \
+  && go get -u \
+  && go mod tidy \
+  && cd $(go env GOPATH)/pkg/mod/github.com/gopherdata/gophernotes@v0.7.3 \  
+  && go get -u \
+  && go mod tidy
+  
 COPY aerospike /etc/init.d/
 RUN usermod -a -G aerospike ${NB_USER}
 
@@ -98,18 +76,9 @@ COPY features.conf /etc/aerospike/features.conf
 
 RUN chown -R ${NB_UID} /etc/aerospike /opt/aerospike /var/log/aerospike /var/run/aerospike
 
-#RUN fix-permissions /etc/aerospike/
-#RUN fix-permissions /var/log/aerospike
-
 COPY jupyter_notebook_config.py /home/${NB_USER}/
 
 RUN  fix-permissions /home/${NB_USER}/
-
-# register js kernel
-# these have to run near the end or else they error out
-RUN npm install -g --unsafe-perm zeromq\
-  && npm install -g --unsafe-perm ijavascript\
-  && ijsinstall --spec-path=full --working-dir=${HOME}
 
 # I don't know why this has to be like this 
 # rather than overiding
