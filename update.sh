@@ -3,7 +3,7 @@ set -e
 
 if [ -z "$1" ]; then
 
-   fullVersion="$(curl -sSL 'https://download.aerospike.com/artifacts/aerospike-server-enterprise/' | grep -E '<a href="[0-9.-]+/"' | sed -r 's!.*<a href="([0-9.-]+)/".*!\1!' | sort -V | tail -1)"
+   fullVersion="$(curl -sSL 'https://download.aerospike.com/artifacts/aerospike-server-enterprise/' | grep -E '<a href="[0-9.-]+[-]*.*/"' | sed -r 's!.*<a href="([0-9.-]+[-]*.*)/".*!\1!' | sort -V | tail -1)"
 
 else 
    fullVersion=$1
