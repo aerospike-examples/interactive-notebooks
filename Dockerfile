@@ -27,7 +27,7 @@ RUN mkdir /opt/spark-nb; cd /opt/spark-nb\
   && pip install findspark numpy pandas matplotlib sklearn \
   && wget "https://download.aerospike.com/artifacts/aerospike-spark/3.4.0_spark3.1/aerospike-spark-3.4.0_spark_3.1_clientunshaded.jar"
   
-# install jupyter notebook extensions, and enable these extensions by default: table of content, collapsible headers, and scratchpad
+  # install jupyter notebook extensions, and enable these extensions by default: table of content, collapsible headers, and scratchpad
 RUN pip install jupyter_contrib_nbextensions\
   && jupyter contrib nbextension install --sys-prefix\
   && jupyter nbextension enable toc2/main --sys-prefix\
