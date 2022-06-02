@@ -1,12 +1,6 @@
 #!/bin/bash
 set -m
 
-# BEGIN TEST
-export SPARKNB_DIR="/opt/spark-nb"
-export SPARK_HOME=${SPARKNB_DIR:-spark-3.0.0-bin-hadoop3.2}
-export PYSPARK_SUBMIT_ARGS=${SPARKNB_DIR:-aerospike-spark-assembly-3.1.0.jar pyspark-shell}
-# END TEST
-
 export CORES=$(grep -c ^processor /proc/cpuinfo)
 export SERVICE_THREADS=${SERVICE_THREADS:-$CORES}
 export TRANSACTION_QUEUES=${TRANSACTION_QUEUES:-$CORES}
@@ -20,7 +14,7 @@ export FABRIC_ADDRESS=${FABRIC_ADDRESS:-any}
 export FABRIC_PORT=${FABRIC_PORT:-3001}
 export INFO_ADDRESS=${INFO_ADDRESS:-any}
 export INFO_PORT=${INFO_PORT:-3003}
-export NAMESPACE=${NAMESPACE:-test}
+export NAMESPACE=${NAMESPACE:-sandbox}
 export REPL_FACTOR=${REPL_FACTOR:-2}
 export MEM_GB=${MEM_GB:-1}
 export DEFAULT_TTL=${DEFAULT_TTL:-30d}
@@ -51,7 +45,11 @@ while [ $NETLINK_UP -eq 0 ] && [ $NETLINK_COUNT -lt 20 ]; do
 done
 echo "link $NETLINK state $(cat /sys/class/net/${NETLINK}/operstate) in ${NETLINK_COUNT}"
 
-service aerospike restart
+asd
+
+sleep 2
+
+asrestore --input-file /backup/sandbox.asb
 
 #####
 # Jupiter stuff
