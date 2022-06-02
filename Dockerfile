@@ -8,8 +8,8 @@ FROM jupyter/base-notebook:python-3.8.6
 
 USER root
 
-ENV AEROSPIKE_VERSION 6.0.0.0-rc7
-ENV AEROSPIKE_SHA256 92a0c0c4fbc5ad7d281921915f985d228ea648bbc595e74f7be3585ffed3d499
+ENV AEROSPIKE_VERSION 6.0.0.1
+ENV AEROSPIKE_SHA256 bdcbb2dbb2b412b48451996b17f769641f99abc7b00c7401a4f9933d2fd230f5
 ENV LOGFILE /var/log/aerospike/aerospike.log
 ENV PATH=$PATH:/usr/local/go/bin
 
@@ -49,22 +49,18 @@ RUN  mkdir /var/run/aerospike \
   && mkdir -p /var/log/aerospike 
 
 #install Go
-RUN wget -O go.tgz https://golang.org/dl/go1.17.3.linux-amd64.tar.gz \
+RUN wget -O go.tgz https://golang.org/dl/go1.18.3.linux-amd64.tar.gz \
   && tar -C /usr/local -xzf go.tgz \
   && rm go.tgz \
-  && go install github.com/gopherdata/gophernotes@v0.7.3 \
-  && go get github.com/aerospike/aerospike-client-go/v5 \
+  && go install github.com/gopherdata/gophernotes@v0.7.5 \
   && mkdir -p ~/.local/share/jupyter/kernels/gophernotes \
   && cd ~/.local/share/jupyter/kernels/gophernotes \
-  && cp $(go env GOPATH)/pkg/mod/github.com/gopherdata/gophernotes@v0.7.3/kernel/* "." \
+  && cp $(go env GOPATH)/pkg/mod/github.com/gopherdata/gophernotes@v0.7.5/kernel/* "." \
   && sed "s_gophernotes_$(go env GOPATH)/bin/gophernotes_" <kernel.json.in >kernel.json \
-  && cd $(go env GOPATH)/pkg/mod/github.com/aerospike/aerospike-client-go/v5@v5.8.0 \
+  && cd $(go env GOPATH)/pkg/mod/github.com/go-zeromq/zmq4@v0.14.1 \
   && go get -u \
   && go mod tidy \
-  && cd $(go env GOPATH)/pkg/mod/github.com/go-zeromq/zmq4@v0.13.0 \
-  && go get -u \
-  && go mod tidy \
-  && cd $(go env GOPATH)/pkg/mod/github.com/gopherdata/gophernotes@v0.7.3 \  
+  && cd $(go env GOPATH)/pkg/mod/github.com/gopherdata/gophernotes@v0.7.5 \  
   && go get -u \
   && go mod tidy
 
@@ -92,6 +88,10 @@ COPY aerospike.conf /etc/aerospike/aerospike.conf
 COPY features.conf /etc/aerospike/features.conf
 
 RUN chown -R ${NB_UID} /etc/aerospike /opt/aerospike /var/log/aerospike /var/run/aerospike
+
+# Load data
+RUN mkdir /backup
+COPY sandbox_00000.asb /backup/sandbox.asb 
 
 COPY jupyter_notebook_config.py /home/${NB_USER}/
 RUN  fix-permissions /home/${NB_USER}/
