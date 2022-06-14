@@ -18,6 +18,9 @@ ARG NB_UID=1000
 ENV USER ${NB_USER}
 ENV NB_UID ${NB_UID}
 ENV HOME /home/${NB_USER}
+ENV DOTNET_ROOT=${HOME}/dotnet
+ENV PATH=$PATH:${HOME}/dotnet
+ENV PATH=$PATH:${HOME}/.dotnet/tools
 USER root
 RUN chown -R ${NB_UID} ${HOME}
 
@@ -78,7 +81,15 @@ RUN . "$NVM_DIR/nvm.sh" && nvm alias default v${NODE_VERSION} \
   && ijsinstall --spec-path=full --working-dir=${HOME}
 
 ENV PATH="/root/.nvm/versions/node/v${NODE_VERSION}/bin/:${PATH}"
-     
+
+#install .NET
+RUN wget https://download.visualstudio.microsoft.com/download/pr/dc930bff-ef3d-4f6f-8799-6eb60390f5b4/1efee2a8ea0180c94aff8f15eb3af981/dotnet-sdk-6.0.300-linux-x64.tar.gz \
+  && mkdir -p ${HOME}/dotnet && tar zxf dotnet-sdk-6.0.300-linux-x64.tar.gz -C ${HOME}/dotnet \
+  && rm -rf dotnet-sdk-6.0.300-linux-x64.tar.gz \
+  && dotnet tool install --global Microsoft.dotnet-interactive \
+  && dotnet-interactive jupyter install \
+  && rm /tmp/NuGetScratch/lock/*
+
 COPY aerospike /etc/init.d/
 RUN usermod -a -G aerospike ${NB_USER}
 
