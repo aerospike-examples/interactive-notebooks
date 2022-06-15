@@ -107,8 +107,14 @@ COPY sandbox_00000.asb /backup/sandbox.asb
 COPY jupyter_notebook_config.py /home/${NB_USER}/
 RUN  fix-permissions /home/${NB_USER}/
 
+COPY .bashrc /home/${NB_USER}/
+COPY start-asd.sh /usr/local/bin/
+
 # I don't know why this has to be like this 
 # rather than overiding
 COPY entrypoint.sh /usr/local/bin/start-notebook.sh
-WORKDIR /home/${NB_USER}  
+RUN chmod +x /usr/local/bin/start-asd.sh
+WORKDIR /home/${NB_USER}
 USER ${NB_USER}
+# Configure container startup
+ENTRYPOINT ["/usr/local/bin/start-asd.sh"]
