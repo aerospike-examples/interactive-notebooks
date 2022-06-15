@@ -107,7 +107,6 @@ RUN fix-permissions /home/${NB_USER}/
 
 COPY .bashrc /home/${NB_USER}/
 COPY start-asd.sh /usr/local/bin/
-COPY start-singleuser.sh /usr/local/bin/
 
 # I don't know why this has to be like this 
 # rather than overiding
@@ -115,6 +114,7 @@ COPY entrypoint.sh /usr/local/bin/start-notebook.sh
 #I had to do this to get the container to launch, not sure what I was doing wrong
 RUN chmod +x /usr/local/bin/start-notebook.sh
 RUN chmod +x /usr/local/bin/start-asd.sh
-RUN chmod +x /usr/local/bin/start-singleuser.sh
 WORKDIR /home/${NB_USER}
 USER ${NB_USER}
+# Configure container startup
+CMD ["/usr/local/bin/start-asd.sh"]
