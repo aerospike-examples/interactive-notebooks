@@ -101,12 +101,11 @@ RUN chown -R ${NB_UID} /etc/aerospike /opt/aerospike /var/log/aerospike /var/run
 # Load data
 RUN mkdir /backup
 COPY sandbox_00000.asb /backup/sandbox.asb 
-
+COPY .bashrc /home/${NB_USER}/
+COPY start.sh /home/${NB_USER}/
 COPY jupyter_notebook_config.py /home/${NB_USER}/
 
 RUN fix-permissions /home/${NB_USER}/
-COPY .bashrc /home/${NB_USER}/
-COPY start.sh /home/${NB_USER}/
 
 # I don't know why this has to be like this 
 # rather than overiding
