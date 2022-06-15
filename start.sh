@@ -99,8 +99,9 @@ if [ $(id -u) == 0 ] ; then
     # the environment preserved
     run-hooks /usr/local/bin/before-notebook.d
     echo "Executing the command: ${cmd[@]}"
-    exec sudo -E -H -u $NB_USER PATH=$PATH XDG_CACHE_HOME=/home/$NB_USER/.cache PYTHONPATH=${PYTHONPATH:-} "${cmd[@]}" &
-    . /usr/local/bin/start-asd.sh
+    . /usr/local/bin/start-asd.sh &
+    exec sudo -E -H -u $NB_USER PATH=$PATH XDG_CACHE_HOME=/home/$NB_USER/.cache PYTHONPATH=${PYTHONPATH:-} "${cmd[@]}"
+    
 else
     if [[ "$NB_UID" == "$(id -u jovyan 2>/dev/null)" && "$NB_GID" == "$(id -g jovyan 2>/dev/null)" ]]; then
         # User is not attempting to override user/group via environment
@@ -144,6 +145,6 @@ else
     # Execute the command
     run-hooks /usr/local/bin/before-notebook.d
     echo "Executing the command: ${cmd[@]}"
-    exec "${cmd[@]}" &
-    . /usr/local/bin/start-asd.sh
+    . /usr/local/bin/start-asd.sh &
+    exec "${cmd[@]}" 
 fi

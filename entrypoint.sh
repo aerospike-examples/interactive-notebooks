@@ -56,8 +56,6 @@ if [[ "${RESTARTABLE}" == "yes" ]]; then
   wrapper="run-one-constantly"
 fi
 
-  . /usr/local/bin/start-asd.sh &
-
 if [[ ! -z "${JUPYTERHUB_API_TOKEN}" ]]; then
   # launched by JupyterHub, use single-user entrypoint
   . /usr/local/bin/start-singleuser.sh "$@"
