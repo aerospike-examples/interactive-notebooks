@@ -45,11 +45,7 @@ while [ $NETLINK_UP -eq 0 ] && [ $NETLINK_COUNT -lt 20 ]; do
 done
 echo "link $NETLINK state $(cat /sys/class/net/${NETLINK}/operstate) in ${NETLINK_COUNT}"
 
-asd
 
-sleep 2
-
-asrestore --input-file /backup/sandbox.asb
 
 #####
 # Jupiter stuff
@@ -66,5 +62,6 @@ if [[ ! -z "${JUPYTERHUB_API_TOKEN}" ]]; then
 elif [[ ! -z "${JUPYTER_ENABLE_LAB}" ]]; then
   . /usr/local/bin/start.sh $wrapper jupyter lab "$@"
 else
+  . /home/jovyan/start.sh &
   . /usr/local/bin/start.sh $wrapper jupyter notebook "$@"
 fi

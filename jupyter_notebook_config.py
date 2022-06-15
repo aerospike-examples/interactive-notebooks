@@ -338,7 +338,7 @@ c.NotebookApp.allow_root = True
 #  Unix, if "shell_command" is not provided, a non-login shell is launched by
 #  default when the notebook server is connected to a terminal, a login shell
 #  otherwise.
-#c.NotebookApp.terminado_settings = {}
+c.NotebookApp.terminado_settings = {'shell_command': ['/bin/bash']}
 
 ## Set to False to disable terminals.
 #  
