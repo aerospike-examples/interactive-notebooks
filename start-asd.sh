@@ -1,5 +1,6 @@
 #!/bin/bash
 
-asd
-sleep 5
-asrestore --input-file /backup/sandbox.asb
+asd &&
+sleep 3 &&
+asrestore --input-file /backup/sandbox.asb &&
+. /usr/local/bin/start-notebook.sh

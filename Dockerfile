@@ -101,17 +101,19 @@ RUN chown -R ${NB_UID} /etc/aerospike /opt/aerospike /var/log/aerospike /var/run
 # Load data
 RUN mkdir /backup
 COPY sandbox_00000.asb /backup/sandbox.asb 
-COPY .bashrc /home/${NB_USER}/
-COPY start.sh /usr/local/bin/
-COPY start-asd.sh /usr/local/bin/
 COPY jupyter_notebook_config.py /home/${NB_USER}/
 
 RUN fix-permissions /home/${NB_USER}/
+
+COPY .bashrc /home/${NB_USER}/
+COPY start-asd.sh /usr/local/bin/
 
 # I don't know why this has to be like this 
 # rather than overiding
 COPY entrypoint.sh /usr/local/bin/start-notebook.sh
 #I had to do this to get the container to launch, not sure what I was doing wrong
 RUN chmod +x /usr/local/bin/start-notebook.sh
+RUN chmod +x /usr/local/bin/start-asd.sh
 WORKDIR /home/${NB_USER}
 USER ${NB_USER}
+ENTRYPOINT [ "/usr/local/bin/start-asd.sh" ]
