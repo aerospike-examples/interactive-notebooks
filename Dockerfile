@@ -102,7 +102,7 @@ RUN chown -R ${NB_UID} /etc/aerospike /opt/aerospike /var/log/aerospike /var/run
 RUN mkdir /backup
 COPY sandbox_00000.asb /backup/sandbox.asb 
 COPY .bashrc /home/${NB_USER}/
-COPY start-singleuser.sh /usr/local/bin/
+COPY start.sh /usr/local/bin/
 COPY start-asd.sh /usr/local/bin/
 COPY jupyter_notebook_config.py /home/${NB_USER}/
 
