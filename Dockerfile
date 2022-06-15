@@ -116,4 +116,3 @@ RUN chmod +x /usr/local/bin/start-notebook.sh
 RUN chmod +x /usr/local/bin/start-asd.sh
 WORKDIR /home/${NB_USER}
 USER ${NB_USER}
-ENTRYPOINT [ "/usr/local/bin/start-asd.sh" ]

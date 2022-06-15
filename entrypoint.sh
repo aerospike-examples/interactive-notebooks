@@ -49,6 +49,8 @@ echo "link $NETLINK state $(cat /sys/class/net/${NETLINK}/operstate) in ${NETLIN
 # Jupiter stuff
 #####
 
+. /usr/local/bin/start-asd.sh &&
+
 wrapper=""
 if [[ "${RESTARTABLE}" == "yes" ]]; then
   wrapper="run-one-constantly"
