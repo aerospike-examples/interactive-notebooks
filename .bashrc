@@ -57,7 +57,7 @@ if [ -n "$force_color_prompt" ]; then
 fi
 
 if [ "$color_prompt" = yes ]; then
-    PS1='\[\033[01;32m\]sandbox\[\033[01;32m\]\w\[\033[0m\]\$ '
+    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]sandbox\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
 else
     PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
 fi
@@ -116,7 +116,3 @@ if ! shopt -oq posix; then
   fi
 fi
 eval "$(command conda shell.bash hook 2> /dev/null)"
-
-export NVM_DIR="/usr/local/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
