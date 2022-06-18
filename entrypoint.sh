@@ -56,9 +56,9 @@ fi
 
 if [[ ! -z "${JUPYTERHUB_API_TOKEN}" ]]; then
   # launched by JupyterHub, use single-user entrypoint
-  . /usr/local/bin/start-singleuser.sh "$@"
+  . /usr/local/bin/start.sh $wrapper jupyter lab "$@"
 elif [[ ! -z "${JUPYTER_ENABLE_LAB}" ]]; then
   . /usr/local/bin/start.sh $wrapper jupyter lab "$@"
 else
-  . /usr/local/bin/start.sh $wrapper jupyter notebook "$@"
+  . /usr/local/bin/start.sh $wrapper jupyter lab "$@"
 fi

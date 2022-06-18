@@ -101,7 +101,7 @@ RUN chown -R ${NB_UID} /etc/aerospike /opt/aerospike /var/log/aerospike /var/run
 # Load data
 RUN mkdir /backup
 COPY sandbox_00000.asb /backup/sandbox.asb 
-COPY jupyter_notebook_config.py /home/${NB_USER}/
+COPY jupyterhub_config.py /etc/jupyterhub/
 
 RUN fix-permissions /home/${NB_USER}/
 
