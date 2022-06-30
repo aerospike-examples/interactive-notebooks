@@ -94,7 +94,6 @@ COPY aerospike /etc/init.d/
 RUN usermod -a -G aerospike ${NB_USER}
 
 # Add the Aerospike configuration specific to this dockerfile
-COPY aerospike.template.conf /etc/aerospike/aerospike.template.conf
 COPY aerospike.conf /etc/aerospike/aerospike.conf
 COPY features.conf /etc/aerospike/features.conf
 
