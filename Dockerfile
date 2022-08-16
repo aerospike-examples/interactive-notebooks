@@ -107,7 +107,7 @@ RUN fix-permissions /home/${NB_USER}/
 
 COPY .bashrc /home/${NB_USER}/
 COPY start-asd.sh /usr/local/bin/
-COPY index.css /opt/conda/share/jupyter/lab/themes/@jupyterlab/theme-dark-extension/
+COPY spaceCompanies.json /backup/
 
 # I don't know why this has to be like this 
 # rather than overiding
