@@ -8,8 +8,8 @@ FROM jupyter/base-notebook:python-3.8.6
 
 USER root
 
-ENV AEROSPIKE_VERSION 6.0.0.2
-ENV AEROSPIKE_SHA256 d2bdb384e646e2338b3f2db53e27c75894c9f428f2bc4a7e13a4b136747b09be
+ENV AEROSPIKE_VERSION 6.0.0.4
+ENV AEROSPIKE_SHA256 fbdb1e0a2fda0fd220db0cf2f539d3c550d8c70af94e148b7a06ea822585dd39
 ENV LOGFILE /var/log/aerospike/aerospike.log
 
 ARG NB_USER=jovyan
@@ -26,8 +26,8 @@ RUN mkdir /opt/spark-nb; cd /opt/spark-nb\
   && wget -qO- "https://archive.apache.org/dist/spark/spark-3.1.2/spark-3.1.2-bin-hadoop3.2.tgz" | tar -xvz \
   && ln -s spark-3.1.2-bin-hadoop3.2 spark-dir-link \
   && pip install findspark numpy pandas matplotlib sklearn \
-  && wget "https://download.aerospike.com/artifacts/aerospike-spark/3.4.2/aerospike-spark-3.4.2_spark_3.1_clientunshaded.jar" \
-  && ln -s aerospike-spark-3.4.2_spark_3.1_clientunshaded.jar aerospike-jar-link
+  && wget "https://download.aerospike.com/artifacts/aerospike-spark/3.5.1/aerospike-spark-3.5.1_spark_3.2_clientunshaded.jar" \
+  && ln -s aerospike-spark-3.5.1_spark_3.2_clientunshaded.jar aerospike-jar-link
   
   # install jupyter notebook extensions, and enable these extensions by default: table of content, collapsible headers, and scratchpad
 RUN pip install jupyter_contrib_nbextensions\
