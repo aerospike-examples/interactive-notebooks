@@ -8,8 +8,8 @@ FROM jupyter/base-notebook:python-3.8.6
 
 USER root
 
-ENV AEROSPIKE_VERSION 6.0.0.4
-ENV AEROSPIKE_SHA256 fbdb1e0a2fda0fd220db0cf2f539d3c550d8c70af94e148b7a06ea822585dd39
+ENV AEROSPIKE_VERSION 6.1.0.1
+ENV AEROSPIKE_SHA256 c96abcecfb7ef1c242bc0bd198300549b06c449ae3e58dff96f31ffa4fa8a344
 ENV LOGFILE /var/log/aerospike/aerospike.log
 
 ARG NB_USER=jovyan
