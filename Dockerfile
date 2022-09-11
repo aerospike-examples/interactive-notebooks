@@ -34,8 +34,8 @@ RUN mkdir /var/run/aerospike\
   && tar xzf aerospike-server.tgz --strip-components=1 -C aerospike \
   && dpkg -i aerospike/aerospike-server-*.deb \
   && dpkg -i aerospike/aerospike-tools-*.deb \
-  && pip install --no-cache-dir aerospike\
   && pip install --no-cache-dir pymongo\
+  && pip install --no-cache-dir aerospike\
   && wget "https://github.com/SpencerPark/IJava/releases/download/v1.3.0/ijava-1.3.0.zip" -O ijava-kernel.zip\
   && unzip ijava-kernel.zip -d ijava-kernel \
   && python3 ijava-kernel/install.py --sys-prefix\
@@ -108,6 +108,7 @@ RUN fix-permissions /home/${NB_USER}/
 COPY .bashrc /home/${NB_USER}/
 COPY start-asd.sh /usr/local/bin/
 COPY spaceCompanies.json /backup/
+COPY example.lua /home/user/udf/
 
 # I don't know why this has to be like this 
 # rather than overiding
