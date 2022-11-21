@@ -8,8 +8,8 @@ FROM jupyter/base-notebook:python-3.8.6
 
 USER root
 
-ENV AEROSPIKE_VERSION 6.1.0.1
-ENV AEROSPIKE_SHA256 c96abcecfb7ef1c242bc0bd198300549b06c449ae3e58dff96f31ffa4fa8a344
+ENV AEROSPIKE_VERSION 6.2.0.0
+ENV AEROSPIKE_SHA256 706445be7561c38ba8ea7567e8ecf13ddda8e4f9c7da4ae6961330d2bbb14ac6
 ENV LOGFILE /var/log/aerospike/aerospike.log
 ENV PATH=$PATH:/usr/local/go/bin
 
@@ -30,13 +30,13 @@ RUN  mkdir /var/run/aerospike \
   && apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 0xB1998361219BD9C9 \
   && apt-add-repository 'deb http://repos.azulsystems.com/ubuntu stable main' \
   && apt-get install -y --no-install-recommends build-essential wget lua5.2 gettext-base libldap-dev curl unzip python python3-pip python3-dev python3 zulu-11 \
-  && wget "https://www.aerospike.com/artifacts/aerospike-server-enterprise/${AEROSPIKE_VERSION}/aerospike-server-enterprise-${AEROSPIKE_VERSION}-ubuntu20.04.tgz" -O aerospike-server.tgz \  
+  && wget "https://artifacts.aerospike.com/aerospike-server-enterprise/${AEROSPIKE_VERSION}/aerospike-server-enterprise_${AEROSPIKE_VERSION}_tools-8.0.1_ubuntu20.04_x86_64.tgz" -O aerospike-server.tgz \  
   && echo "$AEROSPIKE_SHA256 *aerospike-server.tgz" | sha256sum -c - \
   && wget "https://github.com/aerospike/aerospike-loader/releases/download/2.4.3/asloader-2.4.3-linux.x86_64.deb" -O asloader.deb \
   && mkdir aerospike \
   && tar xzf aerospike-server.tgz --strip-components=1 -C aerospike \
   && dpkg -i aerospike/aerospike-server-*.deb \
-  && dpkg -i aerospike/aerospike-tools-*.deb \
+  && dpkg -i aerospike/aerospike-tools_*.deb \
   && dpkg -i asloader.deb \
   && pip install --no-cache-dir pymongo \
   && pip install --no-cache-dir aerospike \
@@ -76,7 +76,6 @@ RUN . "$NVM_DIR/nvm.sh" && nvm install ${NODE_VERSION}
 RUN . "$NVM_DIR/nvm.sh" && nvm use v${NODE_VERSION}
 RUN . "$NVM_DIR/nvm.sh" && nvm alias default v${NODE_VERSION} \
   && npm install aerospike \
-  && npm install -g --unsafe-perm zeromq \
   && npm install -g --unsafe-perm ijavascript \
   && ijsinstall --spec-path=full --working-dir=${HOME}
 
@@ -118,4 +117,4 @@ RUN chmod +x /usr/local/bin/start-asd.sh
 WORKDIR /home/${NB_USER}
 USER ${NB_USER}
 # Configure container startup
-ENTRYPOINT ["/usr/local/bin/start-asd.sh"]
+# ENTRYPOINT ["/usr/local/bin/start-asd.sh"]
