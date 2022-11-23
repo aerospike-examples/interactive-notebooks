@@ -9,8 +9,9 @@ FROM jupyter/base-notebook:python-3.8.6
 USER root
 
 ENV AEROSPIKE_VERSION 6.2.0.0
-ENV AEROSPIKE_SHA256 706445be7561c38ba8ea7567e8ecf13ddda8e4f9c7da4ae6961330d2bbb14ac6
+ENV AEROSPIKE_SHA256 f481573aafef86ebfc2f20eb15deed426397b0f6a4afcac1be5e99d1840876a7
 ENV LOGFILE /var/log/aerospike/aerospike.log
+ARG AEROSPIKE_TOOLS_VERSION 8.0.2
 
 ARG NB_USER=jovyan
 ARG NB_UID=1000
@@ -26,8 +27,8 @@ RUN mkdir /opt/spark-nb; cd /opt/spark-nb\
   && wget -qO- "https://archive.apache.org/dist/spark/spark-3.1.2/spark-3.1.2-bin-hadoop3.2.tgz" | tar -xvz \
   && ln -s spark-3.1.2-bin-hadoop3.2 spark-dir-link \
   && pip install findspark numpy pandas matplotlib sklearn \
-  && wget "https://download.aerospike.com/artifacts/aerospike-spark/3.5.2/aerospike-spark-3.5.2_spark_3.2_clientunshaded.jar" \
-  && ln -s aerospike-spark-3.5.2_spark_3.2_clientunshaded.jar aerospike-jar-link
+  && wget "https://download.aerospike.com/artifacts/aerospike-spark/3.5.3/aerospike-spark-3.5.3_spark_3.2_clientunshaded.jar" \
+  && ln -s aerospike-spark-3.5.3_spark_3.2_clientunshaded.jar aerospike-jar-link
   
   # install jupyter notebook extensions, and enable these extensions by default: table of content, collapsible headers, and scratchpad
 RUN pip install jupyter_contrib_nbextensions\
@@ -42,7 +43,7 @@ RUN  mkdir /var/run/aerospike\
   && apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 0xB1998361219BD9C9 \
   && apt-add-repository 'deb http://repos.azulsystems.com/ubuntu stable main' \
   && apt-get install -y --no-install-recommends build-essential wget lua5.2 gettext-base libldap-dev curl unzip python python3-pip python3-dev python3 zulu-11\
-  && wget "https://www.aerospike.com/artifacts/aerospike-server-enterprise/${AEROSPIKE_VERSION}/aerospike-server-enterprise_${AEROSPIKE_VERSION}_tools-8.0.1_ubuntu20.04_x86_64.tgz" -O aerospike-server.tgz \  
+  && wget "https://www.aerospike.com/artifacts/aerospike-server-enterprise/${AEROSPIKE_VERSION}/aerospike-server-enterprise_${AEROSPIKE_VERSION}_tools-${AEROSPIKE_TOOLS_VERSION}_ubuntu20.04_x86_64.tgz" -O aerospike-server.tgz \  
   && echo "$AEROSPIKE_SHA256 *aerospike-server.tgz" | sha256sum -c - \
   && wget "https://github.com/aerospike/aerospike-loader/releases/download/2.4.3/asloader-2.4.3-linux.x86_64.deb" -O asloader.deb \
   && mkdir aerospike \
