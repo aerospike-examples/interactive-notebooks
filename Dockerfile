@@ -75,7 +75,7 @@ RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | b
 RUN . "$NVM_DIR/nvm.sh" && nvm install ${NODE_VERSION}
 RUN . "$NVM_DIR/nvm.sh" && nvm use v${NODE_VERSION}
 RUN . "$NVM_DIR/nvm.sh" && nvm alias default v${NODE_VERSION} \
-  && npm install aerospike \
+  && npm install aerospike@5.0.3 \
   && npm install -g --unsafe-perm ijavascript \
   && ijsinstall --spec-path=full --working-dir=${HOME}
 
