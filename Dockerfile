@@ -9,20 +9,24 @@ FROM jupyter/base-notebook:python-3.8.6
 USER root
 
 ENV AEROSPIKE_VERSION 6.2.0.0
-ENV AEROSPIKE_SHA256 706445be7561c38ba8ea7567e8ecf13ddda8e4f9c7da4ae6961330d2bbb14ac6
+ENV AEROSPIKE_SHA256 f481573aafef86ebfc2f20eb15deed426397b0f6a4afcac1be5e99d1840876a7
 ENV LOGFILE /var/log/aerospike/aerospike.log
-ENV PATH=$PATH:/usr/local/go/bin
+ARG AEROSPIKE_TOOLS_VERSION=8.0.2
 
 ARG NB_USER=jovyan
 ARG NB_UID=1000
 ENV USER ${NB_USER}
 ENV NB_UID ${NB_UID}
 ENV HOME /home/${NB_USER}
-ENV DOTNET_ROOT=${HOME}/dotnet
-ENV PATH=$PATH:${HOME}/dotnet
-ENV PATH=$PATH:${HOME}/.dotnet/tools
 USER root
 RUN chown -R ${NB_UID} ${HOME}
+
+# install jupyter notebook extensions, and enable these extensions by default: table of content, collapsible headers, and scratchpad
+RUN pip install jupyter_contrib_nbextensions\
+  && jupyter contrib nbextension install --sys-prefix\
+  && jupyter nbextension enable toc2/main --sys-prefix\
+  && jupyter nbextension enable collapsible_headings/main --sys-prefix\
+  && jupyter nbextension enable scratchpad/main --sys-prefix
 
 RUN  mkdir /var/run/aerospike \
   && apt-get update -y \
@@ -30,7 +34,7 @@ RUN  mkdir /var/run/aerospike \
   && apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 0xB1998361219BD9C9 \
   && apt-add-repository 'deb http://repos.azulsystems.com/ubuntu stable main' \
   && apt-get install -y --no-install-recommends build-essential wget lua5.2 gettext-base libldap-dev curl unzip python python3-pip python3-dev python3 zulu-11 \
-  && wget "https://artifacts.aerospike.com/aerospike-server-enterprise/${AEROSPIKE_VERSION}/aerospike-server-enterprise_${AEROSPIKE_VERSION}_tools-8.0.1_ubuntu20.04_x86_64.tgz" -O aerospike-server.tgz \  
+  && wget "https://www.aerospike.com/artifacts/aerospike-server-enterprise/${AEROSPIKE_VERSION}/aerospike-server-enterprise_${AEROSPIKE_VERSION}_tools-${AEROSPIKE_TOOLS_VERSION}_ubuntu20.04_x86_64.tgz" -O aerospike-server.tgz \
   && echo "$AEROSPIKE_SHA256 *aerospike-server.tgz" | sha256sum -c - \
   && wget "https://github.com/aerospike/aerospike-loader/releases/download/2.4.3/asloader-2.4.3-linux.x86_64.deb" -O asloader.deb \
   && mkdir aerospike \
@@ -51,22 +55,6 @@ RUN  mkdir /var/run/aerospike \
   && apt autoremove -y \
   && mkdir -p /var/log/aerospike 
 
-#install Go
-RUN wget -O go.tgz https://golang.org/dl/go1.18.3.linux-amd64.tar.gz \
-  && tar -C /usr/local -xzf go.tgz \
-  && rm go.tgz \
-  && go install github.com/gopherdata/gophernotes@v0.7.5 \
-  && mkdir -p ~/.local/share/jupyter/kernels/gophernotes \
-  && cd ~/.local/share/jupyter/kernels/gophernotes \
-  && cp $(go env GOPATH)/pkg/mod/github.com/gopherdata/gophernotes@v0.7.5/kernel/* "." \
-  && sed "s_gophernotes_$(go env GOPATH)/bin/gophernotes_" <kernel.json.in >kernel.json \
-  && cd $(go env GOPATH)/pkg/mod/github.com/go-zeromq/zmq4@v0.14.1 \
-  && go get -u \
-  && go mod tidy \
-  && cd $(go env GOPATH)/pkg/mod/github.com/gopherdata/gophernotes@v0.7.5 \  
-  && go get -u \
-  && go mod tidy
-
 #install node.js
 ENV NODE_VERSION=16.13.0
 RUN mkdir /usr/local/.nvm
@@ -81,14 +69,6 @@ RUN . "$NVM_DIR/nvm.sh" && nvm alias default v${NODE_VERSION} \
 
 ENV PATH="/root/.nvm/versions/node/v${NODE_VERSION}/bin/:${PATH}"
 
-#install .NET
-RUN wget https://download.visualstudio.microsoft.com/download/pr/dc930bff-ef3d-4f6f-8799-6eb60390f5b4/1efee2a8ea0180c94aff8f15eb3af981/dotnet-sdk-6.0.300-linux-x64.tar.gz \
-  && mkdir -p ${HOME}/dotnet && tar zxf dotnet-sdk-6.0.300-linux-x64.tar.gz -C ${HOME}/dotnet \
-  && rm -rf dotnet-sdk-6.0.300-linux-x64.tar.gz \
-  && dotnet tool install --global Microsoft.dotnet-interactive \
-  && dotnet-interactive jupyter install \
-  && rm /tmp/NuGetScratch/lock/*
-
 COPY aerospike /etc/init.d/
 RUN usermod -a -G aerospike ${NB_USER}
 
@@ -99,22 +79,14 @@ COPY features.conf /etc/aerospike/features.conf
 RUN chown -R ${NB_UID} /etc/aerospike /opt/aerospike /var/log/aerospike /var/run/aerospike
 
 # Load data
-RUN mkdir /backup
-COPY sandbox_00000.asb /backup/sandbox.asb 
-
-COPY jupyter_notebook_config.py /home/${NB_USER}/
+COPY .bashrc /home/${NB_USER}/
+COPY space-companies.json /home/${NB_USER}
+COPY wine-data.json /home/${NB_USER}
+COPY notebook-doc.ipynb /home/${NB_USER}
+COPY notebook-java.ipynb /home/${NB_USER}
+COPY notebook-node.ipynb /home/${NB_USER}
 RUN  fix-permissions /home/${NB_USER}/
 
-COPY .bashrc /home/${NB_USER}/
-COPY start-asd.sh /usr/local/bin/
-COPY spaceCompanies.json /backup/
-COPY example.lua /home/user/udf/
-
-# I don't know why this has to be like this 
-# rather than overiding
 COPY entrypoint.sh /usr/local/bin/start-notebook.sh
-RUN chmod +x /usr/local/bin/start-asd.sh
 WORKDIR /home/${NB_USER}
 USER ${NB_USER}
-# Configure container startup
-ENTRYPOINT ["/usr/local/bin/start-asd.sh"]
