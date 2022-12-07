@@ -27,8 +27,8 @@ RUN mkdir /opt/spark-nb; cd /opt/spark-nb\
   && wget -qO- "https://archive.apache.org/dist/spark/spark-3.1.2/spark-3.1.2-bin-hadoop3.2.tgz" | tar -xvz \
   && ln -s spark-3.1.2-bin-hadoop3.2 spark-dir-link \
   && pip install findspark numpy pandas matplotlib sklearn \
-  && wget "https://download.aerospike.com/artifacts/aerospike-spark/3.5.3/aerospike-spark-3.5.3_spark_3.2_clientunshaded.jar" \
-  && ln -s aerospike-spark-3.5.3_spark_3.2_clientunshaded.jar aerospike-jar-link
+  && wget "https://download.aerospike.com/artifacts/aerospike-spark/3.5.4/aerospike-spark-3.5.4_spark_3.2_clientunshaded.jar" \
+  && ln -s aerospike-spark-3.5.4_spark_3.2_clientunshaded.jar aerospike-jar-link
   
   # install jupyter notebook extensions, and enable these extensions by default: table of content, collapsible headers, and scratchpad
 RUN pip install jupyter_contrib_nbextensions\
