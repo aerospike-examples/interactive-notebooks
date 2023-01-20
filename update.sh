@@ -9,7 +9,7 @@ else
    serverVer=$1
 fi
 
-toolsVer="$(curl -sSL 'https://download.aerospike.com/artifacts/aerospike-tools/' | grep -E '<a href="[0-9.-]+[-]*.*/"' | sed -r 's!.*<a href="([0-9.-]+[-]*.*)/".*!\1!' | sort -V | tail -1)"
+toolsVer="$(curl -sSL "https://download.aerospike.com/artifacts/aerospike-server-enterprise/$serverVer/" | grep  'ubuntu20.04_x86_64.tgz' | sed 's/.*\(aerospike-server-enterprise_.*_tools-.*_ubuntu20.04_x86_64.tgz\).*/\1/' | tail -1 | sed 's/aerospike-server-enterprise_.*_tools-\(.*\)_ubuntu20.04_x86_64.tgz/\1/')"
 
 sha256="$(curl -sSL "https://download.aerospike.com/artifacts/aerospike-server-enterprise/${serverVer}/aerospike-server-enterprise_${serverVer}_tools-${toolsVer}_ubuntu20.04_x86_64.tgz.sha256" | cut -d' ' -f1)"
 
