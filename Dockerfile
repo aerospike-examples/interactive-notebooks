@@ -9,6 +9,8 @@ FROM jupyter/base-notebook:python-3.8.6
 USER root
 
 ENV AEROSPIKE_VERSION 6.3.0.1
+# Ubuntu 20 Enterprise SHA - 
+# Example: curl -sSL "https://download.aerospike.com/artifacts/aerospike-server-enterprise/6.3.0.1/aerospike-server-enterprise_6.3.0.1_tools-8.2.0_ubuntu20.04_x86_64.tgz.sha256"
 ENV AEROSPIKE_SHA256 6ef97aa1226c8ee51d51a9c0e801174c974d6282302a560babac34f9742f54f5
 ENV LOGFILE /var/log/aerospike/aerospike.log
 ARG AEROSPIKE_TOOLS_VERSION=8.2.0
