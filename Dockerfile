@@ -23,7 +23,7 @@ RUN chown -R ${NB_UID} ${HOME}
 
 # spark notebook
 RUN mkdir /opt/spark-nb; cd /opt/spark-nb\
-  && wget -qO- "https://javadl.oracle.com/webapps/download/AutoDL?BundleId=245467_4d5417147a92418ea8b615e228bb6935" | tar -xvz \
+  && wget -qO- "https://builds.openlogic.com/downloadJDK/openlogic-openjdk/8u362-b09/openlogic-openjdk-8u362-b09-linux-x64.tar.gz" | tar -xvz \
   && wget -qO- "https://archive.apache.org/dist/spark/spark-3.1.2/spark-3.1.2-bin-hadoop3.2.tgz" | tar -xvz \
   && ln -s spark-3.1.2-bin-hadoop3.2 spark-dir-link \
   && pip install findspark numpy pandas matplotlib sklearn \
