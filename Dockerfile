@@ -23,7 +23,6 @@ RUN chown -R ${NB_UID} ${HOME}
 
 # spark notebook
 RUN mkdir /opt/spark-nb; cd /opt/spark-nb\
-  && wget -qO- "https://cdn.azul.com/zulu/bin/zulu8.70.0.23-ca-jdk8.0.372-linux_x64.tar.gz" | tar -xvz \
   && wget -qO- "https://archive.apache.org/dist/spark/spark-3.1.2/spark-3.1.2-bin-hadoop3.2.tgz" | tar -xvz \
   && ln -s spark-3.1.2-bin-hadoop3.2 spark-dir-link \
   && pip install findspark numpy pandas matplotlib sklearn \
