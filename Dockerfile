@@ -51,7 +51,7 @@ RUN  mkdir /var/run/aerospike\
   && dpkg -i aerospike/aerospike-server*.deb \
   && dpkg -i aerospike/aerospike-tools*.deb \
   && mkdir -p /opt/aerospike/lib/java \
-  && mv aerospike-load-4.0.0-jar-with-dependencies.jar /opt/aerospike/lib/java/ \
+  && mv aerospike-load-*-jar-with-dependencies.jar /opt/aerospike/lib/java/ \
   && pip install --no-cache-dir aerospike\
   && pip install --no-cache-dir pymongo\
   && wget "https://github.com/SpencerPark/IJava/releases/download/v1.3.0/ijava-1.3.0.zip" -O ijava-kernel.zip\
