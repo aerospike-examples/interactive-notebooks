@@ -23,7 +23,7 @@ RUN chown -R ${NB_UID} ${HOME}
 
 # spark notebook
 RUN mkdir /opt/spark-nb; cd /opt/spark-nb\
-  && wget -qO- "https://javadl.oracle.com/webapps/download/AutoDL?BundleId=245467_4d5417147a92418ea8b615e228bb6935" | tar -xvz \
+  && wget -qO- "https://cdn.azul.com/zulu/bin/zulu8.70.0.23-ca-jdk8.0.372-linux_x64.tar.gz" | tar -xvz \
   && wget -qO- "https://archive.apache.org/dist/spark/spark-3.1.2/spark-3.1.2-bin-hadoop3.2.tgz" | tar -xvz \
   && ln -s spark-3.1.2-bin-hadoop3.2 spark-dir-link \
   && pip install findspark numpy pandas matplotlib sklearn \
@@ -51,7 +51,7 @@ RUN  mkdir /var/run/aerospike\
   && dpkg -i aerospike/aerospike-server*.deb \
   && dpkg -i aerospike/aerospike-tools*.deb \
   && mkdir -p /opt/aerospike/lib/java \
-  && mv aerospike-load-4.0.0-jar-with-dependencies.jar /opt/aerospike/lib/java/ \
+  && mv aerospike-load-*-jar-with-dependencies.jar /opt/aerospike/lib/java/ \
   && pip install --no-cache-dir aerospike\
   && pip install --no-cache-dir pymongo\
   && wget "https://github.com/SpencerPark/IJava/releases/download/v1.3.0/ijava-1.3.0.zip" -O ijava-kernel.zip\
