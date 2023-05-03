@@ -8,10 +8,10 @@ FROM jupyter/base-notebook:python-3.8.6
 
 USER root
 
-ENV AEROSPIKE_VERSION 6.3.0.1
-ENV AEROSPIKE_SHA256 6ef97aa1226c8ee51d51a9c0e801174c974d6282302a560babac34f9742f54f5
+ENV AEROSPIKE_VERSION 6.3.0.2
+ENV AEROSPIKE_SHA256 6ff9a12c93ffa443de80182db3a16f2303d1b7cd4c78f3d760952ede1e22c7e9
 ENV LOGFILE /var/log/aerospike/aerospike.log
-ARG AEROSPIKE_TOOLS_VERSION=8.2.0
+ARG AEROSPIKE_TOOLS_VERSION=8.3.0
 
 ARG NB_USER=jovyan
 ARG NB_UID=1000
@@ -23,8 +23,8 @@ RUN chown -R ${NB_UID} ${HOME}
 
 # spark notebook
 RUN mkdir /opt/spark-nb; cd /opt/spark-nb\
-  && wget -qO- "https://archive.apache.org/dist/spark/spark-3.1.2/spark-3.1.2-bin-hadoop3.2.tgz" | tar -xvz \
-  && ln -s spark-3.1.2-bin-hadoop3.2 spark-dir-link \
+  && wget -qO- "https://archive.apache.org/dist/spark/spark-3.4.0/spark-3.4.0-bin-hadoop3-scala2.13.tgz" | tar -xvz \
+  && ln -s spark-3.4.0-bin-hadoop3-scala2.13 spark-dir-link \
   && pip install findspark numpy pandas matplotlib sklearn \
   && wget "https://download.aerospike.com/artifacts/aerospike-spark/4.0.0/aerospike-spark-4.0.0-spark3.4-scala2.13-clientunshaded.jar" \
   && ln -s aerospike-spark-4.0.0-spark3.4-scala2.13-clientunshaded.jar aerospike-jar-link
