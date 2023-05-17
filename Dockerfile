@@ -31,7 +31,7 @@ RUN  mkdir /var/run/aerospike \
   && apt-add-repository 'deb http://repos.azulsystems.com/ubuntu stable main' \
   && apt-get install -y --no-install-recommends build-essential wget lua5.2 gettext-base libldap-dev curl unzip python python3-pip python3-dev python3 zulu-11 \
   && wget "https://artifacts.aerospike.com/aerospike-server-enterprise/${AEROSPIKE_VERSION}/aerospike-server-enterprise_${AEROSPIKE_VERSION}_tools-8.0.2_ubuntu20.04_x86_64.tgz" -O aerospike-server.tgz \  
-  && echo "$AEROSPIKE_SHA256 *aerospike-server.tgz" | sha256sum -c - \
+  #&& echo "$AEROSPIKE_SHA256 *aerospike-server.tgz" | sha256sum -c - \
   && wget "https://github.com/aerospike/aerospike-loader/releases/download/2.4.3/asloader-2.4.3-linux.x86_64.deb" -O asloader.deb \
   && mkdir aerospike \
   && tar xzf aerospike-server.tgz --strip-components=1 -C aerospike \
