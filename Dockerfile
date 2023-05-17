@@ -18,6 +18,10 @@ ARG NB_UID=1000
 ENV USER ${NB_USER}
 ENV NB_UID ${NB_UID}
 ENV HOME /home/${NB_USER}
+ENV GO_VERSION=1.20.4
+ENV GOROOT=/usr/local/go
+ENV GOPATH=${HOME}/go
+ENV PATH=$PATH:$GOROOT/bin:$GOPATH/bin
 ENV DOTNET_ROOT=${HOME}/dotnet
 ENV PATH=$PATH:${HOME}/dotnet
 ENV PATH=$PATH:${HOME}/.dotnet/tools
@@ -52,21 +56,14 @@ RUN  mkdir /var/run/aerospike \
   && mkdir -p /var/log/aerospike 
 
 #install Go
-RUN wget -O go.tgz https://golang.org/dl/go1.19.9.linux-amd64.tar.gz \
+RUN wget -O go.tgz https://golang.org/dl/go${GO_VERSION}.linux-amd64.tar.gz \
   && tar -C /usr/local -xzf go.tgz \
   && rm go.tgz \
-  && go install github.com/gopherdata/gophernotes@v0.7.5 \
-  && mkdir -p ~/.local/share/jupyter/kernels/gophernotes \
-  && cd ~/.local/share/jupyter/kernels/gophernotes \
-  && cp $(go env GOPATH)/pkg/mod/github.com/gopherdata/gophernotes@v0.7.5/kernel/* "." \
-  && sed "s_gophernotes_$(go env GOPATH)/bin/gophernotes_" <kernel.json.in >kernel.json \
-  && cd $(go env GOPATH)/pkg/mod/github.com/go-zeromq/zmq4@v0.14.1 \
-  && go get -u \
-  && go mod tidy \
-  && cd $(go env GOPATH)/pkg/mod/github.com/gopherdata/gophernotes@v0.7.5 \  
-  && go get -u \
-  && go mod tidy
-
+  && go install github.com/janpfeifer/gonb@latest \
+  && go install golang.org/x/tools/cmd/goimports@latest \
+  && go install golang.org/x/tools/gopls@latest \
+  && gonb --install
+  
 #install node.js
 ENV NODE_VERSION=16.13.0
 RUN mkdir /usr/local/.nvm
