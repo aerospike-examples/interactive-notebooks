@@ -52,7 +52,7 @@ RUN  mkdir /var/run/aerospike \
   && mkdir -p /var/log/aerospike 
 
 #install Go
-RUN wget -O go.tgz https://golang.org/dl/go1.18.3.linux-amd64.tar.gz \
+RUN wget -O go.tgz https://golang.org/dl/go1.20.4.linux-amd64.tar.gz \
   && tar -C /usr/local -xzf go.tgz \
   && rm go.tgz \
   && go install github.com/gopherdata/gophernotes@v0.7.5 \
@@ -82,9 +82,9 @@ RUN . "$NVM_DIR/nvm.sh" && nvm alias default v${NODE_VERSION} \
 ENV PATH="/root/.nvm/versions/node/v${NODE_VERSION}/bin/:${PATH}"
 
 #install .NET
-RUN wget https://download.visualstudio.microsoft.com/download/pr/dc930bff-ef3d-4f6f-8799-6eb60390f5b4/1efee2a8ea0180c94aff8f15eb3af981/dotnet-sdk-6.0.300-linux-x64.tar.gz \
-  && mkdir -p ${HOME}/dotnet && tar zxf dotnet-sdk-6.0.300-linux-x64.tar.gz -C ${HOME}/dotnet \
-  && rm -rf dotnet-sdk-6.0.300-linux-x64.tar.gz \
+RUN wget -O dotnet.tgz https://download.visualstudio.microsoft.com/download/pr/351400ef-f2e6-4ee7-9d1b-4c246231a065/9f7826270fb36ada1bdb9e14bc8b5123/dotnet-sdk-7.0.302-linux-x64.tar.gz \
+  && mkdir -p ${HOME}/dotnet && tar zxf dotnet.tgz -C ${HOME}/dotnet \
+  && rm -rf dotnet.tgz \
   && dotnet tool install --global Microsoft.dotnet-interactive \
   && dotnet-interactive jupyter install \
   && rm /tmp/NuGetScratch/lock/*
@@ -117,4 +117,4 @@ RUN chmod +x /usr/local/bin/start-asd.sh
 WORKDIR /home/${NB_USER}
 USER ${NB_USER}
 # Configure container startup
-ENTRYPOINT ["/usr/local/bin/start-asd.sh"]
+#ENTRYPOINT ["/usr/local/bin/start-asd.sh"]
