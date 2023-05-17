@@ -114,4 +114,4 @@ RUN chmod +x /usr/local/bin/start-asd.sh
 WORKDIR /home/${NB_USER}
 USER ${NB_USER}
 # Configure container startup
-#ENTRYPOINT ["/usr/local/bin/start-asd.sh"]
+ENTRYPOINT ["/usr/local/bin/start-asd.sh"]
