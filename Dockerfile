@@ -19,6 +19,13 @@ ARG NB_UID=1000
 ENV USER ${NB_USER}
 ENV NB_UID ${NB_UID}
 ENV HOME /home/${NB_USER}
+ENV GO_VERSION=1.20.4
+ENV GOROOT=/usr/local/go
+ENV GOPATH=${HOME}/go
+ENV PATH=$PATH:$GOROOT/bin:$GOPATH/bin
+ENV DOTNET_ROOT=${HOME}/dotnet
+ENV PATH=$PATH:${HOME}/dotnet
+ENV PATH=$PATH:${HOME}/.dotnet/tools
 USER root
 RUN chown -R ${NB_UID} ${HOME}
 
@@ -47,20 +54,13 @@ RUN mkdir /var/run/aerospike\
   && mkdir -p /var/log/aerospike  
 
 #install Go
-RUN wget -O go.tgz https://golang.org/dl/go1.18.3.linux-amd64.tar.gz \
+RUN wget -O go.tgz https://golang.org/dl/go${GO_VERSION}.linux-amd64.tar.gz \
   && tar -C /usr/local -xzf go.tgz \
   && rm go.tgz \
-  && go install github.com/gopherdata/gophernotes@v0.7.5 \
-  && mkdir -p ~/.local/share/jupyter/kernels/gophernotes \
-  && cd ~/.local/share/jupyter/kernels/gophernotes \
-  && cp $(go env GOPATH)/pkg/mod/github.com/gopherdata/gophernotes@v0.7.5/kernel/* "." \
-  && sed "s_gophernotes_$(go env GOPATH)/bin/gophernotes_" <kernel.json.in >kernel.json \
-  && cd $(go env GOPATH)/pkg/mod/github.com/go-zeromq/zmq4@v0.14.1 \
-  && go get -u \
-  && go mod tidy \
-  && cd $(go env GOPATH)/pkg/mod/github.com/gopherdata/gophernotes@v0.7.5 \  
-  && go get -u \
-  && go mod tidy
+  && go install github.com/janpfeifer/gonb@latest \
+  && go install golang.org/x/tools/cmd/goimports@latest \
+  && go install golang.org/x/tools/gopls@latest \
+  && gonb --install
   
 #install node.js
 ENV NODE_VERSION=16.13.0
@@ -70,20 +70,16 @@ RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | b
 RUN . "$NVM_DIR/nvm.sh" && nvm install ${NODE_VERSION}
 RUN . "$NVM_DIR/nvm.sh" && nvm use v${NODE_VERSION}
 RUN . "$NVM_DIR/nvm.sh" && nvm alias default v${NODE_VERSION} \
-  && npm install aerospike \
-  && npm install -g --unsafe-perm zeromq \
+  && npm install aerospike@5.0.3 \
   && npm install -g --unsafe-perm ijavascript \
   && ijsinstall --spec-path=full --working-dir=${HOME}
 
-ENV PATH="/root/.nvm/versions/node/v${NODE_VERSION}/bin/:${PATH}"  
+ENV PATH="/root/.nvm/versions/node/v${NODE_VERSION}/bin/:${PATH}"
 
 #install .NET
-ENV DOTNET_ROOT=${HOME}/dotnet
-ENV PATH=$PATH:${HOME}/dotnet
-ENV PATH=$PATH:${HOME}/.dotnet/tools
-RUN wget https://download.visualstudio.microsoft.com/download/pr/dc930bff-ef3d-4f6f-8799-6eb60390f5b4/1efee2a8ea0180c94aff8f15eb3af981/dotnet-sdk-6.0.300-linux-x64.tar.gz \
-  && mkdir -p ${HOME}/dotnet && tar zxf dotnet-sdk-6.0.300-linux-x64.tar.gz -C ${HOME}/dotnet \
-  && rm -rf dotnet-sdk-6.0.300-linux-x64.tar.gz \
+RUN wget -O dotnet.tgz https://download.visualstudio.microsoft.com/download/pr/351400ef-f2e6-4ee7-9d1b-4c246231a065/9f7826270fb36ada1bdb9e14bc8b5123/dotnet-sdk-7.0.302-linux-x64.tar.gz \
+  && mkdir -p ${HOME}/dotnet && tar zxf dotnet.tgz -C ${HOME}/dotnet \
+  && rm -rf dotnet.tgz \
   && dotnet tool install --global Microsoft.dotnet-interactive \
   && dotnet-interactive jupyter install \
   && rm /tmp/NuGetScratch/lock/*
