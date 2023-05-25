@@ -8,7 +8,7 @@ FROM jupyter/base-notebook:python-3.8.6
 
 USER root
 
-ENV AEROSPIKE_VERSION 6.2.0.0
+ENV AEROSPIKE_VERSION 6.3.0.3
 ENV AEROSPIKE_SHA256 706445be7561c38ba8ea7567e8ecf13ddda8e4f9c7da4ae6961330d2bbb14ac6
 ENV LOGFILE /var/log/aerospike/aerospike.log
 ENV PATH=$PATH:/usr/local/go/bin
@@ -34,7 +34,7 @@ RUN  mkdir /var/run/aerospike \
   && apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 0xB1998361219BD9C9 \
   && apt-add-repository 'deb http://repos.azulsystems.com/ubuntu stable main' \
   && apt-get install -y --no-install-recommends build-essential wget lua5.2 gettext-base libldap-dev curl unzip python python3-pip python3-dev python3 zulu-11 \
-  && wget "https://artifacts.aerospike.com/aerospike-server-enterprise/${AEROSPIKE_VERSION}/aerospike-server-enterprise_${AEROSPIKE_VERSION}_tools-8.0.2_ubuntu20.04_x86_64.tgz" -O aerospike-server.tgz \  
+  && wget "https://artifacts.aerospike.com/aerospike-server-enterprise/${AEROSPIKE_VERSION}/aerospike-server-enterprise_${AEROSPIKE_VERSION}_tools-8.3.0_ubuntu20.04_x86_64.tgz" -O aerospike-server.tgz \  
   #&& echo "$AEROSPIKE_SHA256 *aerospike-server.tgz" | sha256sum -c - \
   && wget "https://github.com/aerospike/aerospike-loader/releases/download/2.4.3/asloader-2.4.3-linux.x86_64.deb" -O asloader.deb \
   && mkdir aerospike \
