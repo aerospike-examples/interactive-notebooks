@@ -66,7 +66,7 @@ RUN curl -Ls ${MAMBA_URL} | tar -xvj bin/micromamba && \
     rm ijava-kernel.zip 
 
 # Copy files
-COPY start-notebook.sh start-singleuser.sh start-asd.sh start.sh fix-permissions /usr/local/bin/
+COPY start.sh start-asd.sh start-notebook.sh start-singleuser.sh fix-permissions /usr/local/bin/
 COPY aerospike.conf features.conf /etc/aerospike/
 COPY firefly-graph.properties firefly-gremlin-server.yaml /opt/aerospike-firefly/conf/
 COPY air-routes-small.graphml /opt/aerospike-firefly/
@@ -74,13 +74,13 @@ COPY graph-java.ipynb /home/${NB_USER}/
 COPY jupyter_server_config.py /etc/jupyter/
 
 RUN chmod a+rx /usr/local/bin/fix-permissions && \
-    chmod +x /usr/local/bin/start.sh /usr/local/bin/start-notebook.sh /usr/local/bin/start-asd.sh && \
+    chmod +x /usr/local/bin/start-asd.sh /usr/local/bin/start.sh /usr/local/bin/start-notebook.sh /usr/local/bin/start-singleuser.sh && \
     sed -re "s/c.ServerApp/c.NotebookApp/g" /etc/jupyter/jupyter_server_config.py > /etc/jupyter/jupyter_notebook_config.py && \
     fix-permissions /etc/jupyter/ && \
     fix-permissions "${CONDA_DIR}" && \
     fix-permissions "/home/${NB_USER}"
 
-CMD [ "jupyter", "lab" ]
+CMD [ "start-notebook.sh" ]
 ENV JUPYTER_PORT=8888
 EXPOSE $JUPYTER_PORT
 
