@@ -80,11 +80,10 @@ RUN chmod a+rx /usr/local/bin/fix-permissions && \
     fix-permissions "${CONDA_DIR}" && \
     fix-permissions "/home/${NB_USER}"
 
-CMD [ "start-notebook.sh" ]
 ENV JUPYTER_PORT=8888
 EXPOSE $JUPYTER_PORT
+CMD [ "start-notebook.sh" ]
 
 WORKDIR /home/${NB_USER}
 USER ${NB_USER}
-
-ENTRYPOINT ["start-asd.sh"]
+ENTRYPOINT [ "start-asd.sh" ]

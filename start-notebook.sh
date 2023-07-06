@@ -3,6 +3,8 @@
 # Distributed under the terms of the Modified BSD License.
 
 set -e
+asd &&
+nohup /opt/gremlin-server/bin/gremlin-server.sh /opt/aerospike-firefly/conf/firefly-gremlin-server.yaml &
 
 # The Jupyter command to launch
 # JupyterLab by default
@@ -19,4 +21,4 @@ if [[ "${RESTARTABLE}" == "yes" ]]; then
 fi
 
 # shellcheck disable=SC1091,SC2086
-exec /usr/local/bin/start.sh ${wrapper} jupyter ${DOCKER_STACKS_JUPYTER_CMD} ${NOTEBOOK_ARGS} "$@"
+exec jupyter ${DOCKER_STACKS_JUPYTER_CMD} ${NOTEBOOK_ARGS} "$@"
