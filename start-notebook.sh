@@ -3,8 +3,6 @@
 # Distributed under the terms of the Modified BSD License.
 
 set -e
-asd &&
-nohup /opt/gremlin-server/bin/gremlin-server.sh /opt/aerospike-firefly/conf/firefly-gremlin-server.yaml &
 
 # The Jupyter command to launch
 # JupyterLab by default
