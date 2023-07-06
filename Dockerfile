@@ -43,7 +43,7 @@ RUN echo "auth requisite pam_deny.so" >> /etc/pam.d/su && \
     sed -i.bak -e 's/^%admin/#%admin/' /etc/sudoers && \
     sed -i.bak -e 's/^%sudo/#%sudo/' /etc/sudoers && \
     mkdir ${CONDA_DIR} && \
-    chown ${NB_USER}:${NB_GID} ${CONDA_DIR} && \
+    chown ${NB_USER} ${CONDA_DIR} && \
     chown -R ${NB_UID} /etc/aerospike /opt/aerospike /var/log/aerospike /var/run/aerospike /opt/apache-tinkerpop-* && \
     usermod -a -G aerospike ${NB_USER} && \
     chmod g+w /etc/passwd
