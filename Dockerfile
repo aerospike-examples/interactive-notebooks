@@ -1,7 +1,6 @@
 #
 # Aerospike Graph all-in-one Docker file
 #
-
 FROM aerospike/aerospike-graph-service:latest
 
 ARG AEROSPIKE_VERSION=6.3.0.2
