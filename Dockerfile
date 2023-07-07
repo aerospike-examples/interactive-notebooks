@@ -5,21 +5,34 @@ FROM aerospike/aerospike-graph-service:latest as graph
 USER root
 RUN yum clean all && rm -rf /root/.m2/repository/* /var/cache/yum /tmp/gremlin-* /tmp/maven*
 
-FROM amazonlinux:2 as aerospike
+FROM amazonlinux:2 as final
 USER root
 WORKDIR /
 
+COPY --from=graph . /
+
 ARG AEROSPIKE_VERSION=6.3.0.2
 ARG AEROSPIKE_TOOLS_VERSION=8.3.0
+ARG NB_USER=firefly
+ARG NB_UID=1000
+ARG NB_GID=100
 ARG AEROSPIKE_URL="https://www.aerospike.com/artifacts/aerospike-server-enterprise/${AEROSPIKE_VERSION}/aerospike-server-enterprise_${AEROSPIKE_VERSION}_tools-${AEROSPIKE_TOOLS_VERSION}_el7_x86_64.tgz"
+ARG MAMBA_URL="https://micro.mamba.pm/api/micromamba/linux-64/latest"
 
 ENV AEROSPIKE_VERSION=${AEROSPIKE_VERSION} \
     LOGFILE=/var/log/aerospike/aerospike.log \
-    NB_USER=firefly \
+    CONDA_DIR=/opt/conda \
+    NB_USER=${NB_USER} \
     NB_UID=${NB_UID} \
-    NB_GID=${NB_GID} 
-
-COPY --from=graph . /
+    NB_GID=${NB_GID} \
+    TINKERPOP_VERSION='3.6.3' \
+    MAVEN_VERSION='3.8.8' \
+    JANSI_VERSION='2.4.0'
+ENV MAMBA_ROOT_PREFIX=${CONDA_DIR} \
+    PATH=$PATH:${CONDA_DIR}/bin:/opt/apache-maven-$MAVEN_VERSION/bin:/opt/gremlin-console/bin:/opt/gremlin-server/bin \
+    HOME=/home/${NB_USER} \
+    CONF_DIR="/opt/aerospike-firefly/conf/docker-default" \
+    TINI_VERSION=v0.19.0
 
 RUN yum update -y && \
     yum install -y  gcc gcc-c++ make python3-devel liberation-fonts bzip2 sudo wget && \
@@ -32,31 +45,13 @@ RUN yum update -y && \
     mkdir -p /opt/aerospike/lib/java && \
     mkdir -p /var/log/aerospike && \
     yum clean all && \
-    rm -rf /var/cache/yum aerospike-server.tgz /aerospike
-
-FROM amazonlinux:2 as jupyter
-USER root
-WORKDIR /
-
-ARG NB_USER=firefly
-ARG NB_UID=1000
-ARG NB_GID=100
-ARG MAMBA_URL="https://micro.mamba.pm/api/micromamba/linux-64/latest"
-
-ENV CONDA_DIR=/opt/conda \
-    NB_USER=firefly \
-    NB_UID=${NB_UID} \
-    NB_GID=${NB_GID} 
-ENV MAMBA_ROOT_PREFIX=${CONDA_DIR} \
-    PATH=$PATH:${CONDA_DIR}/bin \
-    HOME=/home/${NB_USER}
-
-COPY --from=aerospike . /
-
-RUN echo "auth requisite pam_deny.so" >> /etc/pam.d/su && \
+    rm -rf /var/cache/yum aerospike-server.tgz /aerospike && \
+    echo "auth requisite pam_deny.so" >> /etc/pam.d/su && \
     sed -i.bak -e 's/^%admin/#%admin/' /etc/sudoers && \
     sed -i.bak -e 's/^%sudo/#%sudo/' /etc/sudoers && \
     mkdir ${CONDA_DIR} && \
+    chown -R ${NB_UID}:${NB_GID} /etc/aerospike /opt/aerospike /var/log/aerospike /var/run/aerospike /opt/apache-tinkerpop-* ${CONDA_DIR} && \
+    usermod -a -G aerospike ${NB_USER} && \
     chmod g+w /etc/passwd && \
     curl -Ls ${MAMBA_URL} | tar -xvj bin/micromamba && \
     eval "$(micromamba shell hook -s bash)" && \
@@ -73,25 +68,6 @@ RUN echo "auth requisite pam_deny.so" >> /etc/pam.d/su && \
     jupyter lab clean && \
     rm -rf /home/${NB_USER}/.cache/yarn ijava-kernel.zip
 
-FROM amazonlinux:2 as final
-USER root
-WORKDIR /
-
-ARG NB_USER=firefly
-ARG NB_UID=1000
-ARG NB_GID=100
-
-ENV CONDA_DIR=/opt/conda \
-    NB_USER=firefly \
-    NB_UID=${NB_UID} \
-    NB_GID=${NB_GID} \
-    CONF_DIR="/opt/aerospike-firefly/conf/docker-default" \
-    TINI_VERSION=v0.19.0
-ENV MAMBA_ROOT_PREFIX=${CONDA_DIR} \
-    PATH=$PATH:${CONDA_DIR}/bin:/opt/apache-maven-$MAVEN_VERSION/bin:/opt/gremlin-console/bin:/opt/gremlin-server/bin \
-    HOME=/home/${NB_USER}
-
-COPY --from=jupyter . /
 COPY start.sh start-asd.sh start-notebook.sh start-singleuser.sh fix-permissions /usr/local/bin/
 COPY aerospike.conf features.conf /etc/aerospike/
 COPY firefly-graph.properties firefly-gremlin-server.yaml /opt/aerospike-firefly/conf/
@@ -103,8 +79,6 @@ ADD https://github.com/krallin/tini/releases/download/${TINI_VERSION}/tini /tini
 
 RUN chmod a+rx /usr/local/bin/fix-permissions && \
     chmod +x /usr/local/bin/start-asd.sh /usr/local/bin/start.sh /usr/local/bin/start-notebook.sh /usr/local/bin/start-singleuser.sh /tini && \
-    chown -R ${NB_UID}:${NB_GID} /etc/aerospike /opt/aerospike /var/log/aerospike /var/run/aerospike /opt/apache-tinkerpop-* ${CONDA_DIR} && \
-    usermod -a -G aerospike ${NB_USER} && \
     sed -re "s/c.ServerApp/c.NotebookApp/g" /etc/jupyter/jupyter_server_config.py > /etc/jupyter/jupyter_notebook_config.py && \
     fix-permissions /etc/jupyter/ && \
     fix-permissions ${CONDA_DIR} && \
