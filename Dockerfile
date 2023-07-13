@@ -50,7 +50,7 @@ RUN python3 -m pip install --no-cache-dir aerospike gremlinpython "urllib3 <=1.2
 COPY start-asd.sh /usr/local/bin/
 COPY aerospike.conf features.conf /etc/aerospike/
 COPY firefly-graph.properties firefly-gremlin-server.yaml /opt/aerospike-firefly/conf/
-COPY air-routes-latest.graphml /opt/aerospike-firefly/
+COPY air-routes-small-latest.graphml /opt/aerospike-firefly/
 COPY graph-notebook.ipynb /home/${NB_USER}/
 
 RUN chmod +x /usr/local/bin/start-asd.sh 
