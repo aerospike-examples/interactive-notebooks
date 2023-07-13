@@ -5,6 +5,7 @@ FROM aerospike/aerospike-graph-service:latest as graph
 USER root
 RUN yum clean all && rm -rf /root/.m2/repository/* /var/cache/yum /tmp/gremlin-* /tmp/maven*
 
+# Create build image
 FROM amazonlinux:2 as build
 USER root
 WORKDIR /
@@ -23,6 +24,7 @@ ENV AEROSPIKE_VERSION=${AEROSPIKE_VERSION} \
     NB_UID=${NB_UID} \
     NB_GID=${NB_GID}
 
+# Install os updates and Aerospike 
 RUN yum update -y && \
     yum install -y  gcc gcc-c++ make python3-devel liberation-fonts bzip2 sudo wget && \
     mkdir /var/run/aerospike && \
@@ -35,22 +37,25 @@ RUN yum update -y && \
     yum clean all && \
     rm -rf /var/cache/yum aerospike-server.tgz /aerospike && \
     chown -R ${NB_UID}:${NB_GID} /etc/aerospike /opt/aerospike /var/log/aerospike /var/run/aerospike /opt/apache-tinkerpop-* && \
-    usermod -a -G aerospike ${NB_USER} && \
-    chmod g+w /etc/passwd && \
-    python3 -m pip install --no-cache-dir aerospike gremlinpython "urllib3 <=1.26.15" jupyterlab && \
+    usermod -a -G aerospike ${NB_USER}
+
+# Install client, kernels, and extensions
+RUN python3 -m pip install --no-cache-dir aerospike gremlinpython "urllib3 <=1.26.15" jupyterlab graph-notebook && \
     curl -L -o ijava-kernel.zip "https://github.com/SpencerPark/IJava/releases/download/v1.3.0/ijava-1.3.0.zip" && \
     unzip ijava-kernel.zip -d ijava-kernel && \
     python3 ijava-kernel/install.py --sys-prefix && \
-    rm -rf ijava-kernel.zip
+    rm -rf ijava-kernel.zip 
 
+# Copy files 
 COPY start-asd.sh /usr/local/bin/
 COPY aerospike.conf features.conf /etc/aerospike/
 COPY firefly-graph.properties firefly-gremlin-server.yaml /opt/aerospike-firefly/conf/
-COPY air-routes-small.graphml /opt/aerospike-firefly/
-COPY graph-java.ipynb /home/${NB_USER}/
+COPY air-routes-latest.graphml /opt/aerospike-firefly/
+COPY graph-notebook.ipynb /home/${NB_USER}/
 
 RUN chmod +x /usr/local/bin/start-asd.sh 
 
+# Create final image
 FROM amazonlinux:2 as final
 USER root
 WORKDIR /
