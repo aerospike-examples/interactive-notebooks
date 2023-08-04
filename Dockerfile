@@ -44,7 +44,7 @@ RUN wget "https://download.aerospike.com/artifacts/aerospike-server-enterprise/$
     dpkg -i /aerospike/aerospike-server-*.deb && \
     dpkg -i /aerospike/aerospike-tools_*.deb && \
     usermod -a -G aerospike ${NB_USER} && \
-    python3 -m pip install --no-cache-dir aerospike jupyterlab && \
+    python3 -m pip install --no-cache-dir aerospike jupyterlab notebook && \
     rm -rf aerospike-server.tgz /aerospike /var/lib/apt/lists/*
 
 # install Java kernel
