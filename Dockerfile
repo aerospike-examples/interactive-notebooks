@@ -113,7 +113,7 @@ COPY --from=build . /
 
 EXPOSE ${JUPYTER_PORT}
 
-CMD [ "jupyter", "lab", "--ip=0.0.0.0" ]
+CMD [ "jupyter-lab", "--ip=0.0.0.0" ]
 
 WORKDIR /home/${NB_USER}
 USER ${NB_USER}
