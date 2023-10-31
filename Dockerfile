@@ -1,7 +1,7 @@
 #
 # Aerospike Graph Sizing Tool Dockerfile
 #
-FROM firefly6 as graph
+FROM aerospike/aerospike-graph-service:latest as graph
 USER root
 RUN yum clean all && rm -rf /root/.m2/repository/* /var/cache/yum /tmp/gremlin-* /tmp/maven*
 
