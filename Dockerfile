@@ -8,10 +8,10 @@ FROM jupyter/base-notebook:python-3.8.6
 
 USER root
 
-ENV AEROSPIKE_VERSION 6.3.0.2
+ENV AEROSPIKE_VERSION 6.4.0.6
 ENV AEROSPIKE_SHA256 6ff9a12c93ffa443de80182db3a16f2303d1b7cd4c78f3d760952ede1e22c7e9
 ENV LOGFILE /var/log/aerospike/aerospike.log
-ARG AEROSPIKE_TOOLS_VERSION=8.3.0
+ARG AEROSPIKE_TOOLS_VERSION=9.2.1
 
 ARG NB_USER=jovyan
 ARG NB_UID=1000
@@ -44,7 +44,7 @@ RUN  mkdir /var/run/aerospike\
   && apt-get install -y --no-install-recommends build-essential wget lua5.2 gettext-base libldap-dev curl unzip python python3-pip python3-dev python3 zulu-11\
   && wget "https://www.aerospike.com/artifacts/aerospike-server-enterprise/${AEROSPIKE_VERSION}/aerospike-server-enterprise_${AEROSPIKE_VERSION}_tools-${AEROSPIKE_TOOLS_VERSION}_ubuntu20.04_x86_64.tgz" -O aerospike-server.tgz \  
   && echo "$AEROSPIKE_SHA256 *aerospike-server.tgz" | sha256sum -c - \
-  && wget "https://github.com/aerospike/aerospike-loader/releases/download/4.0.0/aerospike-load-4.0.0-jar-with-dependencies.jar" \
+  && wget "https://github.com/aerospike/aerospike-loader/releases/download/4.0.1/aerospike-load-4.0.1-jar-with-dependencies.jar" \
   && mkdir aerospike \
   && tar xzf aerospike-server.tgz --strip-components=1 -C aerospike \
   && dpkg -i aerospike/aerospike-server*.deb \
