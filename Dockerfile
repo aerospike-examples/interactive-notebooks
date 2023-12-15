@@ -26,7 +26,7 @@ ENV AEROSPIKE_VERSION=${AEROSPIKE_VERSION} \
 
 # Install os updates and Aerospike 
 RUN yum update -y && \
-    yum install -y  tar.x86_64 gcc gcc-c++ make python3-devel liberation-fonts bzip2 sudo wget && \
+    yum install -y  tar.x86_64 gcc gcc-c++ make python3-devel liberation-fonts bzip2 unzip sudo wget && \
     mkdir /var/run/aerospike && \
     curl -L -o aerospike-server.tgz ${AEROSPIKE_URL} && \  
     mkdir aerospike && \
