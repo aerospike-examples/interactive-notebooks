@@ -40,7 +40,7 @@ RUN yum update -y && \
     usermod -a -G aerospike ${NB_USER}
 
 # Install client, kernels, and extensions
-RUN python3 -m pip install --no-cache-dir aerospike gremlinpython "urllib3 <=1.26.15" jupyterlab graph-notebook && \
+RUN python3 -m pip install --no-cache-dir aerospike==13.0.0 gremlinpython "urllib3 <=1.26.15" jupyterlab graph-notebook && \
     curl -L -o ijava-kernel.zip "https://github.com/SpencerPark/IJava/releases/download/v1.3.0/ijava-1.3.0.zip" && \
     unzip ijava-kernel.zip -d ijava-kernel && \
     python3 ijava-kernel/install.py --sys-prefix && \
