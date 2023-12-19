@@ -1,4 +1,4 @@
-#Pull the Aerospike Graph Service image 
+# Pull the Aerospike Graph Service image 
 docker pull aerospike/aerospike-graph-service:latest
 
 # How to Build
