@@ -11,7 +11,8 @@ ARG NB_UID=1000
 ARG NB_GID=100
 ARG NODE_VERSION=18.x
 ARG GO_VERSION=1.20.4
-ARG AEROSPIKE_VERSION=6.4.0.0
+ARG AEROSPIKE_VERSION=7.0.0.3
+ARG AEROSPIKE_TOOLS_VERSION=10.0.1
 
 ENV NB_USER=${NB_USER} \
     NB_UID=${NB_UID} \
@@ -39,7 +40,7 @@ RUN mkdir -p /var/log/aerospike /var/run/aerospike /backup /aerospike ${HOME}/do
     rm -rf /var/lib/apt/lists/*
     
 # install Aerospike
-RUN wget "https://download.aerospike.com/artifacts/aerospike-server-enterprise/${AEROSPIKE_VERSION}/aerospike-server-enterprise_${AEROSPIKE_VERSION}_tools-9.0.0_ubuntu20.04_x86_64.tgz" -O aerospike-server.tgz && \  
+RUN wget "https://download.aerospike.com/artifacts/aerospike-server-enterprise/${AEROSPIKE_VERSION}/aerospike-server-enterprise_${AEROSPIKE_VERSION}_tools-${AEROSPIKE_TOOLS_VERSION}_ubuntu20.04_x86_64.tgz" -O aerospike-server.tgz && \  
     tar xzf aerospike-server.tgz --strip-components=1 -C /aerospike && \
     dpkg -i /aerospike/aerospike-server-*.deb && \
     dpkg -i /aerospike/aerospike-tools_*.deb && \
@@ -70,12 +71,12 @@ RUN curl -fsSL https://deb.nodesource.com/setup_${NODE_VERSION} | bash - &&\
     ijsinstall --spec-path=full --working-dir=${HOME}
 
 #install .NET kernel
-RUN wget -O dotnet.tgz https://download.visualstudio.microsoft.com/download/pr/351400ef-f2e6-4ee7-9d1b-4c246231a065/9f7826270fb36ada1bdb9e14bc8b5123/dotnet-sdk-7.0.302-linux-x64.tar.gz && \
+RUN wget -O dotnet.tgz https://download.visualstudio.microsoft.com/download/pr/9454f7dc-b98e-4a64-a96d-4eb08c7b6e66/da76f9c6bc4276332b587b771243ae34/dotnet-sdk-8.0.101-linux-x64.tar.gz && \
     tar zxf dotnet.tgz -C ${HOME}/dotnet && \
     rm -rf dotnet.tgz && \
     dotnet tool install --global Microsoft.dotnet-interactive && \
-    dotnet-interactive jupyter install && \
-    rm /tmp/NuGetScratch/lock/*
+    dotnet-interactive jupyter install
+    #rm /tmp/NuGetScratch/lock/*
 
 COPY sandbox_00000.asb /backup/sandbox.asb
 COPY start-asd.sh /usr/local/bin/
