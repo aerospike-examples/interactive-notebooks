@@ -56,7 +56,10 @@ RUN rm -rf ijava-kernel.zip
 COPY start-asd.sh /usr/local/bin/
 COPY aerospike.conf features.conf /etc/aerospike/
 COPY firefly-graph.properties firefly-gremlin-server.yaml /opt/aerospike-firefly/conf/
-COPY graph-notebook.ipynb /home/${NB_USER}/
+COPY air-routes-small-latest.graphml /opt/aerospike-firefly/
+COPY gremlin-100.ipynb /home/${NB_USER}/
+COPY gremlin-101.ipynb /home/${NB_USER}/
+COPY gremlin-200.ipynb /home/${NB_USER}/
 
 RUN chmod +x /usr/local/bin/start-asd.sh
 

@@ -3,11 +3,11 @@ docker pull aerospike/aerospike-graph-service:latest
 
 # How to Build
 In the root directory of the notebook run
-Run `docker buildx build -t sizing_notebook .`
+Run `docker buildx build -t graph_interactive .`
 
 # How to Run
 
-Run `docker run -p 8888:8888 sizing_notebook`
+Run `docker run -p 8888:8888 graph_interactive`
 
 You will see some urls in the log output - click or copy and paste one of them into your web 
 browser to access the Jupyter Notebook server.
