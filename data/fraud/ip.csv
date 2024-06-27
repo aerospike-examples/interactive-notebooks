@@ -1,0 +1,31 @@
+ip_address,created_ts,region_id,ip_likely_country,ip_likely_city,graph_object_status,graph_object_modified_ts,graph_object_created_by,graph_object_modified_by
+96.68.222.128,2024-01-14 21:03:10,DE-SN,Czech Republic,Vnorovy,status 2,2024-03-10 13:25:00,Kate Bush,2023-11-18 21:00:23
+177.147.109.162,2023-05-04 23:10:07,US-AK,Poland,Łanięta,status 3,2024-01-22 18:18:56,Cindy Laupert,2024-01-26 23:03:19
+24.189.91.54,2024-02-09 10:02:50,AU-QLD,Russia,Petropavlovskaya,status 4,2023-08-27 20:22:01,Cindy Laupert,2023-09-26 18:04:56
+0.32.135.70,2023-04-28 23:30:00,CA-MB,Russia,Rasskazovo,status 3,2023-12-19 12:27:49,Madona,2023-06-27 04:32:04
+30.184.149.231,2023-10-21 20:53:07,IN-MM,China,Dongshandi,status 2,2023-07-03 10:46:22,Madona,2023-06-29 00:44:51
+81.105.53.87,2023-10-06 00:17:25,US-SC,Serbia,Riđica,status 2,2023-11-23 09:58:15,Kate Bush,2024-02-29 14:07:42
+158.251.74.58,2023-12-28 12:50:07,FR-Q,Vietnam,Phan Rang-Tháp Chàm,status 4,2023-04-19 04:13:29,Roger Water,2023-10-02 17:41:41
+162.46.32.71,2024-01-24 13:28:29,US-UT,Indonesia,Tekikbanyuurip,status 4,2023-08-14 13:34:38,Cindy Laupert,2023-06-30 14:55:03
+54.84.51.179,2023-10-16 22:43:00,US-NC,Philippines,Aurora,status 2,2023-03-21 03:16:23,Madona,2023-04-22 22:22:25
+132.231.128.213,2023-07-03 09:15:58,RU-VOR,Serbia,Stari Banovci,status 3,2023-10-15 22:19:12,Kate Bush,2023-11-17 04:02:39
+150.73.164.46,2023-10-08 03:14:15,GB-ENG,Nigeria,Katagum,status 1,2023-11-10 04:09:30,Roger Water,2023-09-03 19:29:37
+142.73.153.119,2023-03-30 09:00:41,JP-01,Portugal,Charneca da Cotovia,status 2,2023-07-02 05:22:11,Cindy Laupert,2023-09-02 21:15:47
+99.85.29.186,2023-08-09 10:43:19,NL-NH,Argentina,Villa Cañás,status 5,2023-10-27 14:42:46,Madona,2023-04-10 08:48:22
+255.243.15.49,2023-09-14 09:59:05,MR-06,Philippines,Pinaring,status 1,2023-11-23 22:30:24,Cindy Laupert,2023-10-19 23:40:16
+142.85.24.99,2023-07-12 20:25:49,ID-PA,Indonesia,Biting,status 4,2023-05-19 07:37:07,Cindy Laupert,2024-01-08 02:56:31
+52.218.97.166,2023-07-02 11:52:20,FJ-W,France,Locminé,status 1,2023-05-06 03:13:40,Roger Water,2023-11-01 03:22:47
+194.91.138.20,2023-05-14 04:31:11,TR-10,China,Chengdu,status 4,2023-09-15 14:57:52,Madona,2023-08-20 19:15:35
+23.49.12.184,2023-05-20 07:05:49,US-FL,China,Hekou,status 1,2024-01-21 14:35:04,Cindy Laupert,2023-10-18 09:53:47
+43.72.224.161,2024-03-12 02:33:52,PH-CAV,United States,Boston,status 3,2023-04-04 14:05:29,Cindy Laupert,2023-09-12 05:35:22
+77.167.84.193,2024-01-27 11:41:39,AR-E,France,Tournon-sur-Rhône,status 3,2023-07-28 08:07:20,Cindy Laupert,2023-12-27 04:42:46
+166.146.191.213,2023-05-09 07:59:02,AR-V,China,Huili,status 2,2023-03-28 11:27:26,Kate Bush,2023-08-09 13:42:10
+179.21.241.33,2024-03-01 08:43:00,GT-ES,Azerbaijan,Nardaran,status 1,2023-05-09 20:41:09,Cindy Laupert,2023-11-27 18:42:21
+100.158.65.199,2023-07-04 02:50:50,CM-OU,Venezuela,Mene de Mauroa,status 1,2023-04-14 16:56:20,Cindy Laupert,2023-12-19 18:20:07
+235.168.170.54,2023-08-12 18:00:23,CR-G,Ecuador,Guaranda,status 5,2024-03-18 13:28:40,Madona,2023-03-24 08:33:33
+121.141.228.71,2023-06-12 04:45:55,CO-GUV,Colombia,La Virginia,status 2,2023-06-07 11:23:38,Roger Water,2023-09-20 00:21:11
+146.68.27.84,2023-09-18 16:56:38,CA-NT,United States,Montgomery,status 2,2023-04-29 17:19:29,Madona,2023-06-22 01:47:56
+81.74.25.99,2023-06-20 20:44:14,ZA-GT,Poland,Krzemieniewo,status 5,2023-09-09 04:33:31,Adam Clayton,2024-03-09 05:59:05
+245.96.93.166,2023-08-24 00:09:28,PT-04,Indonesia,Singabarong,status 4,2024-01-19 06:58:52,Adam Clayton,2023-05-13 18:07:22
+134.99.29.179,2024-02-14 12:10:44,US-AK,Zambia,Lundazi,status 4,2023-08-28 20:35:50,Roger Water,2023-10-10 03:51:28
+124.96.99.112,2023-10-25 16:09:16,NI-MN,China,Pingshan,status 3,2023-04-15 04:02:07,Cindy Laupert,2023-12-12 22:43:36

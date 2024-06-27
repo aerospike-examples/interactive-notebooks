@@ -1,0 +1,31 @@
+addrs_id,created_ts,address1,address2,city,state,zipcode,country,avs_state,region_id,graph_object_status,graph_object_modified_ts,graph_object_created_by,graph_object_modified_by
+ADDRS-394063,2023-12-30 02:45:22,58328 Gina Drive,Suite 54,São João Nepomuceno,,36680-000,Brazil,true,US-AK,status 3,2023-10-28 07:49:46,Adam Clayton,2023-09-07 09:47:53
+ADDRS-466051,2023-06-20 15:25:32,54 Shelley Street,Suite 35,Lagoa Vermelha,,95300-000,Brazil,true,MX-ROO,status 4,2024-01-13 10:27:45,Roger Water,2023-10-07 02:54:59
+ADDRS-117147,2023-09-11 08:10:24,69 Loomis Avenue,2nd Floor,Malaga,Andalucia,29010,Spain,false,US-IL,status 3,2023-06-22 07:10:57,Roger Water,2023-05-04 08:39:35
+ADDRS-158979,2023-05-28 09:29:20,41 Graedel Trail,6th Floor,Strel'na,,301735,Russia,true,CA-QC,status 2,2023-11-29 14:10:07,Adam Clayton,2023-06-05 11:03:12
+ADDRS-414731,2023-05-04 16:35:34,5084 Haas Plaza,Room 1867,Marne-la-Vallée,Île-de-France,77602 CEDEX 3,France,true,ID-SA,status 5,2023-08-13 21:24:02,Adam Clayton,2023-04-07 14:43:02
+ADDRS-867900,2023-11-11 16:32:38,25 Carioca Junction,Suite 22,Nifuboko,,,Indonesia,false,JP-05,status 3,2023-04-03 16:35:35,Cindy Laupert,2023-11-14 00:17:00
+ADDRS-197439,2023-09-26 22:11:28,36450 Ludington Plaza,Apt 1432,Caper,,,Indonesia,false,EH-U-A,status 1,2023-11-27 19:32:49,Adam Clayton,2023-08-11 21:04:22
+ADDRS-852047,2024-01-12 10:00:04,3 Bultman Court,PO Box 68078,Vilppula,,35701,Finland,true,JP-21,status 5,2023-12-03 06:23:08,Roger Water,2023-05-27 11:54:59
+ADDRS-426546,2023-09-19 13:08:47,0 Hauk Park,Apt 1617,Unión,,,Paraguay,true,LS-H,status 3,2024-03-09 10:25:54,Cindy Laupert,2023-10-27 17:27:01
+ADDRS-343639,2023-10-13 06:51:00,01 Coolidge Hill,Suite 95,Antang,,,China,true,US-PA,status 5,2023-07-21 14:19:19,Madona,2023-09-27 15:20:30
+ADDRS-011377,2023-10-30 22:32:53,04 Hazelcrest Parkway,11th Floor,Hägersten,Stockholm,129 07,Sweden,false,AR-M,status 1,2023-07-04 15:36:19,Roger Water,2023-11-23 22:13:08
+ADDRS-722537,2023-09-24 00:41:15,65 North Hill,PO Box 12756,Capulaan,,5516,Philippines,true,CN-52,status 3,2023-10-20 17:32:01,Roger Water,2024-02-11 12:29:08
+ADDRS-538067,2024-01-19 11:01:03,84565 Mayer Court,PO Box 49270,Guararapes,,16700-000,Brazil,false,FJ-N,status 2,2023-04-25 15:51:09,Kate Bush,2023-03-25 01:11:34
+ADDRS-908847,2023-06-30 09:43:05,44698 Springview Court,Suite 19,Guhuai,,,China,false,GR-58,status 4,2024-01-16 10:18:51,Adam Clayton,2023-07-26 23:04:04
+ADDRS-978717,2024-01-08 13:52:07,03 Green Ridge Way,Suite 26,Pushchino,,142263,Russia,true,US-TX,status 1,2023-04-27 04:28:02,Kate Bush,2023-05-14 13:15:13
+ADDRS-189698,2023-09-21 01:30:55,73871 Truax Park,7th Floor,Dinggou,,,China,false,CA-ON,status 5,2023-09-08 21:35:41,Adam Clayton,2023-07-16 02:26:04
+ADDRS-210455,2023-12-23 07:51:33,673 Summer Ridge Plaza,PO Box 74620,Kombolcha,,,Ethiopia,true,AU-WA,status 5,2023-11-07 20:11:52,Madona,2023-08-10 04:17:33
+ADDRS-936776,2024-01-15 10:22:31,9711 Summerview Plaza,PO Box 13643,Semenivka,,,Ukraine,false,BO-S,status 5,2023-06-15 17:21:10,Cindy Laupert,2023-07-05 18:06:35
+ADDRS-584446,2023-03-24 09:05:15,28457 Farmco Park,11th Floor,Daleman,,,Indonesia,true,AU-QLD,status 5,2023-04-02 18:55:34,Adam Clayton,2023-08-01 14:29:07
+ADDRS-498689,2023-12-22 14:08:47,36 Heath Crossing,15th Floor,Tall aḑ Ḑamān,,,Syria,true,CN-42,status 3,2023-10-09 00:58:34,Roger Water,2024-01-18 15:52:42
+ADDRS-157744,2023-07-24 22:56:14,700 Carberry Junction,11th Floor,Sitampiky,,,Madagascar,false,US-VA,status 3,2024-02-11 20:14:01,Kate Bush,2023-04-24 04:08:20
+ADDRS-074042,2023-03-25 21:58:51,75817 Talisman Circle,Apt 709,Sóc Trăng,,,Vietnam,false,IT-65,status 4,2023-06-03 15:47:52,Madona,2023-12-13 06:56:16
+ADDRS-185430,2023-10-15 12:04:26,882 Blue Bill Park Center,3rd Floor,Nartkala,,361336,Russia,false,US-WY,status 2,2024-01-09 21:07:37,Cindy Laupert,2023-08-18 12:06:28
+ADDRS-284592,2023-04-18 01:58:16,1691 Kinsman Crossing,5th Floor,Fulin,,,China,false,TH-64,status 5,2023-12-03 14:38:27,Roger Water,2023-09-09 05:20:50
+ADDRS-913804,2023-06-20 15:40:19,491 Mayfield Way,Suite 3,Bangeran,,,Indonesia,false,BQ-U-A,status 2,2023-05-13 09:12:12,Madona,2023-06-30 10:50:41
+ADDRS-168001,2023-09-01 12:21:55,532 Dorton Hill,Apt 1938,Vanderhoof,British Columbia,G9A,Canada,true,US-KS,status 5,2023-06-02 09:36:30,Roger Water,2023-06-30 23:22:27
+ADDRS-228171,2023-12-21 15:17:16,25101 Hanson Point,Suite 40,Remiremont,Lorraine,88204 CEDEX,France,true,ES-CE,status 2,2024-02-16 08:56:18,Kate Bush,2023-06-29 05:32:51
+ADDRS-042305,2023-06-14 10:51:56,48 Mayfield Court,PO Box 15962,Dijon,Bourgogne,21072 CEDEX,France,false,CD-MA,status 4,2023-11-26 21:40:06,Kate Bush,2023-12-10 16:10:27
+ADDRS-096755,2024-01-19 23:31:54,01445 Stephen Pass,16th Floor,Lanjaghbyur,,,Armenia,false,US-OR,status 2,2023-11-24 14:52:13,Roger Water,2023-12-03 03:14:38
+ADDRS-112707,2024-01-03 09:41:27,602 Eagle Crest Circle,PO Box 28730,Leye,,,China,false,DM-10,status 5,2023-09-10 09:22:24,Adam Clayton,2023-07-28 19:49:24
