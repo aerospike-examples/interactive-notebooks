@@ -5,7 +5,7 @@ FROM aerospike/aerospike-graph-service:latest as graph
 USER root
 WORKDIR /
 
-ARG AEROSPIKE_VERSION=6.4.0.19
+ARG AEROSPIKE_VERSION=6.4.0.20
 ARG AEROSPIKE_TOOLS_VERSION=10.0.0
 ARG NB_USER=firefly
 ARG NB_UID=1000
@@ -35,7 +35,7 @@ RUN yum update -y && \
     usermod -a -G aerospike ${NB_USER}
 
 # Install client, kernels, and extensions
-RUN python3 -m pip install --no-cache-dir aerospike==11.0.1 gremlinpython "urllib3 <=1.26.15" jupyterlab graph-notebook==3.9.0 matplotlib pandas ipywidgets IPython && \
+RUN python3 -m pip install --no-cache-dir "aerospike==13.0.0" "gremlinpython==3.6.1" "urllib3 <=1.26.15" jupyterlab "graph-notebook==4.0.1" matplotlib pandas ipywidgets IPython && \
     curl -L -o ijava-kernel.zip "https://github.com/SpencerPark/IJava/releases/download/v1.3.0/ijava-1.3.0.zip" && \
     unzip ijava-kernel.zip -d ijava-kernel && \
     python3 ijava-kernel/install.py --sys-prefix && \
@@ -44,9 +44,11 @@ RUN python3 -m pip install --no-cache-dir aerospike==11.0.1 gremlinpython "urlli
 # Copy files 
 COPY start-asd.sh /usr/local/bin/
 COPY aerospike.conf /etc/aerospike/
-COPY aerospike-graph.properties /opt/aerospike-graph/
+COPY aerospike-graph.properties firefly-gremlin-server.yaml /opt/aerospike-graph/
 COPY notebooks/. /home/${NB_USER}/
 COPY data/. /home/${NB_USER}/data/
+
+ENV PATH="$HOME/.local/bin:$PATH"
 
 RUN chmod +x /usr/local/bin/start-asd.sh && \
     chown -R ${NB_UID}:${NB_GID} ${HOME}
