@@ -8,10 +8,10 @@ FROM jupyter/base-notebook:python-3.8.6
 
 USER root
 
-ENV AEROSPIKE_VERSION 6.4.0.6
-ENV AEROSPIKE_SHA256 26822ec82f3a29b9a5363673d75f526f57038350fb74f315668b73f5636e67cc
+ENV AEROSPIKE_VERSION 7.2.0.4
+ENV AEROSPIKE_SHA256 f742ad19d6a75901134e8a6a9a8c9bba9830b019c06053145ad56d8d1b189af8
 ENV LOGFILE /var/log/aerospike/aerospike.log
-ARG AEROSPIKE_TOOLS_VERSION=9.2.1
+ARG AEROSPIKE_TOOLS_VERSION=11.1.1
 
 ARG NB_USER=jovyan
 ARG NB_UID=1000
@@ -26,8 +26,8 @@ RUN mkdir /opt/spark-nb; cd /opt/spark-nb\
   && wget -qO- "https://archive.apache.org/dist/spark/spark-3.4.0/spark-3.4.0-bin-hadoop3-scala2.13.tgz" | tar -xvz \
   && ln -s spark-3.4.0-bin-hadoop3-scala2.13 spark-dir-link \
   && pip install findspark numpy pandas matplotlib sklearn \
-  && wget "https://download.aerospike.com/artifacts/aerospike-spark/4.3.1/aerospike-spark-4.3.1-spark3.4-scala2.13-clientunshaded.jar" \
-  && ln -s aerospike-spark-4.3.1-spark3.4-scala2.13-clientunshaded.jar aerospike-jar-link
+  && wget "https://download.aerospike.com/artifacts/aerospike-spark/4.5.1/aerospike-spark-4.5.1-spark3.4-scala2.13-clientunshaded.jar" \
+  && ln -s aerospike-spark-4.5.1-spark3.4-scala2.13-clientunshaded.jar aerospike-jar-link
   
   # install jupyter notebook extensions, and enable these extensions by default: table of content, collapsible headers, and scratchpad
 RUN pip install jupyter_contrib_nbextensions\
@@ -44,7 +44,7 @@ RUN  mkdir /var/run/aerospike\
   && apt-get install -y --no-install-recommends build-essential wget lua5.2 gettext-base libldap-dev curl unzip python python3-pip python3-dev python3 zulu-11\
   && wget "https://www.aerospike.com/artifacts/aerospike-server-enterprise/${AEROSPIKE_VERSION}/aerospike-server-enterprise_${AEROSPIKE_VERSION}_tools-${AEROSPIKE_TOOLS_VERSION}_ubuntu20.04_x86_64.tgz" -O aerospike-server.tgz \  
   && echo "$AEROSPIKE_SHA256 *aerospike-server.tgz" | sha256sum -c - \
-  && wget "https://github.com/aerospike/aerospike-loader/releases/download/4.0.1/aerospike-load-4.0.1-jar-with-dependencies.jar" \
+  && wget "https://github.com/aerospike/aerospike-loader/releases/download/4.0.3/aerospike-load-4.0.3-jar-with-dependencies.jar" \
   && mkdir aerospike \
   && tar xzf aerospike-server.tgz --strip-components=1 -C aerospike \
   && dpkg -i aerospike/aerospike-server*.deb \
