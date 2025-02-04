@@ -11,8 +11,8 @@ ARG NB_UID=1000
 ARG NB_GID=100
 ARG NODE_VERSION=20
 ARG GO_VERSION=1.23.4
-ARG AEROSPIKE_VERSION=7.2.0.4
-ARG AEROSPIKE_TOOLS_VERSION=11.1.1
+ARG AEROSPIKE_VERSION=8.0.0.1
+ARG AEROSPIKE_TOOLS_VERSION=11.2.0
 
 ENV NB_USER=${NB_USER} \
     NB_UID=${NB_UID} \
@@ -71,7 +71,7 @@ RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.0/install.sh | b
     ijsinstall --spec-path=full --working-dir=${HOME}
 
 #install .NET kernel
-RUN wget -O dotnet.tgz https://download.visualstudio.microsoft.com/download/pr/9454f7dc-b98e-4a64-a96d-4eb08c7b6e66/da76f9c6bc4276332b587b771243ae34/dotnet-sdk-8.0.101-linux-x64.tar.gz && \
+RUN wget -O dotnet.tgz https://builds.dotnet.microsoft.com/dotnet/Sdk/9.0.102/dotnet-sdk-9.0.102-linux-x64.tar.gz && \
     tar zxf dotnet.tgz -C ${HOME}/dotnet && \
     rm -rf dotnet.tgz && \
     dotnet tool install --global Microsoft.dotnet-interactive && \
@@ -79,14 +79,13 @@ RUN wget -O dotnet.tgz https://download.visualstudio.microsoft.com/download/pr/9
     #rm /tmp/NuGetScratch/lock/*
 
 COPY sandbox_00000.asb /backup/sandbox.asb
-COPY start-asd.sh /usr/local/bin/
-COPY spaceCompanies.json /backup/
+COPY start-asd.sh set_roster.sh /usr/local/bin/
 COPY example.lua /home/user/udf/
-COPY aerospike.conf features.conf /etc/aerospike/
+COPY aerospike.conf /etc/aerospike/
 COPY .bashrc /home/${NB_USER}/.bashrc
 
 RUN chown -R ${NB_UID} ${HOME} /etc/aerospike /opt/aerospike /var/log/aerospike /var/run/aerospike && \
-    chmod +x /usr/local/bin/start-asd.sh
+    chmod +x /usr/local/bin/start-asd.sh /usr/local/bin/set_roster.sh
 
 FROM ubuntu:22.04 as final
 
