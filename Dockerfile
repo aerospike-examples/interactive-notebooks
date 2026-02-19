@@ -4,7 +4,7 @@
 # http://github.com/aerospike/aerospike-server.docker
 #
 # This docker file is compatible with Aerospike Community Edition. It provides Java and Python environments and access to the Aerospike DB.
-FROM jupyter/base-notebook:python-3.8.6
+FROM jupyter/base-notebook:python-3.8.6@sha256:5b3c3725b55915ad7d6a67464e88166fa4c9d629f24979af2ac4981485bcd185
 
 USER root
 
